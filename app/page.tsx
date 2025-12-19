@@ -12,7 +12,9 @@ export default function Page() {
       <p className="mb-4">
         Hello, I am a university student based in Toronto and San Francisco. I am currently 
         pursuing a Bachelor's in Science at the University of Toronto specializing in Physics with 
-        minors in Computer Science and Mathematics. \n \nI have a strong background in computational modelling
+        minors in Computer Science and Mathematics. </p>
+      <p>
+        I have a strong background in computational modelling
         and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
         Team USA Physics Competition. 
       </p>

@@ -86,7 +86,7 @@ export default function InteractiveBackground() {
         n.yt = y;
 
         const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1, 4.4);
-        const alpha = 0.15 + mouseT * 0.6 + waveAmp * 0.4;
+        const alpha = 0.25 + mouseT * 0.6 + waveAmp * 0.4;
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
@@ -95,7 +95,7 @@ export default function InteractiveBackground() {
       }
 
       // draw edges
-      ctx.strokeStyle = "rgba(150, 170, 255, 0.08)";
+      ctx.strokeStyle = "rgba(150, 170, 255, 0.15)";
       ctx.lineWidth = 1;
 
       for (let i = 0; i < nodes.length; i++) {

@@ -56,7 +56,7 @@ export default function InteractiveBackground() {
 
       const diag =
         (window.innerWidth + window.innerHeight) / Math.sqrt(2);
-      const waveCenter = phase * diag * waveSpeed - waveOffset;
+      const waveCenter = phase * diag * waveSpeed * 1.1 - waveOffset;
 
       const nx = 1 / Math.sqrt(2);
       const ny = -1 / Math.sqrt(2);

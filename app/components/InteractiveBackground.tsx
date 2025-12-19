@@ -26,6 +26,7 @@ export default function InteractiveBackground() {
     const waveSpeed = 1.2; // controls travel speed
     const waveWidth = 100;
     const waveStrength = 12;
+    const waveOffset = 100;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -53,7 +54,7 @@ export default function InteractiveBackground() {
 
       const diag =
         (window.innerWidth + window.innerHeight) / Math.sqrt(2);
-      const waveCenter = phase * diag * waveSpeed;
+      const waveCenter = phase * diag * waveSpeed - waveOffset;
 
       const nx = 1 / Math.sqrt(2);
       const ny = -1 / Math.sqrt(2);

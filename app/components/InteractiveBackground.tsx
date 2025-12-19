@@ -29,6 +29,7 @@ export default function InteractiveBackground() {
     const waveWidth = 100;
     const waveStrength = 20;
     const waveOffset = 200;
+    const mouseMove = 10;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -80,8 +81,8 @@ export default function InteractiveBackground() {
         const wx = waveAmp * waveStrength * nx;
         const wy = waveAmp * waveStrength * ny;
 
-        const x = n.x0 + wx;
-        const y = n.y0 + wy;
+        const x = n.x0 + wx - dxm * mouseT * mouseMove;
+        const y = n.y0 + wy - dym * mouseT * mouseMove;
         n.xt = x;
         n.yt = y;
 

@@ -85,7 +85,7 @@ export default function InteractiveBackground() {
         n.xt = x;
         n.yt = y;
 
-        const radius = 1.6 + mouseT * 2.8;
+        const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1, 4.4);
         const alpha = 0.15 + mouseT * 0.6 + waveAmp * 0.4;
 
         ctx.beginPath();

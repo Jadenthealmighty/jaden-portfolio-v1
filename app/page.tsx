@@ -12,9 +12,6 @@ export default function Page() {
         minors in Computer Science and Mathematics.\n\nI have a strong background in computational modelling
          and a passion for problem solving.`}
       </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
     </section>
   )
 }

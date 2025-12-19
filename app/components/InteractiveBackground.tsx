@@ -53,7 +53,7 @@ export default function InteractiveBackground() {
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180, 200, 255, ${alpha})`;
+        ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
         ctx.fill();
       }
 

@@ -24,8 +24,8 @@ export default function InteractiveBackground() {
     const influenceRadius = 140;
 
     // wave parameters
-    const wavePeriod = 10000; // ms
-    const waveSpeed = 1.2; // controls travel speed
+    const wavePeriod = 12000; // ms
+    const waveSpeed = 1.4;
     const waveWidth = 100;
     const waveStrength = 12;
     const waveOffset = 200;

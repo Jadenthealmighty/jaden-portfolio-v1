@@ -93,6 +93,7 @@ html {
 
 .prose h2 {
   @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  color: #75faf6
 }
 
 .prose h3 {

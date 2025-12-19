@@ -6,7 +6,7 @@ export default function Page() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>
-      <h2 className= "mb-8 text-2xl font-bold text-rgb(117, 250, 246)">
+      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
         About
       </h2>
       <p className="mb-4">
@@ -18,7 +18,8 @@ export default function Page() {
         and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
         Team USA Physics Competition. 
       </p>
-      <h2 className= "mb-8 text-2xl font-bold text-rgb(117, 250, 246)">
+      <b />
+      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
         Skills
       </h2>
       <p className="mb-4">

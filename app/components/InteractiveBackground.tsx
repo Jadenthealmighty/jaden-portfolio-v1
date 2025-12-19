@@ -27,7 +27,7 @@ export default function InteractiveBackground() {
     const wavePeriod = 12000; // ms
     const waveSpeed = 1.4;
     const waveWidth = 100;
-    const waveStrength = 12;
+    const waveStrength = 20;
     const waveOffset = 200;
 
     function resize() {
@@ -86,7 +86,7 @@ export default function InteractiveBackground() {
         n.yt = y;
 
         const radius = 1.6 + mouseT * 2.8;
-        const alpha = 0.15 + mouseT * 0.6 + waveAmp * 0.25;
+        const alpha = 0.15 + mouseT * 0.6 + waveAmp * 0.4;
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);

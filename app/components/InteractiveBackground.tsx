@@ -23,8 +23,8 @@ export default function InteractiveBackground() {
 
     // wave parameters
     const wavePeriod = 10000; // ms
-    const waveSpeed = 0.5; // controls travel speed
-    const waveWidth = 120;
+    const waveSpeed = 1.2; // controls travel speed
+    const waveWidth = 100;
     const waveStrength = 12;
 
     function resize() {

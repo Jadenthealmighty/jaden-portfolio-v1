@@ -22,8 +22,8 @@ export default function InteractiveBackground() {
     const influenceRadius = 140;
 
     // wave parameters
-    const wavePeriod = 5000; // ms
-    const waveSpeed = 0.35; // controls travel speed
+    const wavePeriod = 10000; // ms
+    const waveSpeed = 0.5; // controls travel speed
     const waveWidth = 120;
     const waveStrength = 12;
 
@@ -102,7 +102,7 @@ export default function InteractiveBackground() {
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180, 200, 255, ${alpha})`;
+        ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
         ctx.fill();
       }
 

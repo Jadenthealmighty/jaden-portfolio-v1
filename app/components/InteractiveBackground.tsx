@@ -26,7 +26,7 @@ export default function InteractiveBackground() {
     const waveSpeed = 1.2; // controls travel speed
     const waveWidth = 100;
     const waveStrength = 12;
-    const waveOffset = 100;
+    const waveOffset = 200;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;

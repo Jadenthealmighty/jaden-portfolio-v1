@@ -6,7 +6,7 @@ export default function Page() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>
-      <h2>
+      <h2 className= "mb-8 text-2xl font-bold text-[rgb(117, 250, 246)]">
         About
       </h2>
       <p className="mb-4">

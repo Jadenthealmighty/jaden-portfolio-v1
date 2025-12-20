@@ -115,8 +115,8 @@ export default function InteractiveBackground() {
       if (Math.abs(b.ax) > 100000|| Math.abs(b.ay) > 100000){
         b.xt = Math.random() * 400;
         b.yt = Math.random() * 400;
-        b.vx = Math.random() * 200 - 100;
-        b.vy = Math.random() * 200 - 100;
+        b.vx = Math.random() * 500 - 250;
+        b.vy = Math.random() * 500 - 250;
         b.ax = 0;
         b.ay = 0;
       }

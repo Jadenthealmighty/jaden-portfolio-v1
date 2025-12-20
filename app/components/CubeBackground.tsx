@@ -142,8 +142,9 @@ type Vec3 = {
       ctx.strokeStyle = 'rgba(255, 255, 250, 0.8)';
       ctx.stroke();
       
-      ctx.globalAlpha = 0.5;
-      let focString = "Focal length ${tempF}"
+      ctx.globalAlpha = 0.7;
+      
+      let focString = "Focal length: " + (Math.round(tempF * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(focString, 0.5 * canvas.width, 0.1 * canvas.height);

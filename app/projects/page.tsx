@@ -18,9 +18,9 @@ export default function ProjectsPage() {
             </label>
             <input
             type="range"
-            min={1}
-            max={100}
-            step={1}
+            min={0.001}
+            max={5}
+            step={0.01}
             value={focalLength}
             onChange={(e) => setFocalLength(Number(e.target.value))}
             className="w-64"

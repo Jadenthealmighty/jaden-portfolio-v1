@@ -8,7 +8,13 @@ type Vec3 = {
   z: number;
 };
 
-export default function CubeBackground() {
+type CubeBackgroundProps = {
+    focalLength: number;
+}
+
+export default function CubeBackground({
+    focalLength,
+}: CubeBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const startTime = useRef(performance.now());
 
@@ -22,6 +28,7 @@ export default function CubeBackground() {
     let lensX = 100;
     let lensY = 100;
     let lensR = 100;
+    const lensF = focalLength;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -91,10 +98,21 @@ export default function CubeBackground() {
         let y = cx * p.y - sx * z;
         z = sx * p.y + cx * z;
 
-        const proj = project({ x, y, z });
+        let proj = project({ x, y, z });
+
+        let newX = proj.x;
+        let newY = proj.y;
+
+        const dFromCent = Math.sqrt((proj.x - lensX) ** 2 +  (proj.y - lensY) ** 2);
+        if (dFromCent <= lensR){
+            const imgDist = 1 / (1 / lensF - 1 / z);
+            newX = - imgDist * (x - lensX) / z + lensX;
+            newY = - imgDist * (y - lensY) / z + lensY;
+            
+        };
 
         ctx.beginPath();
-        ctx.arc(proj.x, proj.y, 1.4, 0, Math.PI * 2);
+        ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
         ctx.fill();
       }

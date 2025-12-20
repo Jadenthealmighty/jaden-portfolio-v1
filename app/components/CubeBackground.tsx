@@ -73,10 +73,10 @@ type Vec3 = {
     function draw(time: number) {
 
       lensR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
-      lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 100000);
+      lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
 
       const tempR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
-      const tempF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
+      const tempF = (mouse.current.y - lensY)/(lensY)* 1000;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";

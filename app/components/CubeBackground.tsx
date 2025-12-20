@@ -10,7 +10,7 @@ type Vec3 = {
   
   export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const mouse = useRef({ x: -9999, y: -9999 });
+  const mouse = useRef({ x: 10, y: 10 });
   const startTime = useRef(performance.now());
 
   const points = useRef<Vec3[]>([]);

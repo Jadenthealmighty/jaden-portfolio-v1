@@ -9,10 +9,27 @@ type Node = {
   yt: number;
 };
 
+type Ball = {
+  xt: number;
+  yt: number;
+  vx: number;
+  vy: number;
+  ax: number;
+  ay: number;
+  r: number;
+};
+
 export default function InteractiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouse = useRef({ x: -9999, y: -9999 });
   const startTime = useRef(performance.now());
+
+  const ball = useRef<Ball>({
+    xt: 200, yt: 200,
+    vx: 90, vy: 120,
+    ax: 0, ay: 0,
+    r: 5
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -29,7 +46,9 @@ export default function InteractiveBackground() {
     const waveWidth = 100;
     const waveStrength = 20;
     const waveOffset = 200;
-    const mouseMove = 0.5;
+    const mouseMove = 0.3;
+
+    let lastTime = performance.now();
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -48,8 +67,35 @@ export default function InteractiveBackground() {
         }
       }
     }
+    
+    function updateBall(dt: number) {
+      const b = ball.current;
+
+      b.xt += b.vx * dt;
+      b.yt += b.vy * dt;
+
+      if (b.xt < b.r) {
+        b.xt = b.r;
+        b.vx *= -1;
+      }
+      if (b.xt > window.innerWidth - b.r) {
+        b.xt = window.innerWidth - b.r;
+        b.vx *= -1;
+      }
+      if (b.yt < b.r) {
+        b.yt = b.r;
+        b.vy *= -1;
+      }
+      if (b.yt > window.innerHeight - b.r) {
+        b.yt = window.innerHeight - b.r;
+        b.vy *= -1;
+      }
+    }
 
     function draw(time: number) {
+      const dt = (time - lastTime) / 1000;
+      lastTime = time;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const t = time - startTime.current;
@@ -113,6 +159,15 @@ export default function InteractiveBackground() {
           }
         }
       }
+
+      // update + draw ball (on top)
+      updateBall(dt);
+
+      const b = ball.current;
+      ctx.beginPath();
+      ctx.arc(b.xt, b.yt, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.fill();
 
       requestAnimationFrame(draw);
     }

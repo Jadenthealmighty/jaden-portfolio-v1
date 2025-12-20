@@ -40,7 +40,9 @@ export default function InteractiveBackground() {
     const spacing = 80;
     const influenceRadius = 140;
 
-    const gStrength = 0.5;
+    const ballInfRad = 80;
+    const gStrength = 10;
+    const ballMove = 0.3;
 
     // wave parameters
     const wavePeriod = 12000; // ms
@@ -48,7 +50,7 @@ export default function InteractiveBackground() {
     const waveWidth = 100;
     const waveStrength = 20;
     const waveOffset = 200;
-    const mouseMove = 0.3;
+    const mouseMove = 0.5;
 
     let lastTime = performance.now();
 
@@ -93,8 +95,8 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const dxm = b.xt - mouse.current.x;
-      const dym = b.yt - mouse.current.y;
+      const dxm = (b.xt - mouse.current.x) / ballInfRad;
+      const dym = (b.yt - mouse.current.y) / ballInfRad;
       const d = Math.sqrt(dxm * dxm + dym * dym);
       b.ax = gStrength / (d * d) * (dxm / d);
       b.ay = gStrength / (d * d) * (dym/ d);
@@ -120,6 +122,14 @@ export default function InteractiveBackground() {
       const ny = -1 / Math.sqrt(2);
 
 
+      // update + draw ball (on top)
+      updateBall(dt);
+
+      const b = ball.current;
+      ctx.beginPath();
+      ctx.arc(b.xt, b.yt, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.fill();
 
       // draw nodes
       for (const n of nodes) {
@@ -128,6 +138,13 @@ export default function InteractiveBackground() {
         const dym = n.y0 - mouse.current.y;
         const dm = Math.sqrt(dxm * dxm + dym * dym);
         const mouseT = Math.max(0, 1 - dm / influenceRadius);
+
+        // ball interaction
+        const dxb = n.x0 - b.xt;
+        const dyb = n.y0 - b.yt;
+        const db = Math.sqrt(dxb * dxb + dyb * dyb);
+        const ballT = Math.max(0, 1 - dm / ballInfRad);
+
 
         // wave interaction
         const s = (n.x0 + n.y0) / Math.sqrt(2);
@@ -140,8 +157,9 @@ export default function InteractiveBackground() {
 
         const x = n.x0 + wx - dxm * mouseT * mouseMove;
         const y = n.y0 + wy - dym * mouseT * mouseMove;
-        n.xt = x;
-        n.yt = y;
+
+        n.xt = x - dxb * ballT * ballMove;
+        n.yt = y - dyb * ballT * ballMove;
 
         const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1, 4.4);
         const alpha = 0.25 + mouseT * 0.6 + waveAmp * 0.4;
@@ -171,14 +189,6 @@ export default function InteractiveBackground() {
         }
       }
 
-      // update + draw ball (on top)
-      updateBall(dt);
-
-      const b = ball.current;
-      ctx.beginPath();
-      ctx.arc(b.xt, b.yt, b.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-      ctx.fill();
 
       requestAnimationFrame(draw);
     }

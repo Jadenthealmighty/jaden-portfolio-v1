@@ -156,9 +156,10 @@ type Vec3 = {
         ctx.beginPath();
         // Calculate hue for this segment (0-360)
         const hue = i;
-        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; // Full saturation, 50% lightness
-        ctx.lineWidth = 2; // adjust line width for band thickness
-        ctx.arc(lensX, lensY, lensR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
+        const brightness = 50 * lensR/tempR;
+        ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; // Full saturation, 50% lightness
+        ctx.lineWidth = 5 * (i - 120) % 365 / 365; // adjust line width for band thickness
+        ctx.arc(lensX, lensY, tempR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
         ctx.stroke();
     }
       

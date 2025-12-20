@@ -27,7 +27,7 @@ export default function CubeBackground({
 
     let lensX = 100;
     let lensY = 100;
-    let lensR = 100;
+    let lensR = 70;
     const lensF = focalLength;
 
     function resize() {
@@ -102,12 +102,13 @@ export default function CubeBackground({
 
         let newX = proj.x;
         let newY = proj.y;
-
+        
+        z = z * 100;
         const dFromCent = Math.sqrt((proj.x - lensX) ** 2 +  (proj.y - lensY) ** 2);
         if (dFromCent <= lensR){
             const imgDist = 1 / (1 / lensF - 1 / z);
-            newX = - imgDist * (x - lensX) / z + lensX;
-            newY = - imgDist * (y - lensY) / z + lensY;
+            newX = - imgDist * (proj.x - lensX) / z + lensX;
+            newY = - imgDist * (proj.y - lensY) / z + lensY;
             
         };
 

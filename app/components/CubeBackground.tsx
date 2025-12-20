@@ -12,6 +12,10 @@ export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const startTime = useRef(performance.now());
 
+  const lensX = innerWidth / 2;
+  const lensY = innerHeight / 2;
+  const lensR = 100;
+
   const points = useRef<Vec3[]>([]);
 
   useEffect(() => {
@@ -55,7 +59,7 @@ export default function CubeBackground() {
       const d = 4;
       const scale = 400;
       return {
-        x: (p.x / (p.z + d)) * scale + window.innerWidth * 0.48,
+        x: (p.x / (p.z + d)) * scale + window.innerWidth * 0.5,
         y: (p.y / (p.z + d)) * scale + window.innerHeight * 0.45,
       };
     }
@@ -65,7 +69,7 @@ export default function CubeBackground() {
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      const t = (time - startTime.current) * 0.0004;
+      const t = (time - startTime.current) * 0.00025;
       const cx = Math.cos(t);
       const sx = Math.sin(t);
       const cy = Math.cos(t * 0.7);
@@ -86,9 +90,15 @@ export default function CubeBackground() {
 
         ctx.beginPath();
         ctx.arc(proj.x, proj.y, 1.4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(117, 250, 246, 0.5)`;
+        ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
         ctx.fill();
       }
+
+      ctx.beginPath();
+      ctx.arc(lensX, lensY, lensR, 0, Math.PI * 2);
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = 'rgba(255, 255, 250, 0.3)';
+      ctx.stroke();
 
       requestAnimationFrame(draw);
     }

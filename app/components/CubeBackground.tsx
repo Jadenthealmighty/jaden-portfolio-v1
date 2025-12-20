@@ -78,7 +78,7 @@ type Vec3 = {
       const tempR = Math.min(1, Math.abs((mouse.current.y - lensY) / (lensY))) * 180;
 
       if (mouse.current.x > 0) {
-        lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 2000;
+        lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 600;
       } else {
         lensF = Math.max((mouse.current.x - lensX)/(lensX), 1) * 2000;
       }
@@ -136,8 +136,10 @@ type Vec3 = {
         if (newD < tempR){
             const normZ = Math.abs(imgDist / 800);
             const alpha = 0.8 * normZ;
+            const radius = 2.8 * normZ;
+            if (newD <= tempR - normZ)
             ctx.beginPath();
-            ctx.arc(newX, newY, 2.8 * normZ, 0, Math.PI * 2);
+            ctx.arc(newX, newY, radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
             ctx.fill();
         }
@@ -146,7 +148,7 @@ type Vec3 = {
       ctx.beginPath();
       ctx.arc(lensX, lensY, tempR, 0, Math.PI * 2);
       ctx.lineWidth = 2;
-      ctx.strokeStyle = 'rgba(255, 255, 250, 0.8)';
+      ctx.strokeStyle = 'rgba(117, 250, 246, 0.7)';
       ctx.stroke();
       
       ctx.globalAlpha = 0.7;

@@ -53,9 +53,9 @@ export default function CubeBackground() {
 
     function project(p: Vec3) {
       const d = 4;
-      const scale = 240;
+      const scale = 400;
       return {
-        x: (p.x / (p.z + d)) * scale + window.innerWidth * 0.55,
+        x: (p.x / (p.z + d)) * scale + window.innerWidth * 0.48,
         y: (p.y / (p.z + d)) * scale + window.innerHeight * 0.45,
       };
     }
@@ -86,6 +86,7 @@ export default function CubeBackground() {
 
         ctx.beginPath();
         ctx.arc(proj.x, proj.y, 1.4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(117, 250, 246, 0.5)`;
         ctx.fill();
       }
 

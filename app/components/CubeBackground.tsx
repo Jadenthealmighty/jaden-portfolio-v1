@@ -119,8 +119,11 @@ type Vec3 = {
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent >= tempR){
             ctx.beginPath();
-            ctx.arc(oX, oY, 1.4, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
+            const normZ = 400 / z;
+            const alpha = 0.8 * normZ
+            ctx.arc(oX, oY, 2.8 * normZ, 0, Math.PI * 2);
+            
+            ctx.fillStyle = `rgba(117, 250, 246,${alpha})`;
             ctx.fill();
         }
 
@@ -147,7 +150,7 @@ type Vec3 = {
       let focString = "Focal length: " + (Math.round(tempF * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText(focString, 0.5 * canvas.width, 0.1 * canvas.height);
+      ctx.fillText(focString, 0.45 * canvas.width, 0.1 * canvas.height);
       ctx.globalAlpha = 1;
 
 

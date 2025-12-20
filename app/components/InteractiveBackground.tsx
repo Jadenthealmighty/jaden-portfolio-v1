@@ -97,8 +97,8 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const dxm = (b.xt - mouse.current.x) / influenceRadius / 2;
-      const dym = (b.yt - mouse.current.y) / influenceRadius / 2;
+      const dxm = (b.xt - mouse.current.x) / influenceRadius / 8;
+      const dym = (b.yt - mouse.current.y) / influenceRadius / 8;
       const d = Math.sqrt(dxm * dxm + dym * dym);
       b.ax = - gStrength / (d * d) * (dxm / d);
       b.ay = - gStrength / (d * d) * (dym/ d);
@@ -171,7 +171,7 @@ export default function InteractiveBackground() {
         n.xt = x;
         n.yt = y;
 
-        const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1, 4.4);
+        const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1 + ballT * 1.8, 4.4);
         const alpha = 0.25 + mouseT * 0.6 + waveAmp * 0.4;
 
         ctx.beginPath();

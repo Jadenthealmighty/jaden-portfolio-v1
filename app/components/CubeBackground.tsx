@@ -33,7 +33,6 @@ type Vec3 = {
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       lensX = canvas.width/ 2;
       lensY = canvas.height / 2;
-      lensR = 70;
     }
 
 
@@ -76,6 +75,9 @@ type Vec3 = {
       lensR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
       lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
 
+      const tempR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
+      const tempF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -108,8 +110,8 @@ type Vec3 = {
         
         z = (z + 4) * 400;
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
-        if (dFromCent <= lensR){
-            const imgDist = 1 / (1 / lensF - 1 / z);
+        if (dFromCent <= tempR){
+            const imgDist = 1 / (1 / tempF - 1 / z);
             newX = - imgDist * (oX - lensX) / z + lensX;
             newY = - imgDist * (oY - lensY) / z + lensY;
 
@@ -127,7 +129,7 @@ type Vec3 = {
       }
 
       ctx.beginPath();
-      ctx.arc(lensX, lensY, lensR, 0, Math.PI * 2);
+      ctx.arc(lensX, lensY, tempR, 0, Math.PI * 2);
       ctx.lineWidth = 2;
       ctx.strokeStyle = 'rgba(255, 255, 250, 0.8)';
       ctx.stroke();

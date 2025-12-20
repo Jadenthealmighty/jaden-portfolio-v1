@@ -12,10 +12,6 @@ export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const startTime = useRef(performance.now());
 
-  const lensX = innerWidth / 2;
-  const lensY = innerHeight / 2;
-  const lensR = 100;
-
   const points = useRef<Vec3[]>([]);
 
   useEffect(() => {
@@ -23,13 +19,22 @@ export default function CubeBackground() {
     const ctx = canvas.getContext("2d")!;
     const DPR = window.devicePixelRatio || 1;
 
+    let lensX = 100;
+    let lensY = 100;
+    let lensR = 100;
+
     function resize() {
       canvas.width = window.innerWidth * DPR;
       canvas.height = window.innerHeight * DPR;
       canvas.style.width = "100%";
       canvas.style.height = "100%";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      lensX = canvas.width/ 2;
+      lensY = canvas.width / 2;
+      lensR = 100;
     }
+
+
 
     function generateCubePoints() {
       const pts: Vec3[] = [];

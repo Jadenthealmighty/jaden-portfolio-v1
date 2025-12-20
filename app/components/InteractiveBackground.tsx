@@ -97,17 +97,17 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const dxm = (b.xt - mouse.current.x) / ballInfRad / 2;
-      const dym = (b.yt - mouse.current.y) / ballInfRad / 2;
+      const dxm = (b.xt - mouse.current.x) / influenceRadius / 2;
+      const dym = (b.yt - mouse.current.y) / influenceRadius / 2;
       const d = Math.sqrt(dxm * dxm + dym * dym);
       b.ax = - gStrength / (d * d) * (dxm / d);
       b.ay = - gStrength / (d * d) * (dym/ d);
 
-      const speed = b.vx * b.vx + b.vy * b.vy;
+      const speed = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
       
-      if (speed > 700){
-        b.vx = (Math.abs(b.vx) * 400)/ (b.vx * b.vx);
-        b.vy = (Math.abs(b.vy) * 400)/ (b.vy * b.vy);
+      if (speed > 1000){
+        b.vx = (b.vx * 400)/ (b.vx * b.vx);
+        b.vy = (b.vy * 400)/ (b.vy * b.vy);
       } else{
       b.vx = b.vx + b.ax * dt;
       b.vy = b.vy + b.ay * dt;
@@ -165,11 +165,11 @@ export default function InteractiveBackground() {
         const wx = waveAmp * waveStrength * nx;
         const wy = waveAmp * waveStrength * ny;
 
-        const x = n.x0 + wx - dxm * mouseT * mouseMove;
-        const y = n.y0 + wy - dym * mouseT * mouseMove;
+        const x = n.x0 + wx - dxm * mouseT * mouseMove  - dxb * ballT * ballMove;
+        const y = n.y0 + wy - dym * mouseT * mouseMove - dyb * ballT * ballMove;
 
-        n.xt = x - dxb * ballT * ballMove;
-        n.yt = y - dyb * ballT * ballMove;
+        n.xt = x;
+        n.yt = y;
 
         const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1, 4.4);
         const alpha = 0.25 + mouseT * 0.6 + waveAmp * 0.4;

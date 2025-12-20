@@ -10,6 +10,7 @@ type Vec3 = {
   
   export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const mouse = useRef({ x: -9999, y: -9999 });
   const startTime = useRef(performance.now());
 
   const points = useRef<Vec3[]>([]);
@@ -22,7 +23,7 @@ type Vec3 = {
     let lensX = 100;
     let lensY = 100;
     let lensR = 70;
-    const lensF = 100;
+    let lensF = 100;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -71,6 +72,10 @@ type Vec3 = {
     }
 
     function draw(time: number) {
+
+      lensR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
+      lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -101,30 +106,30 @@ type Vec3 = {
         let newY = oY;
 
         
-        // z = (z + 4) * 400;
-        // const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
-        // if (dFromCent <= lensR){
-        //     const imgDist = 1 / (1 / lensF - 1 / z);
-        //     newX = - imgDist * (oX - lensX) / z + lensX;
-        //     newY = - imgDist * (oY - lensY) / z + lensY;
+        z = (z + 4) * 400;
+        const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
+        if (dFromCent <= lensR){
+            const imgDist = 1 / (1 / lensF - 1 / z);
+            newX = - imgDist * (oX - lensX) / z + lensX;
+            newY = - imgDist * (oY - lensY) / z + lensY;
 
-        //     ctx.beginPath();
-        //     ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
-        //     ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
-        //     ctx.fill();
+            ctx.beginPath();
+            ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
+            ctx.fill();
             
-        // } else {
+        } else {
             ctx.beginPath();
             ctx.arc(oX, oY, 1.4, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
             ctx.fill();
-        // }
+        }
       }
 
       ctx.beginPath();
       ctx.arc(lensX, lensY, lensR, 0, Math.PI * 2);
       ctx.lineWidth = 2;
-      ctx.strokeStyle = 'rgba(255, 255, 250, 0.3)';
+      ctx.strokeStyle = 'rgba(255, 255, 250, 0.8)';
       ctx.stroke();
 
       requestAnimationFrame(draw);
@@ -140,76 +145,3 @@ type Vec3 = {
 
   return <canvas ref={canvasRef} className="fixed inset-0 -z-10" />;
 }
-// "use client";
-
-// import { useEffect, useRef } from "react";
-
-// type CubeBackgroundProps = {
-//   focalLength: number;
-// };
-
-// export default function CubeBackground({ focalLength }: CubeBackgroundProps) {
-//   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-//   useEffect(() => {
-//     const canvas = canvasRef.current;
-
-//     const ctx = canvas.getContext("2d");
-
-//     const DPR = window.devicePixelRatio || 1;
-
-//     function resize() {
-//       canvas.width = window.innerWidth * DPR;
-//       canvas.height = window.innerHeight * DPR;
-//       canvas.style.width = "100%";
-//       canvas.style.height = "100%";
-//       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-//     }
-
-//     resize();
-//     window.addEventListener("resize", resize);
-
-//     // --- Cube points ---
-//     const points: { x: number; y: number; z: number }[] = [];
-//     const size = 1;
-//     const steps = 6;
-
-//     for (let x = -size; x <= size; x += (2 * size) / steps) {
-//       for (let y = -size; y <= size; y += (2 * size) / steps) {
-//         for (let z of [-size, size]) points.push({ x, y, z });
-//       }
-//     }
-
-//     function project(p: typeof points[number]) {
-//       const scale = 250;
-//       const z = p.z + focalLength;
-//       return {
-//         x: (p.x / z) * scale + window.innerWidth * 0.55,
-//         y: (p.y / z) * scale + window.innerHeight * 0.45,
-//       };
-//     }
-
-//     function draw() {
-//       ctx.clearRect(0, 0, canvas.width, canvas.height);
-//       ctx.fillStyle = "black";
-//       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-//       ctx.fillStyle = "white";
-
-//       for (const p of points) {
-//         const { x, y } = project(p);
-//         ctx.beginPath();
-//         ctx.arc(x, y, 1.5, 0, Math.PI * 2);
-//         ctx.fill();
-//       }
-
-//       requestAnimationFrame(draw);
-//     }
-
-//     draw();
-
-//     return () => window.removeEventListener("resize", resize);
-//   }, [focalLength]); // 🔑 reacts to slider
-
-//   return <canvas ref={canvasRef} className="fixed inset-0 -z-10" />;
-// }

@@ -30,8 +30,8 @@ export default function CubeBackground() {
       canvas.style.height = "100%";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       lensX = canvas.width/ 2;
-      lensY = canvas.width / 2;
-      lensR = 100;
+      lensY = canvas.height / 2;
+      lensR = 70;
     }
 
 
@@ -65,7 +65,7 @@ export default function CubeBackground() {
       const scale = 400;
       return {
         x: (p.x / (p.z + d)) * scale + window.innerWidth * 0.5,
-        y: (p.y / (p.z + d)) * scale + window.innerHeight * 0.45,
+        y: (p.y / (p.z + d)) * scale + window.innerHeight * 0.5,
       };
     }
 
@@ -74,7 +74,7 @@ export default function CubeBackground() {
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      const t = (time - startTime.current) * 0.00025;
+      const t = (time - startTime.current) * 0.00015;
       const cx = Math.cos(t);
       const sx = Math.sin(t);
       const cy = Math.cos(t * 0.7);
@@ -101,7 +101,7 @@ export default function CubeBackground() {
 
       ctx.beginPath();
       ctx.arc(lensX, lensY, lensR, 0, Math.PI * 2);
-      ctx.lineWidth = 5;
+      ctx.lineWidth = 2;
       ctx.strokeStyle = 'rgba(255, 255, 250, 0.3)';
       ctx.stroke();
 

@@ -95,14 +95,21 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const dxm = (b.xt - mouse.current.x) / ballInfRad;
-      const dym = (b.yt - mouse.current.y) / ballInfRad;
+      const dxm = (b.xt - mouse.current.x) / ballInfRad / 2;
+      const dym = (b.yt - mouse.current.y) / ballInfRad / 2;
       const d = Math.sqrt(dxm * dxm + dym * dym);
-      b.ax = gStrength / (d * d) * (dxm / d);
-      b.ay = gStrength / (d * d) * (dym/ d);
+      b.ax = - gStrength / (d * d) * (dxm / d);
+      b.ay = - gStrength / (d * d) * (dym/ d);
+
+      const speed = b.vx * b.vx + b.vy * b.vy;
       
-      b.vx = Math.min(b.vx + b.ax * dt, 500);
-      b.vy = Math.min(b.vy + b.ay * dt, 500);
+      if (speed > 700){
+        b.vx = (Math.abs(b.vx) * 700)/ b.vx;
+        b.vy = (Math.abs(b.vy) * 700)/ b.vy;
+      }
+
+      b.vx = b.vx + b.ax * dt;
+      b.vy = b.vy + b.ay * dt;
     }
 
     function draw(time: number) {
@@ -143,7 +150,7 @@ export default function InteractiveBackground() {
         const dxb = n.x0 - b.xt;
         const dyb = n.y0 - b.yt;
         const db = Math.sqrt(dxb * dxb + dyb * dyb);
-        const ballT = Math.max(0, 1 - dm / ballInfRad);
+        const ballT = Math.max(0, 1 - db / ballInfRad);
 
 
         // wave interaction

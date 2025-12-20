@@ -158,7 +158,7 @@ type Vec3 = {
         const hue = i;
         const brightness = 50 * lensR/tempR;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; // Full saturation, 50% lightness
-        ctx.lineWidth = 5 * (i - 120) % 365 / 365; // adjust line width for band thickness
+        ctx.lineWidth = 5 * Math.abs(i - 120) % 365 / 365; // adjust line width for band thickness
         ctx.arc(lensX, lensY, tempR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
         ctx.stroke();
     }

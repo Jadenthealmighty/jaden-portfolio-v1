@@ -137,11 +137,12 @@ type Vec3 = {
             const normZ = Math.abs(imgDist / 800);
             const alpha = 0.8 * normZ;
             const radius = 2.8 * normZ;
-            if (newD <= tempR - normZ)
-            ctx.beginPath();
-            ctx.arc(newX, newY, radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
-            ctx.fill();
+            if (newD <= tempR - normZ){
+                ctx.beginPath();
+                ctx.arc(newX, newY, radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
+                ctx.fill();
+        }
         }
       }
 
@@ -150,6 +151,16 @@ type Vec3 = {
       ctx.lineWidth = 2;
       ctx.strokeStyle = 'rgba(117, 250, 246, 0.7)';
       ctx.stroke();
+
+      for (let i = 0; i < 360; i++) {
+        ctx.beginPath();
+        // Calculate hue for this segment (0-360)
+        const hue = i;
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`; // Full saturation, 50% lightness
+        ctx.lineWidth = 2; // adjust line width for band thickness
+        ctx.arc(lensX, lensY, lensR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
+        ctx.stroke();
+    }
       
       ctx.globalAlpha = 0.7;
       

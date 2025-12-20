@@ -100,8 +100,12 @@ export default function CubeBackground({
 
         let proj = project({ x, y, z });
 
-        let newX = proj.x;
-        let newY = proj.y;
+        const oX = proj.x;
+        const oY = proj.y;
+
+        let newX = oX;
+        let newY = oY;
+
         
         z = (z + 4) * 400;
         const dFromCent = Math.sqrt((proj.x - lensX) ** 2 +  (proj.y - lensY) ** 2);
@@ -109,13 +113,18 @@ export default function CubeBackground({
             const imgDist = 1 / (1 / lensF - 1 / z);
             newX = - imgDist * (proj.x - lensX) / z + lensX;
             newY = - imgDist * (proj.y - lensY) / z + lensY;
-            
-        };
 
-        ctx.beginPath();
-        ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
-        ctx.fill();
+            ctx.beginPath();
+            ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
+            ctx.fill();
+            
+        } else {
+            ctx.beginPath();
+            ctx.arc(oX, oY, 1.4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
+            ctx.fill();
+        }
       }
 
       ctx.beginPath();

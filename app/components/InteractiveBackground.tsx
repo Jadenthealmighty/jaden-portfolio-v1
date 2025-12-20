@@ -40,6 +40,8 @@ export default function InteractiveBackground() {
     const spacing = 80;
     const influenceRadius = 140;
 
+    const gStrength = 10;
+
     // wave parameters
     const wavePeriod = 12000; // ms
     const waveSpeed = 1.4;
@@ -90,6 +92,15 @@ export default function InteractiveBackground() {
         b.yt = window.innerHeight - b.r;
         b.vy *= -1;
       }
+
+      const dxm = b.xt - mouse.current.x;
+      const dym = b.yt - mouse.current.y;
+      const d = Math.sqrt(dxm * dxm + dym * dym);
+      b.ax = gStrength / (d * d) * (dxm / d);
+      b.ay = gStrength / (d * d) * (dym/ d);
+      
+      b.vx = Math.min(b.vx + b.ax * dt, 500);
+      b.vy += Math.min(b.vy +b.ay * dt, 500);
     }
 
     function draw(time: number) {

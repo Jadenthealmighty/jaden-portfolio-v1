@@ -73,10 +73,17 @@ type Vec3 = {
     function draw(time: number) {
 
       lensR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
-      lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
+      lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 2000);
 
-      const tempR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
-      const tempF = (mouse.current.y - lensY)/(lensY)* 400;
+      const tempR = Math.min(1, Math.abs((mouse.current.y - lensY) / (lensY))) * 180;
+
+      if (mouse.current.x > 0) {
+        lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 2000;
+      } else {
+        lensF = Math.max((mouse.current.x - lensX)/(lensX), 1) * 2000;
+      }
+      const tempF = lensF;
+      
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
@@ -134,6 +141,14 @@ type Vec3 = {
       ctx.lineWidth = 2;
       ctx.strokeStyle = 'rgba(255, 255, 250, 0.8)';
       ctx.stroke();
+      
+      ctx.globalAlpha = 0.5;
+      let focString = "Focal length ${tempF}"
+      ctx.font = "14px Arial";
+      ctx.fillStyle = "white";
+      ctx.fillText(focString, 0.5 * canvas.width, 0.1 * canvas.height);
+      ctx.globalAlpha = 1;
+
 
       requestAnimationFrame(draw);
     }

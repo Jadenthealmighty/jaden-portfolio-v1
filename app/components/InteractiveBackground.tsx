@@ -40,7 +40,7 @@ export default function InteractiveBackground() {
     const spacing = 80;
     const influenceRadius = 140;
 
-    const gStrength = 10;
+    const gStrength = 0.5;
 
     // wave parameters
     const wavePeriod = 12000; // ms
@@ -100,7 +100,7 @@ export default function InteractiveBackground() {
       b.ay = gStrength / (d * d) * (dym/ d);
       
       b.vx = Math.min(b.vx + b.ax * dt, 500);
-      b.vy += Math.min(b.vy +b.ay * dt, 500);
+      b.vy = Math.min(b.vy + b.ay * dt, 500);
     }
 
     function draw(time: number) {

@@ -41,7 +41,7 @@ export default function InteractiveBackground() {
     const influenceRadius = 140;
 
     const ballInfRad = 80;
-    const gStrength = 100;
+    const gStrength = 10;
     const ballMove = 0.3;
 
 
@@ -108,10 +108,11 @@ export default function InteractiveBackground() {
       if (speed > 700){
         b.vx = (Math.abs(b.vx) * 400)/ (b.vx * b.vx);
         b.vy = (Math.abs(b.vy) * 400)/ (b.vy * b.vy);
-      }
-
+      } else{
       b.vx = b.vx + b.ax * dt;
       b.vy = b.vy + b.ay * dt;
+      }
+
     }
 
     function draw(time: number) {

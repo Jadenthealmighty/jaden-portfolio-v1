@@ -8,13 +8,11 @@ type Vec3 = {
   z: number;
 };
 
-type CubeBackgroundProps = {
-    focalLength: number;
-}
-
 export default function CubeBackground({
     focalLength,
-}: CubeBackgroundProps) {
+}: {
+    focalLength: number;
+}) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const startTime = useRef(performance.now());
 
@@ -108,11 +106,11 @@ export default function CubeBackground({
 
         
         z = (z + 4) * 400;
-        const dFromCent = Math.sqrt((proj.x - lensX) ** 2 +  (proj.y - lensY) ** 2);
+        const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent <= lensR){
             const imgDist = 1 / (1 / lensF - 1 / z);
-            newX = - imgDist * (proj.x - lensX) / z + lensX;
-            newY = - imgDist * (proj.y - lensY) / z + lensY;
+            newX = - imgDist * (oX - lensX) / z + lensX;
+            newY = - imgDist * (oY - lensY) / z + lensY;
 
             ctx.beginPath();
             ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);

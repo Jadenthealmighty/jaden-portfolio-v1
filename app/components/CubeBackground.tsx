@@ -100,7 +100,7 @@ type Vec3 = {
       for (const p of points.current) {
         // rotate Y
         let x = cy * p.x + sy * p.z;
-        let z = -sy * p.x + cy * p.z;
+        let z = -sy * p.x + cy * p.z; 
 
         // rotate X
         let y = cx * p.y - sx * z;
@@ -134,7 +134,7 @@ type Vec3 = {
         newY = - imgDist * (oY - lensY) / z + lensY;
         const newD = Math.sqrt((newX - lensX) ** 2 +  (newY - lensY) ** 2);
         if (newD < tempR){
-            const normZ = Math.abs(800 / imgDist);
+            const normZ = Math.abs(imgDist / 800);
             const alpha = 0.8 * normZ;
             ctx.beginPath();
             ctx.arc(newX, newY, 2.8 * normZ, 0, Math.PI * 2);

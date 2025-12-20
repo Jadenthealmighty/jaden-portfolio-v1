@@ -112,6 +112,14 @@ export default function InteractiveBackground() {
       b.vx = b.vx + b.ax * dt;
       b.vy = b.vy + b.ay * dt;
       }
+      if (Math.abs(b.ax) > 100|| Math.abs(b.ay) > 100){
+        b.xt = 200;
+        b.yt = 200;
+        b.vx = 100;
+        b.vy = 100;
+        b.ax = 0;
+        b.ay = 0;
+      }
 
     }
 

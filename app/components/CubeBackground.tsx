@@ -76,7 +76,7 @@ type Vec3 = {
       lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 10);
 
       const tempR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
-      const tempF = (mouse.current.y - lensY)/(lensY)* 1000;
+      const tempF = (mouse.current.y - lensY)/(lensY)* 400;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
@@ -121,7 +121,7 @@ type Vec3 = {
         newX = - imgDist * (oX - lensX) / z + lensX;
         newY = - imgDist * (oY - lensY) / z + lensY;
         const newD = Math.sqrt((newX - lensX) ** 2 +  (newY - lensY) ** 2);
-        if (newD <= tempR)
+        if (newD < tempR)
             ctx.beginPath();
             ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;

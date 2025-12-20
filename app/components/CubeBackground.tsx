@@ -103,7 +103,7 @@ export default function CubeBackground({
         let newX = proj.x;
         let newY = proj.y;
         
-        z = z * 100;
+        z = (z + 4) * 400;
         const dFromCent = Math.sqrt((proj.x - lensX) ** 2 +  (proj.y - lensY) ** 2);
         if (dFromCent <= lensR){
             const imgDist = 1 / (1 / lensF - 1 / z);

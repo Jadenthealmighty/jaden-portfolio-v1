@@ -171,8 +171,8 @@ export default function InteractiveBackground() {
         n.xt = x;
         n.yt = y;
 
-        const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1 + ballT * 1.8, 4.4);
-        const alpha = 0.25 + mouseT * 0.6 + waveAmp * 0.4;
+        const radius = Math.min(1.6 + mouseT * 2.8 + waveAmp * 1 + ballT * 2.8, 4.4);
+        const alpha = 0.25 + mouseT * 0.6 + waveAmp * 0.4 + ballT * 0.4;
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);

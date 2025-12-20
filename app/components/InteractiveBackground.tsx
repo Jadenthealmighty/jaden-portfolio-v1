@@ -41,8 +41,10 @@ export default function InteractiveBackground() {
     const influenceRadius = 140;
 
     const ballInfRad = 80;
-    const gStrength = 10;
+    const gStrength = 100;
     const ballMove = 0.3;
+
+
 
     // wave parameters
     const wavePeriod = 12000; // ms
@@ -104,8 +106,8 @@ export default function InteractiveBackground() {
       const speed = b.vx * b.vx + b.vy * b.vy;
       
       if (speed > 700){
-        b.vx = (Math.abs(b.vx) * 700)/ b.vx;
-        b.vy = (Math.abs(b.vy) * 700)/ b.vy;
+        b.vx = (Math.abs(b.vx) * 400)/ (b.vx * b.vx);
+        b.vy = (Math.abs(b.vy) * 400)/ (b.vy * b.vy);
       }
 
       b.vx = b.vx + b.ax * dt;

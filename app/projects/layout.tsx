@@ -6,7 +6,8 @@ export default function ProjectsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="relative min-h-screen bg-black text-white">
+    <section className="relative min-h-screen text-white">
+      <CubeBackground />
       {children}
     </section>
   );

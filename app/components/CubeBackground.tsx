@@ -7,12 +7,8 @@ type Vec3 = {
   y: number;
   z: number;
 };
-
-type Props = {
-    focalLength: number;
-  };
   
-  export default function CubeBackground({ focalLength }: Props) {
+  export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const startTime = useRef(performance.now());
 
@@ -26,7 +22,7 @@ type Props = {
     let lensX = 100;
     let lensY = 100;
     let lensR = 70;
-    const lensF = focalLength;
+    const lensF = 100;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -140,7 +136,7 @@ type Props = {
 
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [focalLength]);
+  });
 
   return <canvas ref={canvasRef} className="fixed inset-0 -z-10" />;
 }

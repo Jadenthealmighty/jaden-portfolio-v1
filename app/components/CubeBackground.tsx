@@ -142,6 +142,10 @@ type Vec3 = {
     requestAnimationFrame(draw);
 
     window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", (e) => {
+        mouse.current.x = e.clientX;
+        mouse.current.y = e.clientY;
+      });
     return () => window.removeEventListener("resize", resize);
   });
 

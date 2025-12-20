@@ -8,11 +8,11 @@ type Vec3 = {
   z: number;
 };
 
-export default function CubeBackground({
-    focalLength,
-}: {
+type Props = {
     focalLength: number;
-}) {
+  };
+  
+  export default function CubeBackground({ focalLength }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const startTime = useRef(performance.now());
 

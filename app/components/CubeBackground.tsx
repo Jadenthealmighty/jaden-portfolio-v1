@@ -105,7 +105,8 @@ type Vec3 = {
         // rotate X
         let y = cx * p.y - sx * z;
         z = sx * p.y + cx * z;
-
+        
+        
         let proj = project({ x, y, z });
 
         const oX = proj.x;
@@ -116,10 +117,11 @@ type Vec3 = {
 
         
         z = (z + 4) * 400;
+        const oZ = z;
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent >= tempR){
             ctx.beginPath();
-            const normZ = 400 / z;
+            const normZ = 800 / oZ;
             const alpha = 0.8 * normZ
             ctx.arc(oX, oY, 2.8 * normZ, 0, Math.PI * 2);
             
@@ -132,9 +134,11 @@ type Vec3 = {
         newY = - imgDist * (oY - lensY) / z + lensY;
         const newD = Math.sqrt((newX - lensX) ** 2 +  (newY - lensY) ** 2);
         if (newD < tempR){
+            const normZ = Math.abs(800 / imgDist);
+            const alpha = 0.8 * normZ;
             ctx.beginPath();
-            ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
+            ctx.arc(newX, newY, 2.8 * normZ, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
             ctx.fill();
         }
       }

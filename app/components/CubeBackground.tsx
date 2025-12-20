@@ -121,11 +121,12 @@ type Vec3 = {
         newX = - imgDist * (oX - lensX) / z + lensX;
         newY = - imgDist * (oY - lensY) / z + lensY;
         const newD = Math.sqrt((newX - lensX) ** 2 +  (newY - lensY) ** 2);
-        if (newD < tempR - 1.5)
+        if (newD < tempR){
             ctx.beginPath();
             ctx.arc(newX, newY, 1.4, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(117, 250, 246, 0.4)`;
             ctx.fill();
+        }
       }
 
       ctx.beginPath();

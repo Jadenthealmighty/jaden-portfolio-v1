@@ -32,7 +32,7 @@ type Vec3 = {
       canvas.style.height = "100%";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       lensX = canvas.clientWidth/ 2;
-      lensY = canvas.clientHeight / 2;
+      lensY = canvas.clientHeight / 3;
       centerY = canvas.clientHeight / 2;
     }
     
@@ -109,7 +109,7 @@ type Vec3 = {
         let proj = project({ x, y, z });
 
         const oX = proj.x;
-        const oY = proj.y;
+        const oY = proj.y - scrollY * 0.25;
 
         let newX = oX;
         let newY = oY;
@@ -117,7 +117,7 @@ type Vec3 = {
         
         z = (z + 4) * 400;
         const oZ = z;
-        lensY = centerY - scrollY * 0.7;
+        lensY = centerY * 2 / 3 - scrollY;
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent >= tempR){
             ctx.beginPath();

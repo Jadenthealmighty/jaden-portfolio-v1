@@ -160,8 +160,8 @@ type Vec3 = {
         ctx.beginPath();
         const hue = newI;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
-        ctx.lineWidth = 15; // * Math.abs(newI - 120) % 360 / 360;
-        ctx.arc(lensX, lensY, tempR, (newI - 2) * piRatio, newI * piRatio);
+        ctx.lineWidth = 15 * Math.abs(newI - 120) % 360 / 360;
+        ctx.arc(lensX, lensY, tempR, (newI - 2.1) * piRatio, newI * piRatio);
         ctx.stroke();
     }
       

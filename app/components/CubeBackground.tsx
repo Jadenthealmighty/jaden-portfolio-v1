@@ -96,7 +96,7 @@ type Vec3 = {
       const sy = Math.sin(t * 0.7);
 
       ctx.fillStyle = "white";
-
+      let maxD = 0;
       for (const p of points.current) {
         // rotate Y
         let x = cy * p.x + sy * p.z;
@@ -137,10 +137,11 @@ type Vec3 = {
             const normZ = Math.abs(imgDist / 800);
             const alpha = 0.8 * normZ;
             const radius = 2.8 * normZ;
-            if (newD <= tempR - normZ){
+            if (newD <= tempR - radius){
                 ctx.beginPath();
                 ctx.arc(newX, newY, radius, 0, Math.PI * 2);
                 ctx.fillStyle = `rgba(117, 250, 246, ${alpha})`;
+                maxD = Math.max(maxD, newD)
                 ctx.fill();
         }
         }
@@ -152,13 +153,13 @@ type Vec3 = {
       ctx.strokeStyle = 'rgba(117, 250, 246, 0.7)';
       ctx.stroke();
 
+      //Color distortion or whatevs
+      const brightness = Math.abs(80 * maxD/tempR);
       for (let i = 0; i < 360; i++) {
         ctx.beginPath();
-        // Calculate hue for this segment (0-360)
         const hue = i;
-        const brightness = 50 * lensR/tempR;
-        ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; // Full saturation, 50% lightness
-        ctx.lineWidth = 5 * Math.abs(i - 120) % 365 / 365; // adjust line width for band thickness
+        ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
+        ctx.lineWidth = 8 * Math.abs(i - 120) % 365 / 365;
         ctx.arc(lensX, lensY, tempR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
         ctx.stroke();
     }

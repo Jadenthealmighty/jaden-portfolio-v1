@@ -100,18 +100,12 @@ export default function InteractiveBackground() {
       const dxm = (b.xt - mouse.current.x) / influenceRadius / 8;
       const dym = (b.yt - mouse.current.y) / influenceRadius / 8;
       const d = Math.sqrt(dxm * dxm + dym * dym);
-      b.ax = - gStrength / (d * d) * (dxm / d);
-      b.ay = - gStrength / (d * d) * (dym/ d);
+      b.ax = - gStrength / (d ** 3) * dxm;
+      b.ay = - gStrength / (d ** 3) * dym;
 
-      const speed = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
-      
-      if (speed > 1000){
-        b.vx = (b.vx * 400)/ (b.vx * b.vx);
-        b.vy = (b.vy * 400)/ (b.vy * b.vy);
-      } else{
       b.vx = b.vx + b.ax * dt;
       b.vy = b.vy + b.ay * dt;
-      }
+      
       if (Math.abs(b.ax) > 100000|| Math.abs(b.ay) > 100000){
         b.xt = Math.random() * 400;
         b.yt = Math.random() * 400;
@@ -131,16 +125,15 @@ export default function InteractiveBackground() {
 
       const t = time - startTime.current;
       const phase = (t % wavePeriod) / wavePeriod;
+      const root2 = Math.sqrt(2);
 
       const diag =
-        (window.innerWidth + window.innerHeight) / Math.sqrt(2);
+        (window.innerWidth + window.innerHeight) / root2;
       const waveCenter = phase * diag * waveSpeed * 1.1 - waveOffset;
 
-      const nx = 1 / Math.sqrt(2);
-      const ny = -1 / Math.sqrt(2);
+      const nx = 1 / root2;
+      const ny = -1 / root2;
 
-
-      // update + draw ball (on top)
       updateBall(dt);
 
       const b = ball.current;
@@ -149,23 +142,19 @@ export default function InteractiveBackground() {
       ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
       ctx.fill();
 
-      // draw nodes
       for (const n of nodes) {
-        // mouse interaction
         const dxm = n.x0 - mouse.current.x;
         const dym = n.y0 - mouse.current.y;
-        const dm = Math.sqrt(dxm * dxm + dym * dym);
+        const dm = Math.sqrt(dxm ** 2 + dym ** 2);
         const mouseT = Math.max(0, 1 - dm / influenceRadius);
 
-        // ball interaction
         const dxb = n.x0 - b.xt;
         const dyb = n.y0 - b.yt;
-        const db = Math.sqrt(dxb * dxb + dyb * dyb);
+        const db = Math.sqrt(dxb ** 2 + dyb ** 2);
         const ballT = Math.max(0, 1 - db / ballInfRad);
 
 
-        // wave interaction
-        const s = (n.x0 + n.y0) / Math.sqrt(2);
+        const s = (n.x0 + n.y0) / root2;
         const waveAmp = Math.exp(
           -((s - waveCenter) ** 2) / (2 * waveWidth ** 2)
         );
@@ -188,17 +177,17 @@ export default function InteractiveBackground() {
         ctx.fill();
       }
 
-      // draw edges
+      // drawing edges for vertices
       ctx.strokeStyle = "rgba(150, 170, 255, 0.15)";
       ctx.lineWidth = 1;
-
+      const setSpace = spacing ** 2 * 1.1;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx0 = nodes[i].x0 - nodes[j].x0;
           const dy0 = nodes[i].y0 - nodes[j].y0;
-          const dist0 = Math.sqrt(dx0 * dx0 + dy0 * dy0);
+          const dist0sqr = dx0 ** 2 + dy0 ** 2;
 
-          if (dist0 < spacing * 1.1) {
+          if (dist0sqr < setSpace) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].xt, nodes[i].yt);
             ctx.lineTo(nodes[j].xt, nodes[j].yt);

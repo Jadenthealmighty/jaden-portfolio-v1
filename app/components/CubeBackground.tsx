@@ -72,7 +72,6 @@ type Vec3 = {
     }
 
     function draw(time: number) {
-      lensF = Math.abs((mouse.current.y - centerY)/(centerY)* 2000);
 
       const tempR = Math.min(1, Math.abs((mouse.current.y - centerY) / (centerY))) * 180;
 
@@ -96,6 +95,10 @@ type Vec3 = {
 
       ctx.fillStyle = "white";
       let maxD = 0;
+
+      lensY = centerY - scrollY * 0.7;
+      ctx.globalAlpha = Math.max(0.5, 1 - scrollY / canvas.clientWidth / 4)
+
       for (const p of points.current) {
         // rotate Y
         let x = cy * p.x + sy * p.z;
@@ -110,14 +113,9 @@ type Vec3 = {
 
         const oX = proj.x;
         const oY = proj.y - scrollY * 0.25;
-
-        let newX = oX;
-        let newY = oY;
-
         
         z = (z + 4) * 400;
         const oZ = z;
-        lensY = centerY - scrollY * 0.9;
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent >= tempR){
             ctx.beginPath();
@@ -130,8 +128,8 @@ type Vec3 = {
         }
 
         const imgDist = 1 / (1 / tempF - 1 / z);
-        newX = - imgDist * (oX - lensX) / z + lensX;
-        newY = - imgDist * (oY - lensY) / z + lensY;
+        let newX = - imgDist * (oX - lensX) / z + lensX;
+        let newY = - imgDist * (oY - lensY) / z + lensY;
         const newD = Math.sqrt((newX - lensX) ** 2 +  (newY - lensY) ** 2);
         if (newD < tempR){
             const normZ = Math.abs(imgDist / 800);
@@ -146,6 +144,7 @@ type Vec3 = {
         }
         }
       }
+      ctx.globalAlpha = 1;
 
       ctx.beginPath();
       ctx.arc(lensX, lensY, tempR, 0, Math.PI * 2);
@@ -155,12 +154,14 @@ type Vec3 = {
 
       //Color distortion or whatevs
       const brightness = 80 * (maxD/tempR);
-      for (let i = 0; i < 360; i++) {
+      const piRatio = Math.PI /180;
+      for (let i = 0; i < 180; i++) {
+        const newI = 2 * i;
         ctx.beginPath();
-        const hue = i;
+        const hue = newI;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
-        ctx.lineWidth = 15 * Math.abs(i - 120) % 365 / 365;
-        ctx.arc(lensX, lensY, tempR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
+        ctx.lineWidth = 15 * Math.abs(newI - 120) % 360 / 360;
+        ctx.arc(lensX, lensY, tempR, (newI - 1) * piRatio, newI * piRatio);
         ctx.stroke();
     }
       

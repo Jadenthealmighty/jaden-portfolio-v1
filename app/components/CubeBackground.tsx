@@ -31,8 +31,8 @@ type Vec3 = {
       canvas.style.width = "100%";
       canvas.style.height = "100%";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      lensX = canvas.width/ 2;
-      lensY = canvas.height / 2;
+      lensX = canvas.clientWidth/ 2;
+      lensY = canvas.clientHeight / 2;
     }
 
 

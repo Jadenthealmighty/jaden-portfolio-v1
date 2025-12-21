@@ -7,6 +7,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <section className="relative min-h-screen text-white">
+        
       <CubeBackground />
       {children}
     </section>

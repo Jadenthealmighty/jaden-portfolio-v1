@@ -21,6 +21,29 @@ export default function ProjectsPage() {
               Stand-in text for future edits.
             </p>
           </div>
+
+          <div className="border border-gray-800 rounded-lg p-6">
+            <h2 className="text-2xl font-semibold">Another Project</h2>
+            <p className="text-gray-400 mt-2">
+              Stand-in text for future edits.
+            </p>
+          </div>
+
+
+          <div className="border border-gray-800 rounded-lg p-6">
+            <h2 className="text-2xl font-semibold">Another Project</h2>
+            <p className="text-gray-400 mt-2">
+              Stand-in text for future edits.
+            </p>
+          </div>
+
+
+          <div className="border border-gray-800 rounded-lg p-6">
+            <h2 className="text-2xl font-semibold">Another Project</h2>
+            <p className="text-gray-400 mt-2">
+              Stand-in text for future edits.
+            </p>
+          </div>
         </div>
       </main>
     );

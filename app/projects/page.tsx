@@ -16,36 +16,68 @@ export default function ProjectsPage() {
               Brief description of the problem, approach, and outcome.
             </p>
           </div>
+          <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
+            Projects
+        </h1>
+        <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+            Project 1
+        </h2>
+          <p className="mb-10">
+            I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+        </p>
+        <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+            Project 1
+        </h2>
+          <p className="mb-10">
+            I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+        </p>
+        <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+            Project 1
+        </h2>
+          <p className="mb-10">
+            I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+        </p>
+        <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+            Project 1
+        </h2>
+          <p className="mb-10">
+            I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+             I have a strong background in computational modelling
+             and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
+             Team USA Physics Competition. 
+        </p>
+        
   
-          <div className="border border-gray-800 bg-blue-200/50 rounded-lg p-6">
-            <h2 className="text-2xl font-semibold">Another Project</h2>
-            <p className="text-gray-400 mt-2">
-              Stand-in text for future edits.
-            </p>
-          </div>
-
-          <div className="border border-gray-800 bg-blue-200/50 rounded-lg p-6">
-            <h2 className="text-2xl font-semibold">Another Project</h2>
-            <p className="text-gray-400 mt-2">
-              Stand-in text for future edits.
-            </p>
-          </div>
-
-
-          <div className="border border-gray-800 bg-blue-200/50 rounded-lg p-6">
-            <h2 className="text-2xl font-semibold">Another Project</h2>
-            <p className="text-gray-400 mt-2">
-              Stand-in text for future edits.
-            </p>
-          </div>
-
-
-          <div className="border border-gray-800 bg-blue-200/50 rounded-lg p-6">
-            <h2 className="text-2xl font-semibold">Another Project</h2>
-            <p className="text-gray-400 mt-2">
-              Stand-in text for future edits.
-            </p>
-          </div>
+         
         </div>
       </main>
     );

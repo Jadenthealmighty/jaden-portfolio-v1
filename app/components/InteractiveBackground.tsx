@@ -103,9 +103,14 @@ export default function InteractiveBackground() {
       b.ax = - gStrength / (d ** 3) * dxm;
       b.ay = - gStrength / (d ** 3) * dym;
 
-      b.vx = b.vx + b.ax * dt;
-      b.vy = b.vy + b.ay * dt;
-      
+      const speed = Math.sqrt(b.vx ** 2 + b.vy ** 2);
+      if (speed > 400){
+        b.vx = b.vx * 350 / speed;
+        b.vy = b.vy * 350 / speed;
+      } else {
+        b.vx = b.vx + b.ax * dt;
+        b.vy = b.vy + b.ay * dt;
+      }
       if (Math.abs(b.ax) > 100000|| Math.abs(b.ay) > 100000){
         b.xt = Math.random() * 400;
         b.yt = Math.random() * 400;

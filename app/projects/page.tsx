@@ -8,7 +8,7 @@ export default function ProjectsPage() {
         </p>
   
         <div className="space-y-6">
-          <div className="border border-gray-800 rounded-lg p-6">
+          <div className="border border-gray-800 bg-blue200 opacity-50 rounded-lg p-6">
             <h2 className="text-2xl font-semibold">Project Title</h2>
             <p className="text-gray-400 mt-2">
               Brief description of the problem, approach, and outcome.

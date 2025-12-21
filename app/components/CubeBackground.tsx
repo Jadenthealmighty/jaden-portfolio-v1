@@ -10,7 +10,8 @@ type Vec3 = {
   
   export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const mouse = useRef({ x: -9999, y: -9999 });
+  const mouse = useRef({ x: 100, y: 100 });
+
   const startTime = useRef(performance.now());
 
   const points = useRef<Vec3[]>([]);
@@ -19,12 +20,11 @@ type Vec3 = {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
     const DPR = window.devicePixelRatio || 1;
-
     let lensX = 100;
     let lensY = 100;
-    let lensR = 70;
+    let centerY = 100;
     let lensF = 100;
-
+    let scrollY = 0;
     function resize() {
       canvas.width = window.innerWidth * DPR;
       canvas.height = window.innerHeight * DPR;
@@ -33,8 +33,9 @@ type Vec3 = {
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       lensX = canvas.clientWidth/ 2;
       lensY = canvas.clientHeight / 2;
+      centerY = canvas.clientHeight / 2;
     }
-
+    
 
 
     function generateCubePoints() {
@@ -71,11 +72,9 @@ type Vec3 = {
     }
 
     function draw(time: number) {
+      lensF = Math.abs((mouse.current.y - centerY)/(centerY)* 2000);
 
-      lensR = Math.abs((mouse.current.x - lensX) / (lensX)) * 180;
-      lensF = Math.abs((mouse.current.y - lensY)/(lensY)* 2000);
-
-      const tempR = Math.min(1, Math.abs((mouse.current.y - lensY) / (lensY))) * 180;
+      const tempR = Math.min(1, Math.abs((mouse.current.y - centerY) / (centerY))) * 180;
 
       if (mouse.current.x > 0) {
         lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 600;
@@ -118,6 +117,7 @@ type Vec3 = {
         
         z = (z + 4) * 400;
         const oZ = z;
+        lensY = centerY - scrollY * 0.7;
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent >= tempR){
             ctx.beginPath();
@@ -154,7 +154,7 @@ type Vec3 = {
       ctx.stroke();
 
       //Color distortion or whatevs
-      const brightness = 90 * (maxD/tempR);
+      const brightness = 80 * (maxD/tempR);
       for (let i = 0; i < 360; i++) {
         ctx.beginPath();
         const hue = i;
@@ -189,6 +189,9 @@ type Vec3 = {
         mouse.current.x = e.clientX;
         mouse.current.y = e.clientY;
       });
+    window.addEventListener("scroll", () => {
+        scrollY = window.scrollY;
+    });
     return () => window.removeEventListener("resize", resize);
   });
 

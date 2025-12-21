@@ -117,7 +117,7 @@ type Vec3 = {
         
         z = (z + 4) * 400;
         const oZ = z;
-        lensY = centerY * 2 / 3 - scrollY;
+        lensY = centerY - scrollY;
         const dFromCent = Math.sqrt((oX - lensX) ** 2 +  (oY - lensY) ** 2);
         if (dFromCent >= tempR){
             ctx.beginPath();
@@ -169,11 +169,11 @@ type Vec3 = {
       let focString = "Focal length: " + (Math.round(tempF) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText(focString, 0.45 * canvas.width, 0.1 * canvas.height);
+      ctx.fillText(focString, 0.45 * canvas.width, 0.1 * canvas.height - scrollY);
       let rString = "Lens radius: " + (Math.round(tempR) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText(rString, 0.45 * canvas.width, 0.1 * canvas.height + 20);
+      ctx.fillText(rString, 0.45 * canvas.width, 0.1 * canvas.height + 20 - scrollY);
       ctx.globalAlpha = 1;
 
 

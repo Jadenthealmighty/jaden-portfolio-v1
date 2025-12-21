@@ -97,7 +97,7 @@ type Vec3 = {
       let maxD = 0;
 
       lensY = centerY - scrollY * 0.7;
-      const alphaMult = Math.max(0.5, 1 - scrollY / canvas.clientHeight / 4)
+      const alphaMult = Math.max(0.5, 1 - scrollY / canvas.clientHeight / 1.2)
 
       for (const p of points.current) {
         // rotate Y
@@ -160,7 +160,7 @@ type Vec3 = {
         ctx.beginPath();
         const hue = newI;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
-        ctx.lineWidth = 15 * Math.abs(newI - 120) % 360 / 360;
+        ctx.lineWidth = 15 * (Math.abs(newI - 120) % 360) / 360;
         ctx.arc(lensX, lensY, tempR, (newI - 2.1) * piRatio, newI * piRatio);
         ctx.stroke();
     }

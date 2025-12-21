@@ -104,9 +104,9 @@ export default function InteractiveBackground() {
       b.ay = - gStrength / (d ** 3) * dym;
 
       const speed = Math.sqrt(b.vx ** 2 + b.vy ** 2);
-      if (speed > 400){
-        b.vx = b.vx * 350 / speed;
-        b.vy = b.vy * 350 / speed;
+      if (speed > 1000){
+        b.vx = b.vx * 700 / speed;
+        b.vy = b.vy * 700 / speed;
       } else {
         b.vx = b.vx + b.ax * dt;
         b.vy = b.vy + b.ay * dt;

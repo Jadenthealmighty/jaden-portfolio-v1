@@ -154,22 +154,26 @@ type Vec3 = {
       ctx.stroke();
 
       //Color distortion or whatevs
-      const brightness = Math.abs(80 * maxD/tempR);
+      const brightness = (Math.abs(90 * maxD/tempR)) ** 2;
       for (let i = 0; i < 360; i++) {
         ctx.beginPath();
         const hue = i;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
-        ctx.lineWidth = 8 * Math.abs(i - 120) % 365 / 365;
+        ctx.lineWidth = 15 * Math.abs(i - 120) % 365 / 365;
         ctx.arc(lensX, lensY, tempR, (i - 1) * (Math.PI / 180), i * (Math.PI / 180));
         ctx.stroke();
     }
       
       ctx.globalAlpha = 0.7;
       
-      let focString = "Focal length: " + (Math.round(tempF * 100) / 100);
+      let focString = "Focal length: " + (Math.round(tempF) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(focString, 0.45 * canvas.width, 0.1 * canvas.height);
+      let rString = "Lens radius: " + (Math.round(tempR) / 100);
+      ctx.font = "14px Arial";
+      ctx.fillStyle = "white";
+      ctx.fillText(focString, 0.45 * canvas.width, 0.1 * canvas.height + 20);
       ctx.globalAlpha = 1;
 
 

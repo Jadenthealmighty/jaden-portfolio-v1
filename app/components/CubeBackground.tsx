@@ -10,7 +10,7 @@ type Vec3 = {
   
   export default function CubeBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const mouse = useRef({ x: 10, y: 10 });
+  const mouse = useRef({ x: -9999, y: -9999 });
   const startTime = useRef(performance.now());
 
   const points = useRef<Vec3[]>([]);
@@ -154,7 +154,7 @@ type Vec3 = {
       ctx.stroke();
 
       //Color distortion or whatevs
-      const brightness = 90 * (maxD/tempR) ** 2;
+      const brightness = 90 * (maxD/tempR);
       for (let i = 0; i < 360; i++) {
         ctx.beginPath();
         const hue = i;

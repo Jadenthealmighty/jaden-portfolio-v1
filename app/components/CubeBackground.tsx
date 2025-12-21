@@ -154,7 +154,7 @@ type Vec3 = {
       ctx.stroke();
 
       //Color distortion or whatevs
-      const brightness = (Math.abs(90 * maxD/tempR)) ** 2;
+      const brightness = 90 * (maxD/tempR) ** 2;
       for (let i = 0; i < 360; i++) {
         ctx.beginPath();
         const hue = i;
@@ -173,7 +173,7 @@ type Vec3 = {
       let rString = "Lens radius: " + (Math.round(tempR) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText(focString, 0.45 * canvas.width, 0.1 * canvas.height + 20);
+      ctx.fillText(rString, 0.45 * canvas.width, 0.1 * canvas.height + 20);
       ctx.globalAlpha = 1;
 
 

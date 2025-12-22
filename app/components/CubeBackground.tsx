@@ -153,14 +153,14 @@ type Vec3 = {
       ctx.stroke();
 
       //Color distortion or whatevs
-      const brightness = 80 * (maxD/tempR);
+      const brightness = 80 * (maxD/tempR) * alphaMult;
       const piRatio = Math.PI /180;
       for (let i = 0; i < 180; i++) {
         const newI = 2 * i;
         ctx.beginPath();
         const hue = newI;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
-        ctx.lineWidth = 8 * Math.min(Math.abs(newI - 240), Math.abs(newI - 240)) / 360;
+        ctx.lineWidth = 6 * Math.min(Math.abs(newI - 240), Math.abs(-newI - 240)) / 360;
         ctx.arc(lensX, lensY, tempR, (newI - 2.1) * piRatio, newI * piRatio);
         ctx.stroke();
     }

@@ -12,11 +12,11 @@ import InteractiveBackground from "app/components/InteractiveBackground";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: {
-    default: 'Jaden Al-Aidroos Portfolio',
-    template: '%s | Next.js Portfolio Starter',
-  },
+  title: 'Jaden Al-Aidroos Portfolio',
   description: 'UofT Physics Student',
+  icons: {
+    icon: "app/favicon.ico"
+  },
   openGraph: {
     title: 'My Portfolio',
     description: 'This is my portfolio.',

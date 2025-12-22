@@ -1,7 +1,7 @@
 export default function ProjectsPage() {
     return (
       <main className="relative z-10 px-12 py-20 max-w-4xl">
-        <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl">
+        <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
         <h1 className="text-5xl font-bold mb-6">Projects</h1>
   

@@ -3,6 +3,8 @@ export default function ProjectsPage() {
       <main className="relative z-10 px-12 py-20 max-w-4xl">
         <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
+
+        {/* Stuff here */}
         <h1 className="text-5xl font-bold mb-6">Projects</h1>
   
         <p className="text-gray-300 mb-10">

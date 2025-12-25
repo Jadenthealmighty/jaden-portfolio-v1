@@ -73,7 +73,7 @@ type Vec3 = {
 
     function draw(time: number) {
 
-      const tempR = Math.min(1, Math.abs((mouse.current.y - centerY) / (centerY))) * 180;
+      const tempR = Math.min(1, Math.sqrt(Math.abs((mouse.current.y - centerY) / (centerY)))) * 180;
 
       if (mouse.current.x > 0) {
         lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 600;
@@ -160,7 +160,7 @@ type Vec3 = {
         ctx.beginPath();
         const hue = newI;
         ctx.strokeStyle = `hsl(${hue}, 100%, ${brightness}%)`; 
-        ctx.lineWidth = 6 * Math.min(Math.abs(newI - 240), Math.abs(-newI - 240)) / 360;
+        ctx.lineWidth = 6 * Math.min(Math.abs(newI - 240) % 360, Math.abs(-newI - 240) % 360) / 360;
         ctx.arc(lensX, lensY, tempR, (newI - 2.1) * piRatio, newI * piRatio);
         ctx.stroke();
     }

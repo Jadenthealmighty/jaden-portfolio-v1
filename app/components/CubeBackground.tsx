@@ -62,25 +62,26 @@ type Vec3 = {
       points.current = pts;
     }
 
-    function project(p: Vec3) {
+    function project(p: Vec3, lensD: number) {
       const d = 4;
       const scale = 400;
       return {
-        x: (p.x / (p.z + d)) * scale + window.innerWidth * 0.5,
-        y: (p.y / (p.z + d)) * scale + window.innerHeight * 0.5,
+        x: (p.x / (p.z + d + lensD)) * scale + window.innerWidth * 0.5,
+        y: (p.y / (p.z + d + lensD)) * scale + window.innerHeight * 0.5,
       };
     }
 
     function draw(time: number) {
+      const lensD = Math.max(0, mouse.current.y / centerY * 2);
+      const tempR = Math.min(1, 1/lensD) * 180;
 
-      const tempR = Math.min(1, Math.sqrt(Math.abs((mouse.current.y - centerY) / (centerY)))) * 180;
 
       if (mouse.current.x > 0) {
         lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 600;
       } else {
         lensF = Math.max((mouse.current.x - lensX)/(lensX), 1) * 2000;
       }
-      const tempF = Math.max(lensF, -580);
+      const tempF = Math.min(lensF, 600);
       
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -109,7 +110,7 @@ type Vec3 = {
         z = sx * p.y + cx * z;
         
         
-        let proj = project({ x, y, z });
+        let proj = project({ x, y, z }, lensD);
 
         const oX = proj.x;
         const oY = proj.y - scrollY * 0.25;
@@ -171,7 +172,7 @@ type Vec3 = {
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(focString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight - scrollY);
-      let rString = "Lens radius: " + (Math.round(tempR) / 100);
+      let rString = "Lens distance: " + (Math.round(lensD * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(rString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight + 20 - scrollY);

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePointerPosition } from "./mouseTrack2";
 
 type Node = {
   x0: number;
@@ -97,11 +96,8 @@ export default function InteractiveBackground() {
         b.yt = window.innerHeight - b.r;
         b.vy *= -1;
       }
-
-      const pos = usePointerPosition();
-      const mouseX = pos.x;
-      const mouseY = pos.y;
-
+      const mouseX = mouse.current.x;
+      const mouseY = mouse.current.y;
 
       const dxm = (b.xt - mouseX) / influenceRadius / 8;
       const dym = (b.yt - mouseY) / influenceRadius / 8;
@@ -153,10 +149,8 @@ export default function InteractiveBackground() {
       ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
       ctx.fill();
 
-
-      const { x, y } = usePointerPosition();
-      const mouseX = usePointerPosition().x;
-      const mouseY = usePointerPosition().y;
+      const mouseX = mouse.current.x;
+      const mouseY = mouse.current.y;
 
 
       for (const n of nodes) {

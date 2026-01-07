@@ -99,8 +99,8 @@ export default function InteractiveBackground() {
       }
 
       const { x, y } = usePointerPosition();
-      const mouseX = x;
-      const mouseY = y;
+      const mouseX = usePointerPosition().x;
+      const mouseY = usePointerPosition().y;
 
 
       const dxm = (b.xt - mouseX) / influenceRadius / 8;
@@ -155,8 +155,8 @@ export default function InteractiveBackground() {
 
 
       const { x, y } = usePointerPosition();
-      const mouseX = x;
-      const mouseY = y;
+      const mouseX = usePointerPosition().x;
+      const mouseY = usePointerPosition().y;
 
 
       for (const n of nodes) {

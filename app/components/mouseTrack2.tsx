@@ -21,5 +21,5 @@ export default function TrackPointer() {
     };
   }, []);
 
-  return <div>({pos.x}, {pos.y})</div>;
+  return pos;
 }

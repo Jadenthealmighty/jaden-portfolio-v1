@@ -5,6 +5,7 @@ export default function ProjectsPage() {
         </main>
 
         {/* Stuff here */}
+        <section>
         <h1 className="text-5xl font-bold mb-6">Projects</h1>
   
         <p className="text-gray-300 mb-10">
@@ -81,6 +82,7 @@ export default function ProjectsPage() {
   
          
         </div>
+        </section>
       </main>
     );
   }

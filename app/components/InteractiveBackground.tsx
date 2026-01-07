@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import TrackPointer from "./mouseTrack2"; 
 
 type Node = {
   x0: number;
@@ -97,8 +98,8 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const dxm = (b.xt - mouse.current.x) / influenceRadius / 8;
-      const dym = (b.yt - mouse.current.y) / influenceRadius / 8;
+      const dxm = (b.xt - TrackPointer().x) / influenceRadius / 8;
+      const dym = (b.yt - TrackPointer().y) / influenceRadius / 8;
       const d = Math.sqrt(dxm * dxm + dym * dym);
       b.ax = - gStrength / (d ** 3) * dxm;
       b.ay = - gStrength / (d ** 3) * dym;
@@ -148,8 +149,8 @@ export default function InteractiveBackground() {
       ctx.fill();
 
       for (const n of nodes) {
-        const dxm = n.x0 - mouse.current.x;
-        const dym = n.y0 - mouse.current.y;
+        const dxm = n.x0 - TrackPointer().x;
+        const dym = n.y0 - TrackPointer().y;
         const dm = Math.sqrt(dxm ** 2 + dym ** 2);
         const mouseT = Math.max(0, 1 - dm / influenceRadius);
 

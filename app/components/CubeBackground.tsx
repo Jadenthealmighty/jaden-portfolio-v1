@@ -80,7 +80,7 @@ type Vec3 = {
       } else {
         lensF = Math.max((mouse.current.x - lensX)/(lensX), 1) * 2000;
       }
-      const tempF = lensF;
+      const tempF = Math.max(lensF, -580);
       
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);

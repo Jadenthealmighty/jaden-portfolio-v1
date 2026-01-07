@@ -6,7 +6,7 @@ export type PointerPosition = {
 };
 
 export function usePointerPosition(): PointerPosition {
-  const [pos, setPos] = useState<PointerPosition>({ x: 0, y: 0 });
+  const [pos, setPos] = useState<PointerPosition>({ x: 90, y: 90 });
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {

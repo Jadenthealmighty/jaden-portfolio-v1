@@ -73,7 +73,7 @@ type Vec3 = {
 
     function draw(time: number) {
       const lensD = Math.max(0, mouse.current.y / centerY * 2);
-      const tempR = Math.min(1, 1/lensD) * 180;
+      const tempR = Math.min(100, 1/lensD) * 180;
 
 
       if (mouse.current.x > 0) {
@@ -172,7 +172,7 @@ type Vec3 = {
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(focString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight - scrollY);
-      let rString = "Lens distance: " + (Math.round(lensD * 100) / 100);
+      let rString = "Distance to lens: " + (Math.round(lensD * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(rString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight + 20 - scrollY);

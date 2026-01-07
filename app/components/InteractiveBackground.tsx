@@ -25,10 +25,6 @@ export default function InteractiveBackground() {
   const mouse = useRef({ x: -9999, y: -9999 });
   const startTime = useRef(performance.now());
 
-  const { x, y } = usePointerPosition();
-  const mouseX = x;
-  const mouseY = y;
-
   const ball = useRef<Ball>({
     xt: 200, yt: 200,
     vx: 90, vy: 120,
@@ -102,6 +98,11 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
+      const { x, y } = usePointerPosition();
+      const mouseX = x;
+      const mouseY = y;
+
+
       const dxm = (b.xt - mouseX) / influenceRadius / 8;
       const dym = (b.yt - mouseY) / influenceRadius / 8;
       const d = Math.sqrt(dxm * dxm + dym * dym);
@@ -151,6 +152,12 @@ export default function InteractiveBackground() {
       ctx.arc(b.xt, b.yt, b.r, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
       ctx.fill();
+
+
+      const { x, y } = usePointerPosition();
+      const mouseX = x;
+      const mouseY = y;
+
 
       for (const n of nodes) {
         const dxm = n.x0 - mouseX;

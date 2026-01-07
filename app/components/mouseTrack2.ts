@@ -1,8 +1,12 @@
-"use client";
 import { useEffect, useState } from "react";
 
-export default function TrackPointer() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
+export type PointerPosition = {
+  x: number;
+  y: number;
+};
+
+export function usePointerPosition(): PointerPosition {
+  const [pos, setPos] = useState<PointerPosition>({ x: 0, y: 0 });
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
@@ -13,7 +17,7 @@ export default function TrackPointer() {
     };
 
     window.addEventListener("pointermove", handlePointerMove, {
-      passive: true, // ← critical for scrolling
+      passive: true,
     });
 
     return () => {

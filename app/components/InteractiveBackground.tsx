@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import TrackPointer from "./mouseTrack2"; 
+import { usePointerPosition } from "./mouseTrack2";
 
 type Node = {
   x0: number;
@@ -24,6 +24,10 @@ export default function InteractiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouse = useRef({ x: -9999, y: -9999 });
   const startTime = useRef(performance.now());
+
+  const { x, y } = usePointerPosition();
+  const mouseX = x;
+  const mouseY = y;
 
   const ball = useRef<Ball>({
     xt: 200, yt: 200,
@@ -98,8 +102,8 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const dxm = (b.xt - TrackPointer().x) / influenceRadius / 8;
-      const dym = (b.yt - TrackPointer().y) / influenceRadius / 8;
+      const dxm = (b.xt - mouseX) / influenceRadius / 8;
+      const dym = (b.yt - mouseY) / influenceRadius / 8;
       const d = Math.sqrt(dxm * dxm + dym * dym);
       b.ax = - gStrength / (d ** 3) * dxm;
       b.ay = - gStrength / (d ** 3) * dym;
@@ -149,8 +153,8 @@ export default function InteractiveBackground() {
       ctx.fill();
 
       for (const n of nodes) {
-        const dxm = n.x0 - TrackPointer().x;
-        const dym = n.y0 - TrackPointer().y;
+        const dxm = n.x0 - mouseX;
+        const dym = n.y0 - mouseY;
         const dm = Math.sqrt(dxm ** 2 + dym ** 2);
         const mouseT = Math.max(0, 1 - dm / influenceRadius);
 

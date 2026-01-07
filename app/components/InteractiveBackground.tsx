@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePointerPosition } from "./mouseTrack2";
+import { usePointerPosition } from "../hooks/mouseTrack2";
 
 type Node = {
   x0: number;

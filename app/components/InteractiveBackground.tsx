@@ -98,9 +98,9 @@ export default function InteractiveBackground() {
         b.vy *= -1;
       }
 
-      const { x, y } = usePointerPosition();
-      const mouseX = usePointerPosition().x;
-      const mouseY = usePointerPosition().y;
+      const pos = usePointerPosition();
+      const mouseX = pos.x;
+      const mouseY = pos.y;
 
 
       const dxm = (b.xt - mouseX) / influenceRadius / 8;

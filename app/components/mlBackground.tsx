@@ -216,7 +216,7 @@ export default function MLBackground() {
       const pointPrev = pointsQueue[0];
       
       ctx.beginPath();
-      ctx.arc(10, 10, 20, 0, Math.PI * 2);
+      ctx.arc(pointPrev.x, pointPrev.y, 20, 0, Math.PI * 2);
       ctx.fillStyle = "#586994";
       ctx.fill();
 
@@ -238,7 +238,6 @@ export default function MLBackground() {
         console.log(elapsed);
         const delay = Math.max(0, 30 - elapsed);
         setTimeout(drawLoop, delay);
-        requestAnimationFrame(drawLoop);
         }
 
 

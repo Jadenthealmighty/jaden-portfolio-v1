@@ -290,8 +290,8 @@ export default function MLBackground() {
       window.removeEventListener("mousemove", (e) => {
         mouse.current.x = e.clientX;
         mouse.current.y = e.clientY;
-        running = false;
       });
+      running = false;
     };
   }, []);
 

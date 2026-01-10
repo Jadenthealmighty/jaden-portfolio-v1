@@ -211,6 +211,8 @@ export default function InteractiveBackground() {
       requestAnimationFrame(draw);
     }
 
+
+
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", (e) => {
       mouse.current.x = e.clientX;

@@ -79,14 +79,15 @@ type Vec3 = {
       if (mouse.current.x > 0) {
         lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 600;
       } else {
-        lensF = Math.max((mouse.current.x - lensX)/(lensX), 1) * 2000;
+        lensF = Math.max((mouse.current.x - lensX)/(lensX), -1) * 2000;
       }
-      const tempF = Math.min(lensF, 600);
+      const tempF = lensF;
       
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
 
       const t = (time - startTime.current) * 0.00015;
       const cx = Math.cos(t);
@@ -94,7 +95,6 @@ type Vec3 = {
       const cy = Math.cos(t * 0.7);
       const sy = Math.sin(t * 0.7);
 
-      ctx.fillStyle = "white";
       let maxD = 0;
 
       lensY = centerY - scrollY * 0.7;

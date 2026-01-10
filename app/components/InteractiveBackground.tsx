@@ -129,9 +129,6 @@ export default function InteractiveBackground() {
       lastTime = time;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "white";
 
       const t = time - startTime.current;
       const phase = (t % wavePeriod) / wavePeriod;
@@ -149,7 +146,7 @@ export default function InteractiveBackground() {
       const b = ball.current;
       ctx.beginPath();
       ctx.arc(b.xt, b.yt, b.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.fillStyle = "#586994";
       ctx.fill();
 
       const mouseX = mouse.current.x;

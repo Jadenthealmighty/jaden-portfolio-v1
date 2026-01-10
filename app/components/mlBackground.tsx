@@ -86,24 +86,16 @@ class DataPoint {
     x: number;
     y: number;
     vx: number;
-    vx_cov: number;
     vy: number;
-    vy_cov: number;
     ax: number;
-    ax_cov: number;
     ay: number;
-    ay_cov: number;
-    constructor(x: number, y: number, vx: number, vx_cov: number, vy: number, vy_cov: number, ax: number, ax_cov: number, ay: number, ay_cov: number) {
+    constructor(x: number, y: number, vx: number, vy: number, ax: number, ay: number) {
         this.x = x;
         this.y = y;
         this.vx = vx;
-        this.vx_cov = vx_cov;
         this.vy = vy;
-        this.vy_cov = vy_cov;
         this.ax = ax;
-        this.ax_cov = ax_cov;
         this.ay = ay;
-        this.ay_cov = ay_cov;
     }
 }
 
@@ -125,27 +117,9 @@ function min(x: number, y: number): number {
 }
 
 
-function get_cov(list: Array<number>): number {
-    /** NEEDS A LENGTH OF 10 */
-    let sum = 0;
-    for (let i = 0; i < 10; i++){
-        sum += list[i];
-    }
-    const mean = sum / 10;
-    let acc = 0;
-    for (let i = 0; i < 10; i++){
-        acc += (mean - list[i]) ** 2;
-    }
-    return acc / (10 - 1);
-
-}
 
 function create_point(x_list: Array<number>, y_list: Array<number>, vx_list: Array<number>, vy_list: Array<number>, ax_list: Array<number>, ay_list: Array<number>): DataPoint {
-    const vx_cov = get_cov(vx_list);
-    const vy_cov = get_cov(vy_list);
-    const ax_cov = get_cov(ax_list);
-    const ay_cov = get_cov(ay_list);
-    return new DataPoint(x_list[-1], y_list[-1], vx_list[-1], vx_cov, vy_list[-1], vy_cov, ax_list[-1], ax_cov, ay_list[-1], ay_cov);
+    return new DataPoint(x_list[-1], y_list[-1], vx_list[-1], vy_list[-1], ax_list[-1], ay_list[-1]);
 }
 
 function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array<number>, vx_list: Array<number>, vy_list: Array<number>, ax_list: Array<number>, ay_list: Array<number>){
@@ -166,7 +140,7 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
         ax_list.push(ax);
         ay_list.push(ay);
     }
-    if (x_list.length > 10){
+    if (x_list.length > 5){
         x_list.shift();
         y_list.shift();
         vx_list.shift();
@@ -228,6 +202,7 @@ export default function MLBackground() {
       update_lists(mouseX, mouseY, x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
+      console.log(point.ax)
       if (pointsQueue.length > 100){
         pointsQueue.shift();
       }
@@ -243,7 +218,7 @@ export default function MLBackground() {
       const pointPrev = pointsQueue[0];
       
       ctx.beginPath();
-      ctx.arc(10, pointPrev.y, 20, 0, Math.PI * 2);
+      ctx.arc(10, 10, 20, 0, Math.PI * 2);
       ctx.fillStyle = "#586994";
       ctx.fill();
 

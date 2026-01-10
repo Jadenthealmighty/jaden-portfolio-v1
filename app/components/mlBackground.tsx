@@ -245,7 +245,7 @@ export default function MLBackground() {
       const pointPrev = pointsQueue[0];
       
       ctx.beginPath();
-      ctx.arc(pointPrev.x, pointPrev.y, 20, 0, Math.PI * 2);
+      ctx.arc(10, pointPrev.y, 20, 0, Math.PI * 2);
       ctx.fillStyle = "#586994";
       ctx.fill();
 

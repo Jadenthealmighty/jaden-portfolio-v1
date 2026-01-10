@@ -1,5 +1,9 @@
+import InteractiveBackground from "app/components/InteractiveBackground";
+
 export default function Page() {
   return (
+    <>
+    <InteractiveBackground />
     <section>
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
@@ -36,6 +40,7 @@ export default function Page() {
         Skills stand-in, not sure what to put here </p>
       <p></p>
     </section>
+    </>
   )
 }
 // New line doesn't seem to work

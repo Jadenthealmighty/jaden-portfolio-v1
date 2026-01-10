@@ -7,9 +7,7 @@ import { useEffect, useRef } from "react";
 class PredictionPointX {
     pos_x: number;
     v_x: number;
-    v_cov: number;
     a_x: number;
-    a_cov: number;
 
     normed_params: Array<number>;
     vec_mag: number;
@@ -19,12 +17,10 @@ class PredictionPointX {
     result_set: boolean;
     windWidth = 1000;
 
-    constructor(pos_x: number, v_x: number, v_cov: number, a_x: number, a_cov: number) {
+    constructor(pos_x: number, v_x: number, a_x: number) {
         this.pos_x = pos_x;
         this.v_x = v_x;
-        this.v_cov = v_cov;
         this.a_x = a_x;
-        this.a_cov = a_cov;
         this.normed_params = this.get_normed_params();
         this.vec_mag = this.get_mag();
         this.weight = 1;
@@ -41,7 +37,7 @@ class PredictionPointX {
     get_normed_params(): Array<number> {
         const k = this.windWidth / 800;
         return [this.pos_x / this.windWidth, abs_min(this.v_x * k / 400, 10),
-        min(this.v_cov * k / 500, 10), abs_min(this.a_x * k / 80000, 10), min(this.a_cov * k / 40000, 10)];
+        abs_min(this.a_x * k / 80000, 10)];
     }
 
     get_mag(): number {
@@ -119,7 +115,8 @@ function min(x: number, y: number): number {
 
 
 function create_point(x_list: Array<number>, y_list: Array<number>, vx_list: Array<number>, vy_list: Array<number>, ax_list: Array<number>, ay_list: Array<number>): DataPoint {
-    return new DataPoint(x_list[-1], y_list[-1], vx_list[-1], vy_list[-1], ax_list[-1], ay_list[-1]);
+    const len = x_list.length;
+    return new DataPoint(x_list[len-1], y_list[len-1], vx_list[len-1], vy_list[len-1], ax_list[len-1], ay_list[len-1]);
 }
 
 function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array<number>, vx_list: Array<number>, vy_list: Array<number>, ax_list: Array<number>, ay_list: Array<number>){
@@ -131,10 +128,11 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
         ax_list.push(0);
         ay_list.push(0);
     } else {
-        const vx = (x_list[-1] - x_list[-2]) / 0.03;
-        const vy = (y_list[-1] - y_list[-2]) / 0.03;
-        const ax = (vx_list[-1] - vx_list[-2]) / 0.03;
-        const ay = (vy_list[-1] - vy_list[-2]) / 0.03;
+        const len = x_list.length;
+        const vx = (x_list[len -1] - x_list[len-2]) / 0.03;
+        const vy = (y_list[len-1] - y_list[len-2]) / 0.03;
+        const ax = (vx_list[len-1] - vx_list[len-2]) / 0.03;
+        const ay = (vy_list[len-1] - vy_list[len-2]) / 0.03;
         vx_list.push(vx);
         vy_list.push(vy);
         ax_list.push(ax);

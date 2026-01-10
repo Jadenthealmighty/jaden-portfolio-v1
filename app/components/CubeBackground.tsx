@@ -86,7 +86,7 @@ type Vec3 = {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "white";
 
       const t = (time - startTime.current) * 0.00015;

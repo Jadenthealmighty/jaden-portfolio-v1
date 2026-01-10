@@ -1,4 +1,4 @@
-import InteractiveBackground from "app/components/mlBackground";
+import MLBackground from "app/components/mlBackground";
 
 export default function ProjectsLayout({
   children,
@@ -7,7 +7,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <section className="relative min-h-screen text-white">
-      <InteractiveBackground />
+      <MLBackground />
       {children}
     </section>
   );

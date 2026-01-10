@@ -181,7 +181,7 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
 // THIS IS WAY too complicated to run in a browser, try simplifying the python code and then running this one, I think you can get away 
 // with no covarian
 
-export default function InteractiveBackground() {
+export default function MLBackground() {
 
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);

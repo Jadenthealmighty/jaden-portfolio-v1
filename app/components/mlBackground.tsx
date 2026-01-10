@@ -182,6 +182,7 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
 // with no covarian
 
 export default function MLBackground() {
+    let running = true;
 
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -260,6 +261,9 @@ export default function MLBackground() {
       }
 
     function drawLoop(time: number) {
+        if (!running){
+            return;
+        }
         const start = performance.now();
         draw(time);
         const elapsed = performance.now() - start;
@@ -283,6 +287,11 @@ export default function MLBackground() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", (e) => {
+        mouse.current.x = e.clientX;
+        mouse.current.y = e.clientY;
+        running = false;
+      });
     };
   }, []);
 

@@ -194,7 +194,17 @@ type Vec3 = {
     window.addEventListener("scroll", () => {
         scrollY = window.scrollY;
     });
-    return () => window.removeEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", (e) => {
+        mouse.current.x = e.clientX;
+        mouse.current.y = e.clientY;
+      });
+      window.removeEventListener("scroll", () => {
+        scrollY = window.scrollY;
+    });
+      
+    }
   });
 
   return <canvas ref={canvasRef} className="fixed inset-0 -z-10" />;

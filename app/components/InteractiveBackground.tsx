@@ -224,6 +224,10 @@ export default function InteractiveBackground() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", (e) => {
+        mouse.current.x = e.clientX;
+        mouse.current.y = e.clientY;
+      });
     };
   }, []);
 

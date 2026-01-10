@@ -15,6 +15,7 @@ class PredictionPointX {
     weight: number;
     result: number;
     result_set: boolean;
+    most_recent_proj: number;
     windWidth = 1000;
 
     constructor(pos_x: number, v_x: number, a_x: number) {
@@ -26,6 +27,7 @@ class PredictionPointX {
         this.weight = 1;
         this.result = 0;
         this.result_set = false;
+        this.most_recent_proj = 0.01;
     }
 
     set_result(result: number) {
@@ -54,11 +56,11 @@ class PredictionPointX {
         return this.weight * (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3] + a[4] * b[4] + a[5] * b[5]) / this.vec_mag;
     }
     
-    return_best_match(others: Array<PredictionPointX>): Array<number | PredictionPointX> {
+    return_best_match(others: Array<PredictionPointX>): PredictionPointX {
         let highest = 0;
         let result = 0;
         if (!this.result_set){
-            return [others[0], 0.01]
+            return others[0];
         }
         for (let i = 0; i < others.length; i++){
             let other = others[i];
@@ -70,7 +72,9 @@ class PredictionPointX {
                 }
             }
         }
-        return [others[result], highest]    
+        let best_match = others[result];
+        best_match.most_recent_proj = highest
+        return best_match;
     }
 
     update_weight(diff: number){
@@ -166,6 +170,9 @@ export default function MLBackground() {
     let ay_list: Array<number> = [];
     let pointsQueue: Array<DataPoint> = [];
 
+    let predictionQueueX: Array<PredictionPointX> = [];
+    let predictionQueueY: Array<PredictionPointX> = [];
+
     let windWidth = 1000;
     const memWindow = 10;
     const expected_t = 0.03
@@ -195,18 +202,44 @@ export default function MLBackground() {
 
     function draw() {
       let startTime = performance.now();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouseX = mouse.current.x;
       const mouseY = mouse.current.y;
       update_lists(mouseX, mouseY, x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
       console.log(point.ax)
-      if (pointsQueue.length > 100){
+      if (pointsQueue.length > 60){
+        let pt = pointsQueue[0]
         pointsQueue.shift();
+        let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax);
+        let newPredY = new PredictionPointX(pt.y, pt.vy, pt.ay);
+        newPredX.set_result(pt.x - mouseX);
+        newPredY.set_result(pt.y - mouseY);
+        predictionQueueX.push(newPredX);
+        predictionQueueY.push(newPredY);
+        if (predictionQueueX.length > 100){
+            const best_matchX = newPredX.return_best_match(predictionQueueX);
+            const best_matchY = newPredY.return_best_match(predictionQueueY);
+            const newX = pt.x - best_matchX.result;
+            const newY = pt.y - best_matchY.result;
+            const differenceX = Math.abs(mouseX - newX);
+            const differenceY = Math.abs(mouseY - newY);
+            best_matchX.update_weight(differenceX);
+            best_matchY.update_weight(differenceY);
+
+            ctx.beginPath();
+            ctx.arc(newX, newY, 20, 0, Math.PI * 2);
+            ctx.fillStyle = "#7FAF6";
+            ctx.fill();
+            
+            predictionQueueX.shift();
+            predictionQueueY.shift();
+        }
+
       }
+      
 
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       ctx.beginPath();
       ctx.arc(mouseX, mouseY, 20, 0, Math.PI * 2);

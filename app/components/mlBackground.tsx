@@ -178,9 +178,6 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
 
 
 
-// THIS IS WAY too complicated to run in a browser, try simplifying the python code and then running this one, I think you can get away 
-// with no covarian
-
 export default function MLBackground() {
     let running = true;
 
@@ -224,7 +221,7 @@ export default function MLBackground() {
     
 
 
-    function draw(time: number) {
+    function draw() {
       let startTime = performance.now();
       const mouseX = mouse.current.x;
       const mouseY = mouse.current.y;
@@ -250,7 +247,8 @@ export default function MLBackground() {
       ctx.fillStyle = "#586994";
       ctx.fill();
 
-      
+      console.log(vx_list.length);
+      console.log(pointsQueue.length);
 
          
           
@@ -260,12 +258,12 @@ export default function MLBackground() {
  
       }
 
-    function drawLoop(time: number) {
+    function drawLoop() {
         if (!running){
             return;
         }
         const start = performance.now();
-        draw(time);
+        draw();
         const elapsed = performance.now() - start;
         const delay = Math.max(0, 30 - elapsed);
         setTimeout(drawLoop, delay);

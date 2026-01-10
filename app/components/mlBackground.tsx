@@ -247,9 +247,6 @@ export default function MLBackground() {
       ctx.fillStyle = "#586994";
       ctx.fill();
 
-      console.log(vx_list.length);
-      console.log(pointsQueue.length);
-
          
           
       const dt = performance.now() - startTime;
@@ -265,6 +262,7 @@ export default function MLBackground() {
         const start = performance.now();
         draw();
         const elapsed = performance.now() - start;
+        console.log(elapsed);
         const delay = Math.max(0, 30 - elapsed);
         setTimeout(drawLoop, delay);
         requestAnimationFrame(drawLoop);

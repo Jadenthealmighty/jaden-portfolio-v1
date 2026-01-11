@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
-import InteractiveBackground from "app/components/InteractiveBackground";
 
 
 export const metadata: Metadata = {

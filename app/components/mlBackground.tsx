@@ -48,7 +48,7 @@ class PredictionPointX {
     }
 
     get_mag(): number {
-        const tup = this.normed_params
+        const tup = this.normed_params;
         return Math.sqrt(tup[0] ** 2 + tup[1] ** 2 + tup[2] ** 2 + tup[3] ** 2 + tup[4] ** 2 + tup[5] ** 2);
     }
 
@@ -56,7 +56,7 @@ class PredictionPointX {
         const a = this.normed_params;
         const b = other.normed_params;
         if (this.vec_mag < 0.01){
-            return 0.01
+            return 0.01;
         }
         return this.weight * (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3] + a[4] * b[4] + a[5] * b[5]) / this.vec_mag;
     }
@@ -78,13 +78,13 @@ class PredictionPointX {
             }
         }
         let best_match = others[result];
-        this.most_recent_proj = highest
+        this.most_recent_proj = highest;
         this.most_recent_proj_index = result;
         return best_match;
     }
 
     update_weight(diff: number): number {
-        const next = this.weight * (min((5/(diff +0.1)**0.5), 10))
+        const next = this.weight * (min((5/(diff +0.1)**0.5), 10));
         this.weight = next;
         return next;
     }
@@ -211,7 +211,7 @@ export default function MLBackground() {
 
     let windWidth = 1000;
     const memWindow = 10;
-    const expected_t = 0.03
+    const expected_t = 0.03;
     const queueLen = 60;
 
 
@@ -244,7 +244,7 @@ export default function MLBackground() {
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
       if (pointsQueue.length > 30){
-        let pt = pointsQueue[0]
+        let pt = pointsQueue[0];
         pointsQueue.shift();
         let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax, pt.vx_cov, pt.ax_cov);
         let newPredY = new PredictionPointX(pt.y, pt.vy, pt.ay, pt.vy_cov, pt.ay_cov);
@@ -273,8 +273,8 @@ export default function MLBackground() {
                 predictionQueueY.shift();
             }
             const confidence =1 - (newPredX.most_recent_proj + newPredY.most_recent_proj)/3 ;
-            console.log(confidence)
-            const orbit_radius = 60 - Math.max(0, confidence) * 30
+            console.log(confidence);
+            const orbit_radius = 60 - Math.max(0, confidence) * 30;
             const baseAngle = orbit_time;
             const points: { x: number; y: number }[] = [];
             // Compute hexagon vertices
@@ -318,12 +318,6 @@ export default function MLBackground() {
 
       }
       
-
-
-      ctx.beginPath();
-      ctx.arc(mouseX, mouseY, 20, 0, Math.PI * 2);
-      ctx.fillStyle = "#586994";
-      ctx.fill();
 
       const pointPrev = pointsQueue[0];
       

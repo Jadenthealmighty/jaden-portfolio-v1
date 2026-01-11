@@ -383,9 +383,8 @@ export default function MLBackground() {
             
             ctx.beginPath();
             ctx.arc(newX, newY, 20, 0, Math.PI * 2);
-            ctx.fillStyle = "#75FAF6";
+            ctx.fillStyle = "rgba(117,250,246," + global_alpha * 0.9 + ")";
             ctx.fill();
-
         }
         const lenPoints = pointsQueue.length;
         for (let j =0; j < 10; j++){
@@ -393,7 +392,7 @@ export default function MLBackground() {
             ctx.beginPath();
             ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2);
             const alpha = 1 - j / 10;
-            ctx.fillStyle = "rgba(255,255,255," + global_alpha* alpha + ")";
+            ctx.fillStyle = "rgba(255,255,255," + global_alpha * alpha + ")";
             ctx.fill();
         }
 

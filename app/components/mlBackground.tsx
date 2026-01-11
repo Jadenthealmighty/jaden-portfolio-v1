@@ -216,6 +216,7 @@ export default function MLBackground() {
     const DPR = window.devicePixelRatio || 1;
 
     const fontFamily = "monospace";
+    let head_start = 0;
 
 
 
@@ -243,7 +244,6 @@ export default function MLBackground() {
         const cols = Math.floor(width / cellW);
         const rows = Math.floor(height / cellH);
         const lenQ = predictionQueueX.length;
-        let head_start = 0;
       
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {

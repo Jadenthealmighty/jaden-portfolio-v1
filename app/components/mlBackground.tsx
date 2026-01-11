@@ -243,6 +243,7 @@ export default function MLBackground() {
         const cols = Math.floor(width / cellW);
         const rows = Math.floor(height / cellH);
         const lenQ = predictionQueueX.length;
+        let head_start = 0;
       
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
@@ -254,10 +255,18 @@ export default function MLBackground() {
                 const numvalue = predictionQueueX[ Math.floor(iter/5) % lenQ].normed_params[iter % 5];
                 value = numvalue.toFixed(2);
             }
-            ctx.fillStyle = "rgba(255,255,255,0.15)";
-            ctx.fillText(value, x, y);
+            
+            if (iter - head_start <= 0 && iter - head_start > -6){
+                const alpha = 0.9 - Math.abs(iter - head_start) / 6;
+                ctx.fillStyle = "rgba(117,250,246," + alpha + ")";
+                ctx.fillText(value, x, y);
+            } else {
+                ctx.fillStyle = "rgba(255,255,255,0.25)";
+                ctx.fillText(value, x, y);
+            }
           }
         }
+        head_start = (head_start + 1) % (rows * cols + 20);
       
         drawBrackets(
           startX - 20,
@@ -326,7 +335,7 @@ export default function MLBackground() {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "rgba(255,255,255,0.8)";
-        let value = "Learning in progress: " + (predictionQueueX.length).toFixed(2) + "%";
+        let value = "Learning in progress: " + (predictionQueueX.length).toFixed(1) + "%";
         ctx.fillText(value, xCen, yCen);
       }
       if (pointsQueue.length > 50){

@@ -78,8 +78,14 @@ class PredictionPointX {
             }
         }
         let best_match = others[result];
+
         this.most_recent_proj = highest;
         this.most_recent_proj_index = result;
+
+        console.log("IMPORTANT");
+        console.log(this.most_recent_proj_index);
+        console.log(this.most_recent_proj);
+        console.log("END");
         return best_match;
     }
 
@@ -330,7 +336,6 @@ export default function MLBackground() {
           
       const dt = performance.now() - startTime;
 
-    //   requestAnimationFrame(draw);
  
       }
 

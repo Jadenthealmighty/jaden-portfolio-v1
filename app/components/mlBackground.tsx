@@ -367,7 +367,7 @@ export default function MLBackground() {
             const confidence =1 - (newPredX.most_recent_proj + newPredY.most_recent_proj)/3 ;
             console.log(confidence);
 
-            drawMatrix(newX, newY, false);
+            drawMatrix(newX, newY, true);
             
             
             ctx.beginPath();

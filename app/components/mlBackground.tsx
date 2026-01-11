@@ -225,13 +225,13 @@ export default function MLBackground() {
 
 
     function drawMatrix(centerX: number, centerY: number) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
       
-        const width = canvas.width * 0.9;
-        const height = canvas.height * 0.9;
+        const width = canvas.clientWidth * 0.9;
+        const height = canvas.clientHeight * 0.9;
       
-        const startX = (canvas.width - width) / 2;
-        const startY = (canvas.height - height) / 2;
+        const startX = (canvas.clientWidth - width) / 2;
+        const startY = (canvas.clientHeight - height) / 2;
       
         const cellW = width / cols;
         const cellH = height / rows;
@@ -255,8 +255,8 @@ export default function MLBackground() {
       
             ctx.fillStyle =
               value === "1"
-                ? "rgba(255,255,255,0.9)"
-                : "rgba(255,255,255,0.25)";
+                ? "rgba(255,255,255,0.4)"
+                : "rgba(255,255,255,0.15)";
       
             ctx.fillText(value, x, y);
           }
@@ -315,8 +315,8 @@ export default function MLBackground() {
 
     function draw() {
       let startTime = performance.now();
-      let xCen = canvas.width / 2;
-      let yCen = canvas.height / 2;
+      let xCen = canvas.clientWidth / 2;
+      let yCen = canvas.clientHeight / 2;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouseX = mouse.current.x;

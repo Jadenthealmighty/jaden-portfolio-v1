@@ -215,8 +215,10 @@ export default function MLBackground() {
     const ctx = canvas.getContext("2d")!;
     const DPR = window.devicePixelRatio || 1;
     const matrixPadding = 0.05; // 5% margins → 90% usage
-    const rows = Math.min(25, canvas.height / 60);
-    const cols = Math.min(40, canvas.width / 60);
+    // const rows = Math.min(25, canvas.height / 60);
+    // const cols = Math.min(40, canvas.width / 60);
+    const rows = 25;
+    const cols = 40;
 
     const fontFamily = "monospace";
 

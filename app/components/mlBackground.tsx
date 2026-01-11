@@ -225,22 +225,29 @@ export default function MLBackground() {
 
 
     function drawMatrix(centerX: number, centerY: number, start: boolean) {
-        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
       
         const width = canvas.clientWidth * 0.9;
         const height = canvas.clientHeight * 0.9;
-      
+
         const startX = (canvas.clientWidth - width) / 2;
         const startY = (canvas.clientHeight - height) / 2;
-      
-        const cellW = width / cols;
-        const cellH = height / rows;
-      
-        const radius = Math.min(width, height) * 0.3;
-      
-        ctx.font = `${Math.min(cellW, cellH) * 0.8}px ${fontFamily}`;
+
+        // --- FONT + CELL SIZE ---
+        const fontSize = Math.max(
+            12,
+            Math.min(canvas.clientWidth, canvas.clientHeight) * 0.025
+        );
+
+        ctx.font = `${fontSize}px ${fontFamily}`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
+
+        const sampleText = "-1.23";
+        const cellW = ctx.measureText(sampleText).width + fontSize * 0.6;
+        const cellH = fontSize * 1.6;
+
+        const cols = Math.floor(width / cellW);
+        const rows = Math.floor(height / cellH);
         const lenQ = predictionQueueX.length;
       
         for (let r = 0; r < rows; r++) {
@@ -251,21 +258,8 @@ export default function MLBackground() {
             let value = "0";
             if (start) {
                 const numvalue = predictionQueueX[ Math.floor(iter/5) % lenQ].normed_params[iter % 5];
-                value = numvalue.toFixed(3);
+                value = numvalue.toFixed(2);
             }
-
-            
-      
-            // const dx = x - centerX;
-            // const dy = y - centerY;
-            // const dist = Math.sqrt(dx * dx + dy * dy);
-      
-            // const value = dist < radius ? "1" : "0";
-      
-            // ctx.fillStyle =
-            //   value === "1"
-            //     ? "rgba(255,255,255,0.4)"
-            //     : "rgba(255,255,255,0.15)";
             ctx.fillStyle = "rgba(255,255,255,0.15)";
             ctx.fillText(value, x, y);
           }

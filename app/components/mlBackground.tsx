@@ -241,6 +241,7 @@ export default function MLBackground() {
         ctx.font = `${Math.min(cellW, cellH) * 0.8}px ${fontFamily}`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
+        const lenQ = predictionQueueX.length;
       
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
@@ -249,7 +250,7 @@ export default function MLBackground() {
             const iter = r * cols + c;
             let value = "0";
             if (start) {
-                const numvalue = predictionQueueX[ Math.floor(iter/5)].normed_params[iter % 5];
+                const numvalue = predictionQueueX[ Math.floor(iter/5) % lenQ].normed_params[iter % 5];
                 value = numvalue.toFixed(3);
             }
 

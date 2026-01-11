@@ -70,7 +70,7 @@ class PredictionPointX {
         for (let i = 0; i < others.length; i++){
             let other = others[i];
             if (other.result_set && other != this){
-                const proj = this.project_onto_this(other);
+                let proj = this.project_onto_this(other);
                 if (proj > highest){
                     highest = proj;
                     result = i;
@@ -83,8 +83,8 @@ class PredictionPointX {
         this.most_recent_proj_index = result;
 
         console.log("IMPORTANT");
-        console.log(this.most_recent_proj_index);
-        console.log(this.most_recent_proj);
+        console.log(highest);
+        console.log(result);
         console.log("END");
         return best_match;
     }
@@ -317,7 +317,7 @@ export default function MLBackground() {
                 ctx.fill();
             }
 
-            orbit_time += 0.01 * 60/ orbit_radius;
+            orbit_time += 0.01 * 120/ orbit_radius;
 
 
         }

@@ -78,7 +78,7 @@ class PredictionPointX {
             }
         }
         let best_match = others[result];
-        best_match.most_recent_proj = highest
+        this.most_recent_proj = highest
         this.most_recent_proj_index = result;
         return best_match;
     }
@@ -262,17 +262,18 @@ export default function MLBackground() {
             const xWeight = best_matchX.update_weight(differenceX);
             const yWeight = best_matchY.update_weight(differenceY);
 
-            if (xWeight < 0.1){
+            if (xWeight < 0.2){
                 predictionQueueX.splice(newPredX.most_recent_proj_index, 1);
             } else {
                 predictionQueueX.shift();
             }
-            if (yWeight < 0.1){
+            if (yWeight < 0.2){
                 predictionQueueY.splice(newPredY.most_recent_proj_index, 1);
             } else {
                 predictionQueueY.shift();
             }
-            const confidence =1 - (best_matchX.most_recent_proj + best_matchY.most_recent_proj)/3 ;
+            const confidence =1 - (newPredX.most_recent_proj + newPredY.most_recent_proj)/3 ;
+            console.log(confidence)
             const orbit_radius = 60 - Math.max(0, confidence) * 30
             const baseAngle = orbit_time;
             const points: { x: number; y: number }[] = [];
@@ -297,7 +298,16 @@ export default function MLBackground() {
             for (const p of points) {
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-                ctx.fillStyle = "75FAF6";
+                ctx.fillStyle = "#75FAF6";
+                ctx.fill();
+            }
+            const lenPoints = points.length;
+            for (let j =0; j < 10; j++){
+                const pt = points[lenPoints - 1 - j];
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2);
+                const alpha = 1 - j / 10;
+                ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
                 ctx.fill();
             }
 

@@ -49,7 +49,7 @@ class PredictionPointX {
 
     get_mag(): number {
         const tup = this.normed_params;
-        return Math.sqrt(tup[0] ** 2 + tup[1] ** 2 + tup[2] ** 2 + tup[3] ** 2 + tup[4] ** 2 + tup[5] ** 2);
+        return Math.sqrt(tup[0] ** 2 + tup[1] ** 2 + tup[2] ** 2 + tup[3] ** 2 + tup[4] ** 2);
     }
 
     project_onto_this(other: PredictionPointX): number{
@@ -58,7 +58,7 @@ class PredictionPointX {
         if (this.vec_mag < 0.01){
             return 0.01;
         }
-        return this.weight * (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3] + a[4] * b[4] + a[5] * b[5]) / this.vec_mag;
+        return this.weight * (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3] + a[4] * b[4]) / this.vec_mag;
     }
     
     return_best_match(others: Array<PredictionPointX>): PredictionPointX {

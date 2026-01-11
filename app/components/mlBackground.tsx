@@ -330,6 +330,9 @@ export default function MLBackground() {
 
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
       const mouseX = mouse.current.x;
       const mouseY = mouse.current.y;
       update_lists(mouseX, mouseY, x_list, y_list, vx_list, vy_list, ax_list, ay_list);

@@ -129,6 +129,9 @@ export default function InteractiveBackground() {
       lastTime = time;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
 
       const t = time - startTime.current;
       const phase = (t % wavePeriod) / wavePeriod;

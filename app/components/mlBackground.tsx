@@ -301,9 +301,9 @@ export default function MLBackground() {
                 ctx.fillStyle = "#75FAF6";
                 ctx.fill();
             }
-            const lenPoints = points.length;
+            const lenPoints = pointsQueue.length;
             for (let j =0; j < 10; j++){
-                const pt = points[lenPoints - 1 - j];
+                const pt = pointsQueue[lenPoints - 1 - j];
                 ctx.beginPath();
                 ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2);
                 const alpha = 1 - j / 10;

@@ -218,13 +218,13 @@ export default function MLBackground() {
     // const rows = Math.min(25, canvas.height / 60);
     // const cols = Math.min(40, canvas.width / 60);
     const rows = 25;
-    const cols = 40;
+    const cols = 30;
 
     const fontFamily = "monospace";
 
 
 
-    function drawMatrix(centerX: number, centerY: number) {
+    function drawMatrix(centerX: number, centerY: number, start: boolean) {
         ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
       
         const width = canvas.clientWidth * 0.9;
@@ -246,18 +246,26 @@ export default function MLBackground() {
           for (let c = 0; c < cols; c++) {
             const x = startX + c * cellW + cellW / 2;
             const y = startY + r * cellH + cellH / 2;
+            const iter = r * cols + c;
+            let value = "0";
+            if (start) {
+                const numvalue = predictionQueueX[ Math.floor(iter/5)].normed_params[iter % 5];
+                value = numvalue.toFixed(3);
+            }
+
+            
       
-            const dx = x - centerX;
-            const dy = y - centerY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+            // const dx = x - centerX;
+            // const dy = y - centerY;
+            // const dist = Math.sqrt(dx * dx + dy * dy);
       
-            const value = dist < radius ? "1" : "0";
+            // const value = dist < radius ? "1" : "0";
       
-            ctx.fillStyle =
-              value === "1"
-                ? "rgba(255,255,255,0.4)"
-                : "rgba(255,255,255,0.15)";
-      
+            // ctx.fillStyle =
+            //   value === "1"
+            //     ? "rgba(255,255,255,0.4)"
+            //     : "rgba(255,255,255,0.15)";
+            ctx.fillStyle = "rgba(255,255,255,0.15)";
             ctx.fillText(value, x, y);
           }
         }
@@ -325,7 +333,7 @@ export default function MLBackground() {
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
       if (predictionQueueX.length <= 100){
-        drawMatrix(xCen, yCen);
+        drawMatrix(xCen, yCen, false);
       }
       if (pointsQueue.length > 50){
         let pt = pointsQueue[0];
@@ -357,8 +365,9 @@ export default function MLBackground() {
                 predictionQueueY.shift();
             }
             const confidence =1 - (newPredX.most_recent_proj + newPredY.most_recent_proj)/3 ;
+            console.log(confidence);
 
-            drawMatrix(newX, newY);
+            drawMatrix(newX, newY, false);
             
             
             ctx.beginPath();

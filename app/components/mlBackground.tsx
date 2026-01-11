@@ -214,11 +214,6 @@ export default function MLBackground() {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
     const DPR = window.devicePixelRatio || 1;
-    const matrixPadding = 0.05; // 5% margins → 90% usage
-    // const rows = Math.min(25, canvas.height / 60);
-    // const cols = Math.min(40, canvas.width / 60);
-    const rows = 25;
-    const cols = 30;
 
     const fontFamily = "monospace";
 
@@ -232,7 +227,6 @@ export default function MLBackground() {
         const startX = (canvas.clientWidth - width) / 2;
         const startY = (canvas.clientHeight - height) / 2;
 
-        // --- FONT + CELL SIZE ---
         const fontSize = Math.max(
             12,
             Math.min(canvas.clientWidth, canvas.clientHeight) * 0.025
@@ -283,16 +277,14 @@ export default function MLBackground() {
       
         ctx.strokeStyle = "rgba(255,255,255,0.8)";
         ctx.lineWidth = thickness;
-      
-        // Left bracket [
+
         ctx.beginPath();
         ctx.moveTo(xLeft + 15, yTop);
         ctx.lineTo(xLeft, yTop);
         ctx.lineTo(xLeft, yBottom);
         ctx.lineTo(xLeft + 15, yBottom);
         ctx.stroke();
-      
-        // Right bracket ]
+
         ctx.beginPath();
         ctx.moveTo(xRight - 15, yTop);
         ctx.lineTo(xRight, yTop);
@@ -329,6 +321,13 @@ export default function MLBackground() {
       pointsQueue.push(point);
       if (predictionQueueX.length < 100){
         drawMatrix(xCen, yCen, false);
+        const fontFamily = "monospace";
+        ctx.font = `20px ${fontFamily}`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        let value = "Learning in progress: " + (predictionQueueX.length).toFixed(2) + "%";
+        ctx.fillText(value, xCen, yCen);
       }
       if (pointsQueue.length > 50){
         let pt = pointsQueue[0];
@@ -383,14 +382,6 @@ export default function MLBackground() {
         }
 
       }
-      
-
-      const pointPrev = pointsQueue[0];
-      
-      ctx.beginPath();
-      ctx.arc(pointPrev.x, pointPrev.y, 20, 0, Math.PI * 2);
-      ctx.fillStyle = "#586994";
-      ctx.fill();
 
          
           

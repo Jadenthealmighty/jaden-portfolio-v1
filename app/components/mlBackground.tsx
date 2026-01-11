@@ -168,8 +168,8 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
         const len = x_list.length;
         const vx = (x_list[len -1] - x_list[len-2]) / 0.03;
         const vy = (y_list[len-1] - y_list[len-2]) / 0.03;
-        const ax = (vx_list[len-1] - vx_list[len-2]) / 0.03;
-        const ay = (vy_list[len-1] - vy_list[len-2]) / 0.03;
+        const ax = (vx_list[len-2] - vx_list[len-3]) / 0.03;
+        const ay = (vy_list[len-2] - vy_list[len-3]) / 0.03;
         vx_list.push(vx);
         vy_list.push(vy);
         ax_list.push(ax);

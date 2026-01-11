@@ -64,9 +64,6 @@ class PredictionPointX {
     return_best_match(others: Array<PredictionPointX>): PredictionPointX {
         let highest = 0;
         let result = 0;
-        if (!this.result_set){
-            return others[0];
-        }
         for (let i = 0; i < others.length; i++){
             let other = others[i];
             if (other.result_set && other != this){

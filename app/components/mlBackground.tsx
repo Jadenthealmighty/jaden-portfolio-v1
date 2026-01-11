@@ -217,7 +217,7 @@ export default function MLBackground() {
 
     const fontFamily = "monospace";
     let head_start = 0;
-
+    let global_alpha = 1;
 
 
     function drawMatrix(centerX: number, centerY: number, start: boolean) {
@@ -244,7 +244,7 @@ export default function MLBackground() {
         const cols = Math.floor(width / cellW);
         const rows = Math.floor(height / cellH);
         const lenQ = predictionQueueX.length;
-      
+
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
             const x = startX + c * cellW + cellW / 2;
@@ -256,17 +256,17 @@ export default function MLBackground() {
                 value = numvalue.toFixed(2);
             }
             
-            if (iter - head_start <= 0 && iter - head_start > -6){
-                const alpha = 0.9 - Math.abs(iter - head_start) / 6;
-                ctx.fillStyle = "rgba(117,250,246," + alpha + ")";
+            if (iter - head_start <= 0 && iter - head_start > -10){
+                const alpha = 0.9 - Math.abs(iter - head_start) / 10;
+                ctx.fillStyle = "rgba(117,250,246," + alpha * global_alpha + ")";
                 ctx.fillText(value, x, y);
             } else {
-                ctx.fillStyle = "rgba(255,255,255,0.25)";
+                ctx.fillStyle = "rgba(255,255,255," + global_alpha * 0.25 + ")";
                 ctx.fillText(value, x, y);
             }
           }
         }
-        head_start = (head_start + 1) % (rows * cols + 20);
+        head_start = Math.round((head_start + 0.24) % (rows * cols + 20));
       
         drawBrackets(
           startX - 20,
@@ -284,7 +284,7 @@ export default function MLBackground() {
       ) {
         const thickness = 4;
       
-        ctx.strokeStyle = "rgba(255,255,255,0.8)";
+        ctx.strokeStyle = "rgba(255,255,255," + global_alpha * 0.8+ ")";
         ctx.lineWidth = thickness;
 
         ctx.beginPath();
@@ -322,6 +322,10 @@ export default function MLBackground() {
       let xCen = canvas.clientWidth / 2;
       let yCen = canvas.clientHeight / 2;
 
+      global_alpha = Math.max(0.4, 1 - scrollY / canvas.clientHeight / 2);
+
+      const alphaConst = global_alpha;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouseX = mouse.current.x;
       const mouseY = mouse.current.y;
@@ -334,7 +338,7 @@ export default function MLBackground() {
         ctx.font = `20px ${fontFamily}`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.fillStyle = "rgba(255,255,255," + global_alpha * 0.8 + ")";
         let value = "Learning in progress: " + (predictionQueueX.length).toFixed(1) + "%";
         ctx.fillText(value, xCen, yCen);
       }
@@ -386,7 +390,7 @@ export default function MLBackground() {
             ctx.beginPath();
             ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2);
             const alpha = 1 - j / 10;
-            ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
+            ctx.fillStyle = "rgba(255,255,255," + global_alpha* alpha + ")";
             ctx.fill();
         }
 
@@ -418,6 +422,10 @@ export default function MLBackground() {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
     });
+    window.addEventListener("scroll", () => {
+        scrollY = window.scrollY;
+    });
+
 
 
     resize();
@@ -430,6 +438,9 @@ export default function MLBackground() {
         mouse.current.x = e.clientX;
         mouse.current.y = e.clientY;
       });
+      window.removeEventListener("scroll", () => {
+        scrollY = window.scrollY;
+    });
       running = false;
     };
   }, []);

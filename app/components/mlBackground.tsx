@@ -75,14 +75,8 @@ class PredictionPointX {
             }
         }
         let best_match = others[result];
-
         this.most_recent_proj = highest;
         this.most_recent_proj_index = result;
-
-        console.log("IMPORTANT");
-        console.log(highest);
-        console.log(result);
-        console.log("END");
         return best_match;
     }
 
@@ -193,13 +187,14 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
 
 
 
+
+
 export default function MLBackground() {
     let running = true;
 
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const mouse = useRef({ x: 10, y: 10 });
-    const startTime = useRef(performance.now());
 
     let x_list: Array<number> = [];
     let y_list: Array<number> = [];
@@ -213,18 +208,96 @@ export default function MLBackground() {
     let predictionQueueY: Array<PredictionPointX> = [];
 
     let windWidth = 1000;
-    const memWindow = 10;
-    const expected_t = 0.03;
-    const queueLen = 60;
 
 
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
     const DPR = window.devicePixelRatio || 1;
+    const matrixPadding = 0.05; // 5% margins → 90% usage
+    const rows = Math.min(25, canvas.height / 60);
+    const cols = Math.min(40, canvas.width / 60);
+
+    const fontFamily = "monospace";
 
 
-    let orbit_time = 0;
+
+    function drawMatrix(centerX: number, centerY: number) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+        const width = canvas.width * 0.9;
+        const height = canvas.height * 0.9;
+      
+        const startX = (canvas.width - width) / 2;
+        const startY = (canvas.height - height) / 2;
+      
+        const cellW = width / cols;
+        const cellH = height / rows;
+      
+        const radius = Math.min(width, height) * 0.3;
+      
+        ctx.font = `${Math.min(cellW, cellH) * 0.8}px ${fontFamily}`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+      
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const x = startX + c * cellW + cellW / 2;
+            const y = startY + r * cellH + cellH / 2;
+      
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+      
+            const value = dist < radius ? "1" : "0";
+      
+            ctx.fillStyle =
+              value === "1"
+                ? "rgba(255,255,255,0.9)"
+                : "rgba(255,255,255,0.25)";
+      
+            ctx.fillText(value, x, y);
+          }
+        }
+      
+        drawBrackets(
+          startX - 20,
+          startX + width + 20,
+          startY,
+          startY + height
+        );
+      }
+
+      function drawBrackets(
+        xLeft: number,
+        xRight: number,
+        yTop: number,
+        yBottom: number
+      ) {
+        const thickness = 4;
+      
+        ctx.strokeStyle = "rgba(255,255,255,0.8)";
+        ctx.lineWidth = thickness;
+      
+        // Left bracket [
+        ctx.beginPath();
+        ctx.moveTo(xLeft + 15, yTop);
+        ctx.lineTo(xLeft, yTop);
+        ctx.lineTo(xLeft, yBottom);
+        ctx.lineTo(xLeft + 15, yBottom);
+        ctx.stroke();
+      
+        // Right bracket ]
+        ctx.beginPath();
+        ctx.moveTo(xRight - 15, yTop);
+        ctx.lineTo(xRight, yTop);
+        ctx.lineTo(xRight, yBottom);
+        ctx.lineTo(xRight - 15, yBottom);
+        ctx.stroke();
+      }
+      
+      
+
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -240,13 +313,19 @@ export default function MLBackground() {
 
     function draw() {
       let startTime = performance.now();
+      let xCen = canvas.width / 2;
+      let yCen = canvas.height / 2;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouseX = mouse.current.x;
       const mouseY = mouse.current.y;
       update_lists(mouseX, mouseY, x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
-      if (pointsQueue.length > 30){
+      if (predictionQueueX.length <= 100){
+        drawMatrix(xCen, yCen);
+      }
+      if (pointsQueue.length > 50){
         let pt = pointsQueue[0];
         pointsQueue.shift();
         let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax, pt.vx_cov, pt.ax_cov);
@@ -276,47 +355,24 @@ export default function MLBackground() {
                 predictionQueueY.shift();
             }
             const confidence =1 - (newPredX.most_recent_proj + newPredY.most_recent_proj)/3 ;
-            console.log(confidence);
-            const orbit_radius = 60 - Math.max(0, confidence) * 30;
-            const baseAngle = orbit_time;
-            const points: { x: number; y: number }[] = [];
-            // Compute hexagon vertices
-            for (let i = 0; i < 6; i++) {
-                const angle = baseAngle + i * (Math.PI / 3);
-                const x = newX + orbit_radius * Math.cos(angle);
-                const y = newY + orbit_radius * Math.sin(angle);
-                points.push({ x, y });
-            }
-            // Draw hexagon outline (optional)
+
+            drawMatrix(newX, newY);
+            
+            
             ctx.beginPath();
-            points.forEach((p, i) => {
-                if (i === 0) ctx.moveTo(p.x, p.y);
-                else ctx.lineTo(p.x, p.y);
-            });
-            ctx.closePath();
-            ctx.strokeStyle = "rgba(255,255,255,0.3)";
-            ctx.stroke();
+            ctx.arc(newX, newY, 20, 0, Math.PI * 2);
+            ctx.fillStyle = "#75FAF6";
+            ctx.fill();
 
-            // Draw orbiting balls
-            for (const p of points) {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
-                ctx.fillStyle = "#75FAF6";
-                ctx.fill();
-            }
-            const lenPoints = pointsQueue.length;
-            for (let j =0; j < 10; j++){
-                const pt = pointsQueue[lenPoints - 1 - j];
-                ctx.beginPath();
-                ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2);
-                const alpha = 1 - j / 10;
-                ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
-                ctx.fill();
-            }
-
-            orbit_time += 0.01 * 120/ orbit_radius;
-
-
+        }
+        const lenPoints = pointsQueue.length;
+        for (let j =0; j < 10; j++){
+            const pt = pointsQueue[lenPoints - 1 - j];
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, 20, 0, Math.PI * 2);
+            const alpha = 1 - j / 10;
+            ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
+            ctx.fill();
         }
 
       }

@@ -220,9 +220,8 @@ export default function MLBackground() {
     const ctx = canvas.getContext("2d")!;
     const DPR = window.devicePixelRatio || 1;
 
-    let lastTime = performance.now();
-    let accumulator = 0;
-    const DRAW_INTERVAL = 30;
+
+    let orbit_time = 0;
 
     function resize() {
       canvas.width = window.innerWidth * DPR;
@@ -244,8 +243,7 @@ export default function MLBackground() {
       update_lists(mouseX, mouseY, x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
-      console.log(point.ax)
-      if (pointsQueue.length > 60){
+      if (pointsQueue.length > 30){
         let pt = pointsQueue[0]
         pointsQueue.shift();
         let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax, pt.vx_cov, pt.ax_cov);
@@ -264,10 +262,6 @@ export default function MLBackground() {
             const xWeight = best_matchX.update_weight(differenceX);
             const yWeight = best_matchY.update_weight(differenceY);
 
-            ctx.beginPath();
-            ctx.arc(newX, newY, 20, 0, Math.PI * 2);
-            ctx.fillStyle = "#7FAF6";
-            ctx.fill();
             if (xWeight < 0.1){
                 predictionQueueX.splice(newPredX.most_recent_proj_index, 1);
             } else {
@@ -278,6 +272,38 @@ export default function MLBackground() {
             } else {
                 predictionQueueY.shift();
             }
+            const confidence =1 - (best_matchX.most_recent_proj + best_matchY.most_recent_proj)/3 ;
+            const orbit_radius = 60 - Math.max(0, confidence) * 30
+            const baseAngle = orbit_time;
+            const points: { x: number; y: number }[] = [];
+            // Compute hexagon vertices
+            for (let i = 0; i < 6; i++) {
+                const angle = baseAngle + i * (Math.PI / 3);
+                const x = newX + orbit_radius * Math.cos(angle);
+                const y = newY + orbit_radius * Math.sin(angle);
+                points.push({ x, y });
+            }
+            // Draw hexagon outline (optional)
+            ctx.beginPath();
+            points.forEach((p, i) => {
+                if (i === 0) ctx.moveTo(p.x, p.y);
+                else ctx.lineTo(p.x, p.y);
+            });
+            ctx.closePath();
+            ctx.strokeStyle = "rgba(255,255,255,0.3)";
+            ctx.stroke();
+
+            // Draw orbiting balls
+            for (const p of points) {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+                ctx.fillStyle = "75FAF6";
+                ctx.fill();
+            }
+
+            orbit_time += 0.01 * 60/ orbit_radius;
+
+
         }
 
       }

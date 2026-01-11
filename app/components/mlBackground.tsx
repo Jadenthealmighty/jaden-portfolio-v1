@@ -218,6 +218,7 @@ export default function MLBackground() {
 
     const fontFamily = "monospace";
     let head_start = 0;
+    let scrollY = 0;
 
 
 

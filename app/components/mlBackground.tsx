@@ -327,12 +327,13 @@ export default function MLBackground() {
       update_lists(mouseX, mouseY, x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       const point = create_point(x_list, y_list, vx_list, vy_list, ax_list, ay_list);
       pointsQueue.push(point);
-      if (predictionQueueX.length <= 100){
+      if (predictionQueueX.length < 100){
         drawMatrix(xCen, yCen, false);
       }
       if (pointsQueue.length > 50){
         let pt = pointsQueue[0];
         pointsQueue.shift();
+        console.log(pt.ax)
         let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax, pt.vx_cov, pt.ax_cov);
         let newPredY = new PredictionPointX(pt.y, pt.vy, pt.ay, pt.vy_cov, pt.ay_cov);
         newPredX.set_result(pt.x - mouseX);

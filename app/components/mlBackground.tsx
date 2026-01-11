@@ -8,6 +8,8 @@ class PredictionPointX {
     pos_x: number;
     v_x: number;
     a_x: number;
+    vx_cov: number;
+    ax_cov: number;
 
     normed_params: Array<number>;
     vec_mag: number;
@@ -16,12 +18,15 @@ class PredictionPointX {
     result: number;
     result_set: boolean;
     most_recent_proj: number;
+    most_recent_proj_index: number;
     windWidth = 1000;
 
-    constructor(pos_x: number, v_x: number, a_x: number) {
+    constructor(pos_x: number, v_x: number, a_x: number, vx_cov: number, ax_cov: number) {
         this.pos_x = pos_x;
         this.v_x = v_x;
         this.a_x = a_x;
+        this.vx_cov = vx_cov;
+        this.ax_cov = ax_cov;
         this.normed_params = this.get_normed_params();
         this.vec_mag = this.get_mag();
         this.weight = 1;
@@ -38,8 +43,8 @@ class PredictionPointX {
 
     get_normed_params(): Array<number> {
         const k = this.windWidth / 800;
-        return [this.pos_x / this.windWidth, abs_min(this.v_x * k / 400, 10),
-        abs_min(this.a_x * k / 80000, 10)];
+        return [this.pos_x / this.windWidth, abs_min(this.v_x * k / 400, 10), min(this.vx_cov * k /500, 10),
+        abs_min(this.a_x * k / 80000, 10), min(this.ax_cov * k /40000, 10)];
     }
 
     get_mag(): number {
@@ -74,11 +79,14 @@ class PredictionPointX {
         }
         let best_match = others[result];
         best_match.most_recent_proj = highest
+        this.most_recent_proj_index = result;
         return best_match;
     }
 
-    update_weight(diff: number){
-        this.weight = this.weight * (min((5/(diff +0.1)**0.5), 10))
+    update_weight(diff: number): number {
+        const next = this.weight * (min((5/(diff +0.1)**0.5), 10))
+        this.weight = next;
+        return next;
     }
 }
 
@@ -89,13 +97,21 @@ class DataPoint {
     vy: number;
     ax: number;
     ay: number;
-    constructor(x: number, y: number, vx: number, vy: number, ax: number, ay: number) {
+    ax_cov: number;
+    vx_cov: number;
+    ay_cov: number;
+    vy_cov: number;
+    constructor(x: number, y: number, vx: number, vy: number, ax: number, ay: number, ax_cov: number, vx_cov: number, ay_cov: number, vy_cov: number) {
         this.x = x;
         this.y = y;
         this.vx = vx;
         this.vy = vy;
         this.ax = ax;
         this.ay = ay;
+        this.ax_cov = ax_cov;
+        this.vx_cov = vx_cov;
+        this.ay_cov = ay_cov;
+        this.vy_cov = vy_cov;
     }
 }
 
@@ -115,12 +131,32 @@ function min(x: number, y: number): number {
         return y;
     }
 }
+function get_mean(x_list: Array<number>): number {
+    let sum = 0;
+    for (let i = 0; i < x_list.length; i++){
+        sum += x_list[i];
+    }
+    return sum /x_list.length ;
+}
+
+function get_std(x_list: Array<number>): number {
+    let mean = get_mean(x_list);
+    let sum = 0;
+    for (let i = 0; i < x_list.length; i++){
+        sum += (x_list[i] - mean) ** 2;
+    }
+    return Math.sqrt(sum /x_list.length);
+}
 
 
 
 function create_point(x_list: Array<number>, y_list: Array<number>, vx_list: Array<number>, vy_list: Array<number>, ax_list: Array<number>, ay_list: Array<number>): DataPoint {
     const len = x_list.length;
-    return new DataPoint(x_list[len-1], y_list[len-1], vx_list[len-1], vy_list[len-1], ax_list[len-1], ay_list[len-1]);
+    const vy_cov = get_std(vy_list);
+    const vx_cov = get_std(vx_list);
+    const ay_cov = get_std(ay_list);
+    const ax_cov = get_std(ax_list);
+    return new DataPoint(x_list[len-1], y_list[len-1], vx_list[len-1], vy_list[len-1], ax_list[len-1], ay_list[len-1], ax_cov, vx_cov, ay_cov, vy_cov);
 }
 
 function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array<number>, vx_list: Array<number>, vy_list: Array<number>, ax_list: Array<number>, ay_list: Array<number>){
@@ -142,7 +178,7 @@ function update_lists(x: number, y: number, x_list: Array<number>, y_list: Array
         ax_list.push(ax);
         ay_list.push(ay);
     }
-    if (x_list.length > 5){
+    if (x_list.length > 10){
         x_list.shift();
         y_list.shift();
         vx_list.shift();
@@ -212,8 +248,8 @@ export default function MLBackground() {
       if (pointsQueue.length > 60){
         let pt = pointsQueue[0]
         pointsQueue.shift();
-        let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax);
-        let newPredY = new PredictionPointX(pt.y, pt.vy, pt.ay);
+        let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax, pt.vx_cov, pt.ax_cov);
+        let newPredY = new PredictionPointX(pt.y, pt.vy, pt.ay, pt.vy_cov, pt.ay_cov);
         newPredX.set_result(pt.x - mouseX);
         newPredY.set_result(pt.y - mouseY);
         predictionQueueX.push(newPredX);
@@ -225,16 +261,23 @@ export default function MLBackground() {
             const newY = pt.y - best_matchY.result;
             const differenceX = Math.abs(mouseX - newX);
             const differenceY = Math.abs(mouseY - newY);
-            best_matchX.update_weight(differenceX);
-            best_matchY.update_weight(differenceY);
+            const xWeight = best_matchX.update_weight(differenceX);
+            const yWeight = best_matchY.update_weight(differenceY);
 
             ctx.beginPath();
             ctx.arc(newX, newY, 20, 0, Math.PI * 2);
             ctx.fillStyle = "#7FAF6";
             ctx.fill();
-            
-            predictionQueueX.shift();
-            predictionQueueY.shift();
+            if (xWeight < 0.1){
+                predictionQueueX.splice(newPredX.most_recent_proj_index, 1);
+            } else {
+                predictionQueueX.shift();
+            }
+            if (yWeight < 0.1){
+                predictionQueueY.splice(newPredY.most_recent_proj_index, 1);
+            } else {
+                predictionQueueY.shift();
+            }
         }
 
       }

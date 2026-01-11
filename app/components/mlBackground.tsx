@@ -208,6 +208,7 @@ export default function MLBackground() {
     let predictionQueueY: Array<PredictionPointX> = [];
 
     let windWidth = 1000;
+    let global_alpha = 1;
 
 
   useEffect(() => {
@@ -217,7 +218,7 @@ export default function MLBackground() {
 
     const fontFamily = "monospace";
     let head_start = 0;
-    let global_alpha = 1;
+
 
 
     function drawMatrix(centerX: number, centerY: number, start: boolean) {
@@ -245,6 +246,8 @@ export default function MLBackground() {
         const rows = Math.floor(height / cellH);
         const lenQ = predictionQueueX.length;
 
+        const head_start_int = Math.round(head_start);
+
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
             const x = startX + c * cellW + cellW / 2;
@@ -255,9 +258,9 @@ export default function MLBackground() {
                 const numvalue = predictionQueueX[ Math.floor(iter/5) % lenQ].normed_params[iter % 5];
                 value = numvalue.toFixed(2);
             }
-            
-            if (iter - head_start <= 0 && iter - head_start > -10){
-                const alpha = 0.9 - Math.abs(iter - head_start) / 10;
+            const dif = iter - head_start_int;
+            if (dif <= 0 && dif > -10){
+                const alpha = 0.9 - Math.abs(dif) / 10;
                 ctx.fillStyle = "rgba(117,250,246," + alpha * global_alpha + ")";
                 ctx.fillText(value, x, y);
             } else {
@@ -266,7 +269,7 @@ export default function MLBackground() {
             }
           }
         }
-        head_start = Math.round((head_start + 0.24) % (rows * cols + 20));
+        head_start = (head_start + 0.24) % (rows * cols + 20);
       
         drawBrackets(
           startX - 20,
@@ -324,7 +327,6 @@ export default function MLBackground() {
 
       global_alpha = Math.max(0.4, 1 - scrollY / canvas.clientHeight / 2);
 
-      const alphaConst = global_alpha;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const mouseX = mouse.current.x;

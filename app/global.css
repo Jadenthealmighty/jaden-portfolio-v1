@@ -50,14 +50,14 @@ html {
   min-width: 360px;
 }
 .image-container {
-  width: 80vw;
-  max-width: 80vw;
+  width: 80%;
+  max-width: 80%;
   margin: 0 auto; /* Centers it */
 }
 
 .gradient-border {
   position: relative;
-  width: 100%;
+  width: 80%;
   border-radius: 20px;
   background: white;
   padding: 4px;

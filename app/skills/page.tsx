@@ -30,7 +30,7 @@ export default function SkillsPage() {
         <img src="/images/html-logo.png" alt="HTML" className="language-logo" />
       </div>
       <div className="language-item">
-        <img src="/images/css-logo.jpg" alt="CSS" className="language-logo" />
+        <img src="/images/css-logo.png" alt="CSS" className="language-logo" />
       </div>
       <div className="language-item">
         <img src="/images/MATLAB-logo.png" alt="Matlab" className="language-logo" />

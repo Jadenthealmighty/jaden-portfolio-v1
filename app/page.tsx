@@ -14,6 +14,7 @@ export default function Page() {
       />
     </div>
   </div>
+  <p className="mb-4"></p>
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>

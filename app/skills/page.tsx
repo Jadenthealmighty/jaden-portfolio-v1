@@ -13,7 +13,7 @@ export default function SkillsPage() {
           <p className="mb-4">
         This is an unsupervised machine learning model I've written from scratch running directly in your browser. 
         Every bit of matrix operations has been optimized to run in the TypeScript file, 
-        being run 100% on your computer. The model only sees where your mouse was 5 seconds 
+        being run 100% on your computer. The model only sees where your mouse was 5 seconds (if on mobile, the last place you've tapped) 
         ago and calculates its best prediction(in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is(in white).
           </p>
           <p className="mb-10">

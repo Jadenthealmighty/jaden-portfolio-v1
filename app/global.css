@@ -146,6 +146,64 @@ html {
   object-fit: contain;
 }
 
+.projects-section {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.projects-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  padding: 20px;
+}
+
+.project-nav-item {
+  aspect-ratio: 1 / 1;
+  background: #f5f5f5;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-nav-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #e8e8e8;
+}
+
+.project-detail {
+  max-width: 900px;
+  margin: 0 auto 80px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  scroll-margin-top: 20px; /* Adds space when scrolling to the section */
+}
+
+.project-detail h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -155,6 +213,7 @@ html {
   max-width: 1000px;
   cursor: pointer;
 }
+
 
 .anchor:hover {
   @apply visible;

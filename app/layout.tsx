@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Jaden Al-Aidroos Portfolio',
   description: 'UofT Physics Student',
   icons: {
-    icon: "app/favicon.ico"
+    icon: "/favicon.ico"
   },
   openGraph: {
     title: 'My Portfolio',

@@ -50,7 +50,7 @@ export default function ProjectsPage() {
     </a>
   </div>
 
-  <div id="project1" className="project-detail">
+  <div id="project1">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Title
       </h2>
@@ -58,7 +58,7 @@ export default function ProjectsPage() {
       ERROR BAD ACCESS</p>
   </div>
 
-  <div id="project2" className="project-detail">
+  <div id="project2">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Title
       </h2>
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
       ERROR BAD ACCESS</p>
   </div>
 
-  <div id="project3" className="project-detail">
+  <div id="project3">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Title
       </h2>

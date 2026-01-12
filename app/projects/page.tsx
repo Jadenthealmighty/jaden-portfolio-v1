@@ -3,7 +3,7 @@ export default function ProjectsPage() {
       <section>
         <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
-        <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
+        <main className="relative z-10 px-12 pt-[20vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
 
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Projects
         </h1>
-        <div className="projects-section">
+        <div>
   <div className="projects-nav">
     <a href="#project1" className="project-nav-item">
       <span>Project Alpha</span>

@@ -254,7 +254,7 @@ export default function MLBackground() {
             const x = startX + c * cellW + cellW / 2;
             const y = startY + r * cellH + cellH / 2;
             const iter = r * cols + c;
-            let value = "0";
+            let value = "0.00";
             if (start) {
                 const numvalue = predictionQueueX[ Math.floor(iter/5) % lenQ].normed_params[iter % 5];
                 value = numvalue.toFixed(2);

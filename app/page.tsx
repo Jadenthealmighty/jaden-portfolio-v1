@@ -6,12 +6,14 @@ export default function Page() {
     <InteractiveBackground />
     <section>
     <div className="image-container">
+    <div className="gradient-border">
       <img 
         className="img_center" 
         src="/images/headshotJaden.jpg" 
         alt="Jaden Al-Aidroos" 
       />
     </div>
+  </div>
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>

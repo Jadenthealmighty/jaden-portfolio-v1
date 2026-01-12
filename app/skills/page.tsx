@@ -8,7 +8,7 @@ export default function SkillsPage() {
             About This Page
         </h2>
           <p className="mb-4">
-        This is a Machine Learning unsupervised model running solely in your browser. 
+        This is a Machine Learning unsupervised model running directly in your browser. 
         Every bit of matrix operations has been optimized to run in the TypeScript file, 
         being run 100% on your computer. The model only sees where your mouse was 5 seconds 
         ago and calculates its best prediction(in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is(in white).
@@ -24,7 +24,7 @@ export default function SkillsPage() {
         <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
         Computer Programming
       </h2>
-      <p className="mb-6">
+      <p className="mb-4">
       I have been coding for the majority of my life; as a result, I am proficient in 
       Python, Java, and C++ programming languages, with Python being my primary language. 
       I have intermediate knowledge of MATLAB and C. Most recently, I’ve been using a lot of 
@@ -32,9 +32,16 @@ export default function SkillsPage() {
       familiar with JavaScript and, by extension, Typescript. And I have a working but basic 
       knowledge of HTML and CSS.</p>
 
-        {/* Stuff here */}
+    <p className="mb-10">
+      I’ve done work with my own Linux (Ubuntu) server management, and so I’m very 
+      familiar with bash, file systems, and Linux maintenance. In terms of operating 
+      systems, most of my workflow is in macOS, but I am very familiar with Windows 
+      and the Microsoft Office applications.
+
+      </p>
+    
         <section>
-        <h1 className="text-5xl font-bold mb-6">Projects</h1>
+        <h1 className="text-5xl font-bold mb-4">Languages</h1>
         <div className="languages-grid">
       <div className="language-item">
         <img src="/images/python-logo.png" alt="Python" className="language-logo" />
@@ -69,14 +76,6 @@ export default function SkillsPage() {
     </div>
     <p className="mb-6"></p>
 
-    <p className="mb-10">
-      I’ve done work with my own Linux (Ubuntu) server management, and so I’m very 
-      familiar with bash, file systems, and Linux maintenance. In terms of operating 
-      systems, most of my workflow is in macOS, but I am very familiar with Windows 
-      and the Microsoft Office applications.
-
-      </p>
-    
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
         Math and Physics
       </h2>

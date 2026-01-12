@@ -179,6 +179,7 @@ html {
   position: absolute;
   inset: -4px;
   border-radius: 15px;
+  padding: 4px;
   background: conic-gradient(
     from var(--angle) at 50% 50%,
     white 0%,
@@ -194,6 +195,10 @@ html {
     white 70%,
     white 100%
   );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;

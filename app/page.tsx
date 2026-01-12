@@ -18,7 +18,7 @@ export default function Page() {
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>
-      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         About me
       </h2>
       <p className="mb-4">
@@ -36,7 +36,7 @@ export default function Page() {
       Go explore the website to see some of the things I’ve been working on!
       </p>
       <p className="mb-10"></p>
-      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Background in Simulation
       </h2>
       <h2 className= "mb-3 text-xl font-bold">
@@ -62,7 +62,7 @@ export default function Page() {
       <p className="mb-10">
       Try getting the white ball to orbit your mouse cursor!
       </p>
-      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Contact
       </h2>
       <p className="mb-4">

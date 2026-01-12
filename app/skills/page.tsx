@@ -4,11 +4,14 @@ export default function SkillsPage() {
         <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
 
-        <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+        <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
             About This Page
         </h2>
+        <p className="mb-4">
+          Personally, this page was one of my favorite projects I've worked on recently.
+        </p>
           <p className="mb-4">
-        This is a Machine Learning unsupervised model running directly in your browser. 
+        This is an unsupervised machine learning model I've written from scratch running directly in your browser. 
         Every bit of matrix operations has been optimized to run in the TypeScript file, 
         being run 100% on your computer. The model only sees where your mouse was 5 seconds 
         ago and calculates its best prediction(in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is(in white).
@@ -18,26 +21,26 @@ export default function SkillsPage() {
         the majority of the program's functionality. Look at how the entries change over time!
 
         </p>
-        <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
+        <h1 className="mb-6 text-5xl font-semibold tracking-tighter">
         Skills
         </h1>
-        <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+        <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Computer Programming
       </h2>
       <p className="mb-4">
       I have been coding for the majority of my life; as a result, I am proficient in 
-      Python, Java, and C++ programming languages, with Python being my primary language. 
-      I have intermediate knowledge of MATLAB and C. Most recently, I’ve been using a lot of 
+      Python and Java programming languages, with Python being my primary language. 
+      I have intermediate knowledge of MATLAB, C++, and C. Most recently, I’ve been using a lot of 
       C to optimize my machine learning model and write MCU code for robotics. I am also very 
       familiar with JavaScript and, by extension, Typescript. And I have a working but basic 
-      knowledge of HTML and CSS.</p>
+      knowledge of HTML and CSS. Over the last year, I've worked in more of a team environment 
+      which has enriched my skills in clean architecture and Git/Github.</p>
 
     <p className="mb-10">
       I’ve done work with my own Linux (Ubuntu) server management, and so I’m very 
       familiar with bash, file systems, and Linux maintenance. In terms of operating 
-      systems, most of my workflow is in macOS, but I am very familiar with Windows 
-      and the Microsoft Office applications.
-
+      systems, most of my workflow is in macOS, but a portion of my work is also done on
+      a Windows VM with the Microsoft Office 365 applications.
       </p>
     
         <section>
@@ -76,16 +79,25 @@ export default function SkillsPage() {
     </div>
     <p className="mb-6"></p>
 
-      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Math and Physics
       </h2>
       <p className="mb-10">
       I competed in the USAPhO(USA Physics Olympiad), Putnam Competition, and CAML 
       (California Math League). Earning the ranks of top 100 in the USA and top 5 
       in California for the USAPhO and CAML, respectively. Recently, much of my math 
-      has been in combinatorics, graph theory, and stochastic calculus.
+      has been in Combinatorics, Graph Theory, and Stochastic Calculus.
       </p>
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+        Quantitative Finance
+      </h2>
+      <p className="mb-10">
+      Much of my most recent work has been in quantitative finance research, 
+      applying my knowledge of time series analysis and computer programming in 
+      new and creative ways. Through my most recent project, I’ve gained a thorough 
+      experience in options volatility and short-term pricing diffusion analysis.
+      </p>
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Engineering
       </h2>
       <p className="mb-10">
@@ -95,7 +107,7 @@ export default function SkillsPage() {
       World Championships. Through this, I’ve gained extensive experience soldering, using 
       power tools, and 3D printing.
       </p>
-      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Presentational
       </h2>
       <p className="mb-4">

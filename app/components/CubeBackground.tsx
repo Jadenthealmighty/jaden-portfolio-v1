@@ -169,7 +169,7 @@ type Vec3 = {
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(focString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight - scrollY);
-      let rString = "Distance to lens: " + (Math.round(lensD * 100) / 100);
+      let rString = "Camera distance: " + (Math.round(lensD * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.fillText(rString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight + 20 - scrollY);

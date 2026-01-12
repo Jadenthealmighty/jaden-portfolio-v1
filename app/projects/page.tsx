@@ -3,18 +3,24 @@ export default function ProjectsPage() {
       <section>
         <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
-        <main className="relative z-10 px-12 pt-[20vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
-        </main>
+       
 
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
             About This Page
         </h2>
           <p className="mb-4">
-
+          This is an accurate lens optics simulation; your mouse position 
+          (tap position on mobile) determines the focal length and camera distance 
+          in the setup. Mathematically, this was the hardest simulation to write out. 
+          This was largely because there isn’t an efficient way to project transforms 
+          through a physical lens without some shortcuts. 
           </p>
           <p className="mb-10">
-        
-
+          Not only does this program derive the characteristics of the lens from the 
+          focal length, but it also accounts for spherical aberrations, given the attributes 
+          of a non-ideal lens. Then, the most difficult part was efficiently computing the 
+          chromatic distortions near the edges of the lens, which was done by referencing a 
+          pre-processed hue LUT I’ve simulated in Python.
         </p>
         <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Projects

@@ -5,6 +5,7 @@ export default function Page() {
     <>
     <InteractiveBackground />
     <section>
+      <img src="/images/headshotJaden.png" alt= "Jaden Al-Aidroos"></img>
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>

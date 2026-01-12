@@ -326,7 +326,7 @@ export default function MLBackground() {
       let xCen = canvas.clientWidth / 2;
       let yCen = canvas.clientHeight / 2;
 
-      global_alpha = Math.max(0.4, 1 - scrollY / canvas.clientHeight / 2);
+      global_alpha = Math.max(0.3, 1 - scrollY / canvas.clientHeight / 2);
 
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);

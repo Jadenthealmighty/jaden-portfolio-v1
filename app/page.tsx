@@ -5,7 +5,7 @@ export default function Page() {
     <>
     <InteractiveBackground />
     <section>
-      <img src="/images/headshotJaden.png" alt= "Jaden Al-Aidroos"></img>
+      <img src="app/images/headshotJaden.jpg" alt= "Jaden Al-Aidroos"></img>
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>
@@ -30,7 +30,7 @@ export default function Page() {
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
         Background in Simulation
       </h2>
-      <h2 className= "mb-8 text-xl font-bold">
+      <h2 className= "mb-3 text-xl font-bold">
         This Website
       </h2>
       <p className="mb-4">
@@ -39,7 +39,7 @@ export default function Page() {
        program running in the background. I encourage you to play around with them 
        and see what interesting patterns you can achieve.
       </p>
-      <h2 className= "mb-8 text-xl font-bold">
+      <h2 className= "mb-3 text-xl font-bold">
         This Page
       </h2>
         <p className="mb-4">

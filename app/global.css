@@ -108,8 +108,6 @@ html {
 
 .img_center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 16px;
   width: 100%;
   height: auto;

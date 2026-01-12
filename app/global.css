@@ -50,29 +50,27 @@ html {
   min-width: 360px;
 }
 .image-container {
-  width: 80%;
-  max-width: 80%;
-  margin: 0 auto; /* Centers it */
+  width: 80vw;
+  max-width: 80vw;
+  margin: 0 auto;
+  display: inline-block;
 }
 
 .gradient-border {
   position: relative;
-  width: 80%;
+  display: inline-block;
   border-radius: 20px;
-  background: white;
   padding: 4px;
+  background: white;
 }
 
 .gradient-border::before {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
+  inset: -4px;
   border-radius: 20px;
   background: conic-gradient(
-    from 0deg at 50% 50%,
+    from var(--angle) at 50% 50%,
     white 0%,
     white 20%,
     #667eea 25%,
@@ -86,23 +84,29 @@ html {
     white 70%,
     white 100%
   );
-  animation: rotate 4s linear infinite;
+  animation: rotateGradient 4s linear infinite;
   z-index: -1;
 }
 
-@keyframes rotate {
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateGradient {
   from {
-    transform: rotate(0deg);
+    --angle: 0deg;
   }
   to {
-    transform: rotate(360deg);
+    --angle: 360deg;
   }
 }
 
 .img_center {
   display: block;
   border-radius: 16px;
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 

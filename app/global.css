@@ -50,8 +50,8 @@ html {
   min-width: 360px;
 }
 .image-container {
-  width: 80vw;
-  max-width: 80vw;
+  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
   display: inline-block;
 }

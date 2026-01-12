@@ -101,11 +101,9 @@ type Vec3 = {
       const alphaMult = Math.max(0.5, 1 - scrollY / canvas.clientHeight / 1.2)
 
       for (const p of points.current) {
-        // rotate Y
         let x = cy * p.x + sy * p.z;
         let z = -sy * p.x + cy * p.z; 
 
-        // rotate X
         let y = cx * p.y - sx * z;
         z = sx * p.y + cx * z;
         
@@ -153,7 +151,6 @@ type Vec3 = {
       ctx.strokeStyle = 'rgba(117, 250, 246, 0.7)';
       ctx.stroke();
 
-      //Color distortion or whatevs
       const brightness = 80 * (maxD/tempR) * alphaMult;
       const piRatio = Math.PI /180;
       for (let i = 0; i < 180; i++) {

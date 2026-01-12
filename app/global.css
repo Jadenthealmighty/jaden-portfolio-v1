@@ -11,7 +11,7 @@ body {
 
 
 ::selection {
-  background-color: black;
+  background-color: gray;
   color: #fefefe;
 }
 

@@ -9,35 +9,56 @@ export default function Page() {
         Jaden Al-Aidroos
       </h1>
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
-        About
+        About me
       </h2>
       <p className="mb-4">
-        Hello, I am a university student based in Toronto and San Francisco. I am currently 
-        pursuing a Bachelor's in Science at the University of Toronto specializing in Physics with 
-        minors in Computer Science and Mathematics. </p>
+      Hello, I am a university student based in Toronto and San Francisco. 
+      I am currently pursuing a Bachelor of Science degree at the University of Toronto, 
+      specializing in Physics with minors in Computer Science and Mathematics</p>
+      <p className="mb-4">
+      In 2024, I competed in the US Physics Olympiad (Team USA Physics Competition), 
+      placing among the top in the country for a shot at representing the United States 
+      internationally. Since then, I’ve spent my time building robots, programming in 8 
+      languages, teaching math at high schools around Toronto, doing quantitative finance 
+      research, and preparing to represent the University of Toronto in the Putnam Math Competition.</p>
       <p className="mb-10">
-        I have a strong background in computational modelling
-        and a passion for problem solving. In 2024 I competed in the US Physics Olympiad known otherwise as the
-        Team USA Physics Competition. 
+      I hope you enjoy this website as much as I enjoyed making it. 
+      Go explore the website to see some of the things I’ve been working on!
       </p>
       <p className="mb-10"></p>
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
         Background in Simulation
       </h2>
-      <p className="mb-4">
-        One of my biggest interests is physical simulations. As you will see throughout this site, every page has its own 
-        interactive program running in the background, I encourage you to play around with them and see what interesting patterns 
-        you can achieve.  </p>
-        <p className="mb-4">
-        This page shows the effects of gravity near a massive object. Move the mouse around and see how the particle behaves -if you
-         are on mobile tap to move the center of mass-. The background behaves according to special and general relativity, 
-         accounting for space-time warping and relativistic effects near the speed of light! </p>
-      <p className="mb-10"></p>
-      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
-        Skills
+      <h2 className= "mb-8 text-xl font-bold">
+        This Website
       </h2>
       <p className="mb-4">
-        Skills stand-in, not sure what to put here </p>
+      My favourite passion projects have been physics and real-time simulations. 
+      As you will see throughout this site, every page has a different interactive
+       program running in the background. I encourage you to play around with them 
+       and see what interesting patterns you can achieve.
+      </p>
+      <h2 className= "mb-8 text-xl font-bold">
+        This Page
+      </h2>
+        <p className="mb-4">
+        Move the mouse around and see how the particle behaves (if you are on mobile, 
+        tap to move the center of mass). The background of this page is a physics simulation 
+        running fully in your browser; it is calculating the physical effects of gravitational 
+        wave propagation on orbiting bodies. The mathematical model even behaves according 
+        to special and general relativity, accounting for space-time warping and relativistic 
+        effects near the speed of light.
+      </p>
+      <p className="mb-10">
+      Try getting the white ball to orbit your mouse cursor!
+      </p>
+      <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
+        Contact
+      </h2>
+      <p className="mb-4">
+        Email: <a className="text-[#75FAF6]" href="mailto:jaden.r.alaidroos@gmail.com" >jaden.r.alaidroos@gmail.com</a></p>
+        <p className="mb-4">
+        LinkedIn: <a className="text-[#75FAF6]" href="https://www.linkedin.com/in/jaden-al-aidroos-5b7727240" >Jaden@LinkedIn</a></p>
       <p></p>
     </section>
     </>

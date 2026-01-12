@@ -5,7 +5,13 @@ export default function Page() {
     <>
     <InteractiveBackground />
     <section>
-      <img className= "img_center" src="/images/headshotJaden.jpg" alt= "Jaden Al-Aidroos"/>
+    <div className="image-container">
+      <img 
+        className="img_center" 
+        src="/images/headshotJaden.jpg" 
+        alt="Jaden Al-Aidroos" 
+      />
+    </div>
       <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>

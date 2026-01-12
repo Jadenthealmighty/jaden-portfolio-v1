@@ -50,11 +50,58 @@ html {
   min-width: 360px;
 }
 
+.image-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 4px;
+  background: white;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 4px;
+  background: conic-gradient(
+    from 0deg,
+    white 0%,
+    white 20%,
+    #667eea 25%,
+    #764ba2 30%,
+    #f093fb 35%,
+    white 40%,
+    white 60%,
+    #4facfe 65%,
+    #00f2fe 70%,
+    #667eea 75%,
+    white 80%,
+    white 100%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .img_center {
+  position: relative;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
+  border-radius: 16px;
+  max-width: 80%;
+  height: auto;
+  z-index: 1;
 }
 
 .prose .anchor {

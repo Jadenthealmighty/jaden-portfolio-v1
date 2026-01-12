@@ -49,41 +49,45 @@ canvas {
 html {
   min-width: 360px;
 }
-
 .image-container {
-  position: relative;
-  display: inline-block;
-  border-radius: 20px;
-  padding: 4px;
-  background: white;
+  width: 80vw;
+  max-width: 80vw;
+  margin: 0 auto; /* Centers it */
 }
 
-.image-container::before {
+.gradient-border {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  background: white;
+  padding: 4px;
+}
+
+.gradient-border::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
   border-radius: 20px;
-  padding: 4px;
   background: conic-gradient(
-    from 0deg,
+    from 0deg at 50% 50%,
     white 0%,
     white 20%,
     #667eea 25%,
-    #764ba2 30%,
-    #f093fb 35%,
-    white 40%,
-    white 60%,
-    #4facfe 65%,
-    #00f2fe 70%,
-    #667eea 75%,
-    white 80%,
+    #764ba2 27%,
+    #f093fb 30%,
+    white 35%,
+    white 55%,
+    #4facfe 60%,
+    #00f2fe 62%,
+    #667eea 65%,
+    white 70%,
     white 100%
   );
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
   animation: rotate 4s linear infinite;
+  z-index: -1;
 }
 
 @keyframes rotate {
@@ -96,12 +100,10 @@ html {
 }
 
 .img_center {
-  position: relative;
   display: block;
   border-radius: 16px;
-  max-width: 80%;
+  width: 80%;
   height: auto;
-  z-index: 1;
 }
 
 .prose .anchor {

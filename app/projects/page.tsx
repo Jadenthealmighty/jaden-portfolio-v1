@@ -171,8 +171,8 @@ export default function ProjectsPage() {
       </h2>
       <p className="mb-10">
       I am working on a C++ program that will simulate atmospheric physics as efficiently 
-      as possible. Much of the current block is the C++ code, which hasn't been the most 
-      flexible for this kind of computation. The end goal is to have an executable program 
+      as possible. Much of the current block is the large datasets, which hasn't been the most 
+      flexible for this kind of work. The end goal is to have an executable program 
       that can run live simulations of pressure, temperature, and moisture modelling based
       on seed parameters.
 </p>

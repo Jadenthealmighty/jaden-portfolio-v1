@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function ProjectsPage() {
     return (
       <section>
@@ -31,7 +33,7 @@ export default function ProjectsPage() {
       <span>Fourier Analysis of Stocks Options</span>
     </a>
     <a href="#project2" className="project-nav-item">
-      <span>My Own Machine Learning Engine!</span>
+      <span>My Own Machine Learning Engine</span>
     </a>
     <a href="#project3" className="project-nav-item">
       <span>Project Gamma</span>
@@ -99,11 +101,11 @@ export default function ProjectsPage() {
         General Machine Learning Engine
       </h2>
       <p className="mb-4">
-      One of my fun ventures into machine learning! All the back propagation 
+      My biggest venture into machine learning! All the back propagation 
       logic is handled in Python, with the matrix transforms running in a C file 
       for optimized compute time. This was a big step for my experience in subroutines.
        It is a pretty basic program, but it gets at the 
-      core math and logic behind machine learning!
+      core math and logic behind machine learning.
 </p>
 <div className="image-container">
     <div className="gradient-border">
@@ -116,7 +118,7 @@ export default function ProjectsPage() {
   </div>
         <p className="mb-10">
         Here, you can see it working to find stable configurations of the Three Body Problem. 
-        If you would like to see a smaller version of it in action, check out my skills page!
+        If you would like to see a smaller version of it in action, check out my <Link className="text-[#75FAF6]" href="/skills#skills_page">skills page</Link>!
         </p>
   </div>
 

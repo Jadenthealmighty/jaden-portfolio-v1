@@ -42,7 +42,7 @@ export default function Page() {
       <p className="mb-4">
       <ul className="list-disc list-inside ml-6 space-y-2">
         <li>Top 100 in the United States in <a className="text-[#75FAF6]" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">USAPhO Qualification Exam</a></li>
-        <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills/page.tsx#lang_section">7 other languages</Link></li>
+        <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills#lang_section">7 other languages</Link></li>
         <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#project1">research in Quantitative Finance</Link></li>
         <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#project1">General Machine Learning Engine</Link></li>
       </ul>
@@ -73,7 +73,21 @@ export default function Page() {
         effects near the speed of light.
       </p>
       <p className="mb-10">
-      Try getting the white ball to orbit your mouse cursor!
+      Try getting the white ball to orbit your mouse cursor.
+      </p>
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        Personal Interests
+      </h2>
+      <p className="mb-4">
+      I play on the University of Toronto Physics Student Union hockey team. Though I was 
+      born in Montreal, I grew up for the most part in California, so relearning how to 
+      play hockey has been a fun challenge over the last year.
+
+      </p>
+    
+      <p className="mb-10">
+      I’ve been playing guitar since I was 7, and it’s my favourite way to unwind. 
+      You can check out my music on my <a className="text-[#75FAF6]" href="https://www.instagram.com/jaden_hates_tenor_clef/">music Instagram account</a>.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Contact

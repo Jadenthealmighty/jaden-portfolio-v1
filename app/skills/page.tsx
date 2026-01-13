@@ -1,9 +1,13 @@
+import Link from 'next/link'
+
 export default function SkillsPage() {
     return (
+      
       <section>
+        <div id="skills_page">
         <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
-
+        </div>
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
             About This Page
         </h2>
@@ -26,7 +30,7 @@ export default function SkillsPage() {
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Computer Programming
       </h2>
-      <div id="lang_section"></div>
+    <div id="lang_section">
       <p className="mb-4">
       I have been coding for the majority of my life; as a result, I am proficient in 
       Python and Java programming languages, with Python being my primary language. 
@@ -77,8 +81,10 @@ export default function SkillsPage() {
         <img src="/images/linux-logo.webp" alt="Linux" className="language-logo" />
       </div>
     </div>
+    
     <p className="mb-6"></p>
-
+    </section>
+    </div>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Math and Physics
       </h2>
@@ -122,7 +128,7 @@ of 7 years of experience in Premiere Pro and After Effects, and Blender. I curre
 work as a contract videographer for the UofT newspaper, The Varsity.
       </p> 
 
-        </section>
+
         </section>
     );
   }

@@ -60,6 +60,7 @@ export default function ProjectsPage() {
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Fourier Analysis of Stock Options Algorithm
       </h2>
+      <p className="mb-4 text-center">--In the Works--</p>
       <p className="mb-4">
       My largest project to date, this was an endeavor to learn more about 
       the stock & options markets that quickly developed into a larger project 
@@ -72,9 +73,24 @@ export default function ProjectsPage() {
       medium-term options contracts (7 - 50 days). Through randomized backtests, we are 
       seeing an average return of 11% across all contracts.
       </p>
+      <div className="image-container">
+    <div className="gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/Fourier_analysis.png" 
+        alt="Volatility Window" 
+      />
+    </div>
+  </div>
+      <p className="mb-4">
+      This is a particularly good example where the program estimated the highest 
+      volatility window and bought the contract at 610 and sold it at 1,179 (accounting 
+      for spread). Realistically, this is an outlier and in aggregate we were 
+      looking at a skewed standard deviation of around 13%.
+      </p>
       <p className="mb-10">
       As of October 2025, the program has been deployed on live data and has done particularly well 
-      at implied volatility predictions.
+      at implied volatility predictions. Stay tuned for more updates!
       </p>
   </div>
 

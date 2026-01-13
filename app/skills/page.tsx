@@ -7,9 +7,7 @@ export default function SkillsPage() {
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
             About This Page
         </h2>
-        <p className="mb-4">
-          Personally, this page was one of my favorite projects I've worked on recently.
-        </p>
+        
           <p className="mb-4">
         This is an unsupervised machine learning model I've written from scratch running directly in your browser. 
         Every bit of matrix operations has been optimized to run in the TypeScript file, 
@@ -21,19 +19,21 @@ export default function SkillsPage() {
         the majority of the program's functionality. Look at how the entries change over time!
 
         </p>
+        
         <h1 className="mb-6 text-5xl font-semibold tracking-tighter">
         Skills
         </h1>
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Computer Programming
       </h2>
+      <div id="lang_section"></div>
       <p className="mb-4">
       I have been coding for the majority of my life; as a result, I am proficient in 
       Python and Java programming languages, with Python being my primary language. 
       I have intermediate knowledge of MATLAB, C++, and C. Most recently, I’ve been using a lot of 
       C to optimize my machine learning model and write MCU code for robotics. I am also very 
-      familiar with JavaScript and, by extension, Typescript. Additionally, I have a working but basic 
-      knowledge of HTML and CSS. Over the last year, I've worked in more of a team environment 
+      familiar with JavaScript and, by extension, Typescript. Additionally, I have a working 
+      knowledge of HTML and CSS. Over the last year, I've worked in a team of 40 other programmers
       which has enriched my skills in clean architecture and Git/Github.</p>
 
     <p className="mb-10">
@@ -84,8 +84,8 @@ export default function SkillsPage() {
       </h2>
       <p className="mb-10">
       I competed in the USAPhO(USA Physics Olympiad), Putnam Competition, and CAML 
-      (California Math League). Earning the ranks of top 100 in the USA and top 5 
-      in California for the USAPhO and CAML, respectively. Recently, much of my math 
+      (California Math League). Earning the ranks of top 100 in the USA for USAPho and top 5 
+      in California at 14 for CAML, respectively. Recently, much of my math 
       has been in Combinatorics, Graph Theory, and Stochastic Calculus.
       </p>
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
@@ -96,6 +96,7 @@ export default function SkillsPage() {
       applying my knowledge of time series analysis and computer programming in 
       new and creative ways. Through my most recent project, I’ve gained a thorough 
       experience in options volatility and short-term pricing diffusion analysis.
+      You can see my work in the <a className="text-[#75FAF6]" href="app/projects/page.tsx#project1">projects page</a>.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Engineering
@@ -108,7 +109,7 @@ export default function SkillsPage() {
       power tools, and 3D printing.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Presentational
+        Presentational Skills
       </h2>
       <p className="mb-4">
       I have strong public speaking skills through competing in parliamentary debate 

@@ -35,6 +35,18 @@ export default function Page() {
       I hope you enjoy this website as much as I enjoyed making it. 
       Go explore the website to see some of the things I’ve been working on!
       </p>
+      <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        Quick Facts
+      </h2>
+      <p className="mb-4">
+      <ul>
+        <li>Top 100 in the United States in <a className="text-[#75FAF6]" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">7 other languages</a></li>
+        <li>Grew up coding, proficient in Python, Java, C++ and <a className="text-[#75FAF6]" href="app/skills/page.tsx#lang_section">USAPhO Qualification Exam</a></li>
+        <li>Actively doing <a className="text-[#75FAF6]" href="app/projects/page.tsx#project1">research in Quantitative Finance</a></li>
+        <li>Currently working on a <a className="text-[#75FAF6]" href="app/projects/page.tsx#project2">General Machine Learning Engine</a></li>
+      </ul>
+      </p>
+
       <p className="mb-10"></p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Background in Simulation
@@ -53,7 +65,7 @@ export default function Page() {
       </h2>
         <p className="mb-4">
         Move the mouse around and see how the particle behaves (if you are on mobile, 
-        tap to move the center of mass). The background of this page is a physics simulation 
+        tap to move the center of mass). The background of this page is my own physics simulation 
         running fully in your browser; it is calculating the physical effects of gravitational 
         wave propagation on orbiting bodies. The mathematical model even behaves according 
         to special and general relativity, accounting for space-time warping and relativistic 

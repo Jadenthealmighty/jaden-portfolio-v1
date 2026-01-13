@@ -261,7 +261,7 @@ export default function MLBackground() {
             }
             const dif = iter - head_start_int;
             if (dif <= 0 && dif > -10){
-                const alpha = 0.9 - Math.abs(dif) / 10;
+                const alpha = (0.9 - Math.abs(dif) / 10) / 1.2;
                 ctx.fillStyle = "rgba(117,250,246," + alpha * global_alpha + ")";
                 ctx.fillText(value, x, y);
             } else {
@@ -326,7 +326,7 @@ export default function MLBackground() {
       let xCen = canvas.clientWidth / 2;
       let yCen = canvas.clientHeight / 2;
 
-      global_alpha = Math.max(0.3, 1 - scrollY / canvas.clientHeight / 2);
+      global_alpha = Math.max(0.3, 1 - scrollY / canvas.clientHeight);
 
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);

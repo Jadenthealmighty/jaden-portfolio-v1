@@ -15,7 +15,7 @@ export default function Page() {
     </div>
   </div>
   <p className="mb-4"></p>
-      <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
+      <h1 className="mb-8 text-center text-5xl font-semibold tracking-tighter">
         Jaden Al-Aidroos
       </h1>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">

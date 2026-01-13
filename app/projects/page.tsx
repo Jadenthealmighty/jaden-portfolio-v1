@@ -42,19 +42,7 @@ export default function ProjectsPage() {
       <span>UV Fluorescence Spectroscopy</span>
     </a>
     <a href="#project5" className="project-nav-item">
-      <span>Project Epsilon</span>
-    </a>
-    <a href="#project6" className="project-nav-item">
-      <span>Project Zeta</span>
-    </a>
-    <a href="#project7" className="project-nav-item">
-      <span>Project Eta</span>
-    </a>
-    <a href="#project8" className="project-nav-item">
-      <span>Project Theta</span>
-    </a>
-    <a href="#project9" className="project-nav-item">
-      <span>Project Iota</span>
+      <span>In the Works</span>
     </a>
   </div>
 
@@ -86,7 +74,7 @@ export default function ProjectsPage() {
   </div>
       <p className="mb-4">
       This is a particularly good example where the program estimated the highest 
-      volatility window and bought the contract at 610 and sold it at 1,179 (accounting 
+      volatility window and bought the contract at $610 and sold it at $1,179 (accounting 
       for spread). Realistically, this is an outlier and in aggregate we were 
       looking at a skewed standard deviation of around 13%.
       </p>
@@ -177,6 +165,34 @@ export default function ProjectsPage() {
         </p>
 
   </div>
+  <div id="project5">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        C++ Optimized Atmospheric Model
+      </h2>
+      <p className="mb-10">
+      I am working on a C++ program that will simulate atmospheric physics as efficiently 
+      as possible. Much of the current block is the C++ code, which hasn't been the most 
+      flexible for this kind of computation. The end goal is to have an executable program 
+      that can run live simulations of pressure, temperature, and moisture modelling based
+      on seed parameters.
+</p>
+<h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        Qiskit Quantum Computing Algorithms
+      </h2>
+      <p className="mb-10">
+      I have recently been working with Qiskit, more but I have yet to develop some of my own 
+      algorithms that are independent of some of the more basic published stacks. If you are interested 
+      reach out, as I will be at QLUIST this January.
+</p>
+<h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        Training my own Large Language Model
+      </h2>
+      <p className="mb-10">
+      This project is still a while away, but I am working to develop my current adaptive 
+      machine learning model into a tokenized LLM. Baby steps for now, but I will be posting
+      updates here!
+</p>
+</div>
 
 </div>
         

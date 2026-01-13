@@ -44,7 +44,7 @@ export default function Page() {
         <li>Top 100 in the United States in <a className="text-[#75FAF6]" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">USAPhO Qualification Exam</a></li>
         <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills#lang_section">7 other languages</Link></li>
         <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#project1">research in Quantitative Finance</Link></li>
-        <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#project1">General Machine Learning Engine</Link></li>
+        <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#project2">General Machine Learning Engine</Link></li>
       </ul>
       </p>
 
@@ -58,7 +58,7 @@ export default function Page() {
       <p className="mb-4">
       My favourite passion projects have been physics and real-time simulations. 
       As you will see throughout this site, every page has a different interactive
-       program running in the background. I encourage you to play around with them 
+       program running in the background that I've coded from scratch. I encourage you to play around with them 
        and see what interesting patterns you can achieve.
       </p>
       <h2 className= "mb-3 text-xl font-bold">

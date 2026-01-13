@@ -14,8 +14,8 @@ export default function ProjectsPage() {
           This is an accurate lens optics simulation; your mouse position 
           (tap position on mobile) determines the focal length and camera distance 
           in the setup. Mathematically, this was the hardest simulation to write out. 
-          This was largely because there isn’t an efficient way to project transforms 
-          through a physical lens without some shortcuts. 
+          This was largely because there isn’t an efficient way to do projection transforms 
+          for a physical lens without some shortcuts. 
           </p>
           <p className="mb-10">
           Not only does this program derive the characteristics of the lens from the 

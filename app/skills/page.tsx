@@ -16,7 +16,7 @@ export default function SkillsPage() {
         This is an unsupervised machine learning model I've written from scratch running directly in your browser. 
         Every bit of matrix operations has been optimized to run in the TypeScript file, 
         being run 100% on your computer. The model only sees where your mouse was 5 seconds ago (if on mobile, the last place you've tapped) 
-        and calculates its best prediction (in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is(in white).
+        and calculates its best prediction (in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is (in white).
           </p>
           <p className="mb-10">
         The background is actually a direct projection of the bias matrix that runs 
@@ -36,7 +36,7 @@ export default function SkillsPage() {
       Python and Java programming languages, with Python being my primary language. 
       I have intermediate knowledge of MATLAB, C++, and C. Most recently, I’ve been using a lot of 
       C to optimize my machine learning model and write MCU code for robotics. I am also very 
-      familiar with JavaScript and, by extension, Typescript. Additionally, I have a working 
+      familiar with JavaScript and, by extension, TypeScript. Additionally, I have a working 
       knowledge of HTML and CSS. Over the last year, I've worked in a team of 40 other programmers
       which has enriched my skills in clean architecture and Git/Github.</p>
 
@@ -90,8 +90,8 @@ export default function SkillsPage() {
       </h2>
       <p className="mb-10">
       I competed in the USAPhO(USA Physics Olympiad), Putnam Competition, and CAML 
-      (California Math League). Earning the ranks of top 100 in the USA for USAPho and top 5 
-      in California at 14 for CAML, respectively. Recently, much of my math 
+      (California Math League). Earning the rank of top 100 in the USA for USAPho and top 5 
+      in California at 14 for CAML. Recently, much of my math 
       has been in Combinatorics, Graph Theory, and Stochastic Calculus.
       </p>
       <h2 className= "mb-8 text-2xl font-bold text-[#75faf6]">
@@ -102,7 +102,7 @@ export default function SkillsPage() {
       applying my knowledge of time series analysis and computer programming in 
       new and creative ways. Through my most recent project, I’ve gained a thorough 
       experience in options volatility and short-term pricing diffusion analysis.
-      You can see my work in the <a className="text-[#75FAF6]" href="app/projects/page.tsx#project1">projects page</a>.
+      You can see my work in the <Link className="text-[#75FAF6]" href="/projects#project1">projects page</Link>.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Engineering

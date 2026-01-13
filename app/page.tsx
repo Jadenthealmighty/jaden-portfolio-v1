@@ -1,4 +1,5 @@
 import InteractiveBackground from "app/components/InteractiveBackground";
+import Link from 'next/link'
 
 export default function Page() {
   return (
@@ -39,11 +40,11 @@ export default function Page() {
         Quick Facts
       </h2>
       <p className="mb-4">
-      <ul>
-        <li>Top 100 in the United States in <a className="text-[#75FAF6]" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">7 other languages</a></li>
-        <li>Grew up coding, proficient in Python, Java, C++ and <a className="text-[#75FAF6]" href="app/skills/page.tsx#lang_section">USAPhO Qualification Exam</a></li>
-        <li>Actively doing <a className="text-[#75FAF6]" href="app/projects/page.tsx#project1">research in Quantitative Finance</a></li>
-        <li>Currently working on a <a className="text-[#75FAF6]" href="app/projects/page.tsx#project2">General Machine Learning Engine</a></li>
+      <ul className="list-disc list-inside ml-6 space-y-2">
+        <li>Top 100 in the United States in <a className="text-[#75FAF6]" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">USAPhO Qualification Exam</a></li>
+        <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills/page.tsx#lang_section">7 other languages</Link></li>
+        <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#project1">research in Quantitative Finance</Link></li>
+        <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#project1">General Machine Learning Engine</Link></li>
       </ul>
       </p>
 

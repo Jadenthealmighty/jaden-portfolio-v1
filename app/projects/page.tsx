@@ -31,7 +31,7 @@ export default function ProjectsPage() {
       <span>Fourier Analysis of Stocks Options</span>
     </a>
     <a href="#project2" className="project-nav-item">
-      <span>Project Beta</span>
+      <span>My Own Machine Learning Engine!</span>
     </a>
     <a href="#project3" className="project-nav-item">
       <span>Project Gamma</span>
@@ -60,7 +60,7 @@ export default function ProjectsPage() {
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Fourier Analysis of Stock Options Algorithm
       </h2>
-      <p className="mb-4 text-center">--In the Works--</p>
+      <p className="mb-4 text-center">--In the works--</p>
       <p className="mb-4">
       My largest project to date, this was an endeavor to learn more about 
       the stock & options markets that quickly developed into a larger project 
@@ -96,10 +96,28 @@ export default function ProjectsPage() {
 
   <div id="project2">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Title
+        General Machine Learning Engine
       </h2>
       <p className="mb-4">
-      ERROR BAD ACCESS</p>
+      One of my fun ventures into machine learning! All the back propagation 
+      logic is handled in Python, with the matrix transforms running in a C file 
+      for optimized compute time. This was a big step for my experience in subroutines.
+       It is a pretty basic program, but it gets at the 
+      core math and logic behind machine learning!
+</p>
+<div className="image-container">
+    <div className="gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/3BodyML.png" 
+        alt="3Body Machine Learning" 
+      />
+    </div>
+  </div>
+        <p className="mb-10">
+        Here, you can see it working to find stable configurations of the Three Body Problem. 
+        If you would like to see a smaller version of it in action, check out my skills page!
+        </p>
   </div>
 
   <div id="project3">

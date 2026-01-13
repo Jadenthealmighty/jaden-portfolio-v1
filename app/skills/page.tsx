@@ -13,8 +13,8 @@ export default function SkillsPage() {
           <p className="mb-4">
         This is an unsupervised machine learning model I've written from scratch running directly in your browser. 
         Every bit of matrix operations has been optimized to run in the TypeScript file, 
-        being run 100% on your computer. The model only sees where your mouse was 5 seconds (if on mobile, the last place you've tapped) 
-        ago and calculates its best prediction(in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is(in white).
+        being run 100% on your computer. The model only sees where your mouse was 5 seconds ago (if on mobile, the last place you've tapped) 
+        and calculates its best prediction (in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is(in white).
           </p>
           <p className="mb-10">
         The background is actually a direct projection of the bias matrix that runs 
@@ -32,7 +32,7 @@ export default function SkillsPage() {
       Python and Java programming languages, with Python being my primary language. 
       I have intermediate knowledge of MATLAB, C++, and C. Most recently, I’ve been using a lot of 
       C to optimize my machine learning model and write MCU code for robotics. I am also very 
-      familiar with JavaScript and, by extension, Typescript. And I have a working but basic 
+      familiar with JavaScript and, by extension, Typescript. Additionally, I have a working but basic 
       knowledge of HTML and CSS. Over the last year, I've worked in more of a team environment 
       which has enriched my skills in clean architecture and Git/Github.</p>
 

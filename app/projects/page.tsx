@@ -23,12 +23,12 @@ export default function ProjectsPage() {
           pre-processed hue LUT I’ve simulated in Python.
         </p>
         <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
-        Projects
+        Project Quick Links
         </h1>
         <div>
   <div className="projects-nav">
     <a href="#project1" className="project-nav-item">
-      <span>Project Alpha</span>
+      <span>Fourier Analysis of Stocks Options</span>
     </a>
     <a href="#project2" className="project-nav-item">
       <span>Project Beta</span>
@@ -58,10 +58,24 @@ export default function ProjectsPage() {
 
   <div id="project1">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Title
+      Fourier Analysis of Stock Options Algorithm
       </h2>
       <p className="mb-4">
-      ERROR BAD ACCESS</p>
+      My largest project to date, this was an endeavor to learn more about 
+      the stock & options markets that quickly developed into a larger project 
+      with advice and implementation from both academics at the UofT Faculty of 
+      Applied Econometrics and industry experts.</p>
+      <p className="mb-4">
+      Using a gradient optimization algorithm coupled with Fourier signal analysis, 
+      we’ve found some pretty incredible results that will hopefully be compiled and 
+      openly available soon. The primary focus of the algorithm has been on short- to 
+      medium-term options contracts (7 - 50 days). Through randomized backtests, we are 
+      seeing an average return of 11% across all contracts.
+      </p>
+      <p className="mb-10">
+      As of October 2025, the program has been deployed on live data and has done particularly well 
+      at implied volatility predictions.
+      </p>
   </div>
 
   <div id="project2">

@@ -41,7 +41,7 @@ export default function Page() {
       </h2>
       <p className="mb-4">
       <ul className="list-disc list-inside ml-6 space-y-2">
-        <li>Top 100 in the United States in <a className="text-[#75FAF6]" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">USAPhO Qualification Exam</a></li>
+        <li>Top 100 in the United States in <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">USAPhO Qualification Exam</a></li>
         <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills#lang_section">7 other languages</Link></li>
         <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#project1">research in Quantitative Finance</Link></li>
         <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#project2">General Machine Learning Engine</Link></li>
@@ -87,7 +87,7 @@ export default function Page() {
     
       <p className="mb-10">
       I’ve been playing guitar since I was 7, and it’s my favourite way to unwind. 
-      You can check out my music on my <a className="text-[#75FAF6]" href="https://www.instagram.com/jaden_hates_tenor_clef/">music Instagram account</a>.
+      You can check out my music on my <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jaden_hates_tenor_clef/">music Instagram account</a>.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Contact

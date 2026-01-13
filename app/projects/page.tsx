@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       <span>My Own Machine Learning Engine</span>
     </a>
     <a href="#project3" className="project-nav-item">
-      <span>Project Gamma</span>
+      <span>Cosmic Ray Detection</span>
     </a>
     <a href="#project4" className="project-nav-item">
       <span>Project Delta</span>
@@ -124,18 +124,34 @@ export default function ProjectsPage() {
 
   <div id="project3">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Title
+        Cosmic Ray Detection
       </h2>
       <p className="mb-4">
-      ERROR BAD ACCESS</p>
+      At the age of 13, I built a cloud chamber for detecting cosmic ray traces. I entered 
+      the Bay Area Randall Museum Science Fair, finishing fourth overall. I made a stacked 
+      thermoelectric heat pump system to cool a small area to -54ºC. I did all of the CAD, 
+      electrical soldering, and electrical system/power design myself. I later refined it, 
+      adding a variable electromagnet to alter trace paths.
+</p>
+<div className="image-container">
+    <div className="gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/cloud_chamber.jpg"
+        alt="Cloud chamber" 
+      />
+    </div>
+  </div>
+        <p className="mb-10">
+        Here you can see me testing the prototype on a test bench, which I made out of Legos 
+        for its cheap and quick customizability. The full build has since been donated to 
+        the Wente Scout Reservation to educate kids on nuclear energy.
+        </p>
+
   </div>
 
 </div>
-        <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Title
-      </h2>
-      <p className="mb-4">
-      ERROR BAD ACCESS</p>
+        
 
     <p className="mb-10">
 

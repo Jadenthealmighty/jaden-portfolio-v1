@@ -32,7 +32,7 @@ export default function SkillsPage() {
       </h2>
     <div id="lang_section">
       <p className="mb-4">
-      I have been coding for the majority of my life; as a result, I am proficient in 
+      I have been coding for the majority of my life; I am proficient in 
       Python and Java programming languages, with Python being my primary language. 
       I have intermediate knowledge of MATLAB, C++, and C. Most recently, I’ve been using a lot of 
       C to optimize my machine learning model and write MCU code for robotics. I am also very 

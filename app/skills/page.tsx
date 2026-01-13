@@ -115,12 +115,12 @@ export default function SkillsPage() {
       power tools, and 3D printing.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Presentational Skills
+        Communication & Media
       </h2>
       <p className="mb-4">
-      I have strong public speaking skills through competing in parliamentary debate 
-      and earning the Eagle Scout rank in Boy Scouts, and I have had plenty of experience 
-      in PowerPoint and Google Slides.
+      I have strong public speaking skills developed through parliamentary debate and 
+      earning the Eagle Scout rank, the highest rank of American Boy Scouts. I’m comfortable presenting technical material using 
+      PowerPoint and Google Slides.
       </p>
       <p className="mb-4">
 One of my biggest personal hobbies is videography and video editing. I have had upwards 

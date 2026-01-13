@@ -62,14 +62,14 @@ html {
   position: relative;
   display: inline-block;
   border-radius: 20px;
-  padding: 0px;
+  padding: 2px;
   background: white;
 }
 
 .gradient-border::before {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border-radius: 20px;
   background: conic-gradient(
     from var(--angle) at 50% 50%,
@@ -163,6 +163,7 @@ html {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  max-width: 100%;
   text-decoration: none;
   color: #333;
   font-weight: 600;
@@ -177,9 +178,9 @@ html {
 .project-nav-item::before {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border-radius: 15px;
-  padding: 4px;
+  padding: 6px;
   background: conic-gradient(
     from var(--angle) at 50% 50%,
     white 0%,

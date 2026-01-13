@@ -39,7 +39,7 @@ export default function ProjectsPage() {
       <span>Cosmic Ray Detection</span>
     </a>
     <a href="#project4" className="project-nav-item">
-      <span>Project Delta</span>
+      <span>UV Fluorescence Spectroscopy</span>
     </a>
     <a href="#project5" className="project-nav-item">
       <span>Project Epsilon</span>
@@ -146,6 +146,34 @@ export default function ProjectsPage() {
         Here you can see me testing the prototype on a test bench, which I made out of Legos 
         for its cheap and quick customizability. The full build has since been donated to 
         the Wente Scout Reservation to educate kids on nuclear energy.
+        </p>
+
+  </div>
+  <div id="project4">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        Ultra Violet Fluorescence Spectroscopy
+      </h2>
+      <p className="mb-4">
+      I am working on the UofT Robotics Space Exploration team to build a suite of optical 
+      science tests. The goal is a robust, light, and cost-effective package that can detect
+       common chemical signatures of microorganisms. The ultimate goal of this system is to 
+       showcase the challenges of detecting life on Mars, using systems with very little 
+       power, no repairs, and compact designs.
+</p>
+<div className="image-container">
+    <div className="gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/UVFluorescence.jpg"
+        alt="UV Fluorescence Spectroscopy"
+      />
+    </div>
+  </div>
+        <p className="mb-10">
+        Here you can see us validating out our micro-spectrometer head on a diluted 
+        mixture of flavoproteins. Our system will be tested to the limits this August 
+        at the University Rover Challenge in Utah.
+
         </p>
 
   </div>

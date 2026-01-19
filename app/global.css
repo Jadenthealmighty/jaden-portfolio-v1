@@ -114,6 +114,60 @@ html {
   transition-delay: 0s;
 }
 
+
+.project-image-container {
+  display: block;
+  margin-left : auto;
+  margin-right : auto;
+  width: 70%;
+  max-width: 70%;
+  margin: 0 auto;
+  transition: transform 0.5s ease;
+}
+
+.project-gradient-border {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 2px;
+  background: white;
+}
+
+.project-image-container:hover .gradient-border {
+  transform: scale(1.15);
+}
+
+.project-gradient-border img {
+  display: block;
+  border-radius: 18px;
+}
+
+
+.project-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 20px;
+  background: conic-gradient(
+    from var(--angle) at 50% 50%,
+    white 0%,
+    white 20%,
+    #667eea 25%,
+    #764ba2 27%,
+    #f093fb 30%,
+    white 35%,
+    white 55%,
+    #4facfe 60%,
+    #00f2fe 62%,
+    #667eea 65%,
+    white 70%,
+    white 100%
+  );
+  animation: rotateGradient 6s linear infinite;
+  z-index: -1;
+}
+
+
 @property --angle {
   syntax: '<angle>';
   initial-value: 0deg;

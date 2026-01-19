@@ -63,8 +63,8 @@ export default function ProjectsPage() {
       medium-term options contracts (7 - 50 days). Through randomized backtests, we are 
       seeing an average return of 11% across all contracts.
       </p>
-      <div className="image-container">
-    <div className="gradient-border">
+      <div className="project-image-container">
+    <div className="project-gradient-border">
       <img 
         className="img_center" 
         src="/images/Fourier_analysis.png" 
@@ -95,8 +95,8 @@ export default function ProjectsPage() {
        It is a pretty basic program, but it gets at the 
       core math and logic behind machine learning.
 </p>
-<div className="image-container">
-    <div className="gradient-border">
+<div className="project-image-container">
+    <div className="project-gradient-border">
       <img 
         className="img_center" 
         src="/images/3BodyML.png" 
@@ -121,8 +121,8 @@ export default function ProjectsPage() {
       electrical soldering, and electrical system/power design myself. I later refined it, 
       adding a variable electromagnet to alter trace paths.
 </p>
-<div className="image-container">
-    <div className="gradient-border">
+<div className="project-image-container">
+    <div className="project-gradient-border">
       <img 
         className="img_center" 
         src="/images/cloud_chamber.jpg"
@@ -148,8 +148,8 @@ export default function ProjectsPage() {
        showcase the challenges of detecting life on Mars, using systems with very little 
        power, no repairs, and compact designs.
 </p>
-<div className="image-container">
-    <div className="gradient-border">
+<div className="project-image-container">
+    <div className="project-gradient-border">
       <img 
         className="img_center" 
         src="/images/UVFluorescence.jpg"

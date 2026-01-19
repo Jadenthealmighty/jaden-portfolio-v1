@@ -134,7 +134,7 @@ html {
   background: white;
 }
 
-.project-image-container:hover .gradient-border {
+.project-image-container:hover {
   transform: scale(1.15);
 }
 

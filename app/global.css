@@ -64,10 +64,10 @@ html {
   border-radius: 20px;
   padding: 2px;
   background: white;
+  transition: transform 0.5s ease, background 0.5s ease;
 }
 
 .image-container:hover .gradient-border {
-  transition: opacity 0.5s ease;
   transform: scale(0.9);
   background: transparent;
 }

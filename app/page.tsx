@@ -34,7 +34,7 @@ export default function Page() {
       research, and preparing to represent the University of Toronto in the Putnam Math Competition.</p>
       <p className="mb-10">
       I hope you enjoy this website as much as I enjoyed making it. 
-      Go explore the website to see some of the things I’ve been working on!
+      Go explore this site to see some of the things I’ve been working on!
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Quick Facts

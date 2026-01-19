@@ -68,6 +68,7 @@ html {
 
 .image-container:hover .gradient-border {
   transform: scale(0.97);
+  background: transparent;
 }
 
 .gradient-border img {

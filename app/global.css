@@ -68,11 +68,10 @@ html {
 
 .image-container:hover .gradient-border {
   transform: scale(0.97);
-  opacity: 0;
 }
 
 .gradient-border img {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
   display: block;
   border-radius: 18px;
 }
@@ -103,6 +102,10 @@ html {
   );
   animation: rotateGradient 6s linear infinite;
   z-index: -1;
+}
+
+.image-container:hover .gradient-border::before {
+  opacity: 0;
 }
 
 @property --angle {

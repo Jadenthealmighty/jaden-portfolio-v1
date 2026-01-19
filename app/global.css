@@ -106,7 +106,7 @@ html {
   );
   animation: rotateGradient 6s linear infinite;
   z-index: -1;
-  transition-delay: 0s;
+  transition-delay: 0.6s;
 }
 
 .image-container:hover .gradient-border::before {

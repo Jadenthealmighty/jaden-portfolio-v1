@@ -56,14 +56,6 @@ html {
   width: 70%;
   max-width: 70%;
   margin: 0 auto;
-  opacity: 1;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.image-item:hover {
-  opacity: 0.6;
-  transform: scale(0.85);
 }
 
 .gradient-border {
@@ -72,6 +64,20 @@ html {
   border-radius: 20px;
   padding: 2px;
   background: white;
+}
+
+.gradient-border:hover {
+  transform: scale(0.85);
+}
+
+.gradient-border img {
+  transition: opacity 0.3s ease;
+  display: block;
+  border-radius: 18px;
+}
+
+.gradient-border:hover img {
+  opacity: 0.25;
 }
 
 .gradient-border::before {

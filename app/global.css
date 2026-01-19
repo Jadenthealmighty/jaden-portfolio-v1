@@ -66,8 +66,9 @@ html {
   background: white;
 }
 
-.gradient-border:hover {
-  transform: scale(0.85);
+.image-container:hover .gradient-border {
+  transform: scale(0.97);
+  opacity: 0;
 }
 
 .gradient-border img {
@@ -76,7 +77,7 @@ html {
   border-radius: 18px;
 }
 
-.gradient-border:hover img {
+.image-container:hover .gradient-border img {
   opacity: 0.25;
 }
 

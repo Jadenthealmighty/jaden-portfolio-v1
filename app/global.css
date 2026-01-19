@@ -197,7 +197,6 @@ html {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  overflow: hidden;
 }
 
 .project-nav-item::before {

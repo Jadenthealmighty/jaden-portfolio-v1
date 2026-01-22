@@ -32,6 +32,9 @@ export default function ProjectsPage() {
     <a href="#project1" className="project-nav-item">
       <span>Fourier Analysis of Stocks Options</span>
     </a>
+    <a href="#project7" className="project-nav-item">
+      <span>Quantum Computer Programming with Qiskit</span>
+    </a>
     <a href="#project2" className="project-nav-item">
       <span>My Own Machine Learning Engine</span>
     </a>
@@ -81,6 +84,36 @@ export default function ProjectsPage() {
       <p className="mb-10">
       As of October 2025, the program has been deployed on live data and has done particularly well 
       at implied volatility predictions. Stay tuned for more updates!
+      </p>
+  </div>
+  <div id="project7">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+      Quantum Computing Grover's Algorithm
+      </h2>
+      <p className="mb-4 text-center">--In the works--</p>
+      <p className="mb-4">
+      This has been really enjoyable and has already taught me a great deal about quantum computing. 
+      The goal is to implement Grover’s algorithm, which has significant potential in database structures. 
+      As someone who has done a lot of work with large databases, this could be game-changing for applications 
+      like machine learning and high-performance computing with non-recursive data structures.
+
+      </p>
+      <p className="mb-4">
+      This project is still in the works, but I hope to be updating this page with my progress. 
+      It has been a fun experiment of applying my knowledge of quantum mechanics to practical 
+      work with the openly available IBM quantum processors.
+      </p>
+      <div className="project-image-container">
+    <div className="project-gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/grovers.png" 
+        alt="Grovers" 
+      />
+    </div>
+  </div>
+      <p className="mb-4">
+      -Image courtesy of Wolfram Cloud-
       </p>
   </div>
 
@@ -177,11 +210,13 @@ export default function ProjectsPage() {
       on seed parameters.
 </p>
 <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Qiskit Quantum Computing Algorithms
+        Qiskit Quantum Shor's Algorithms
       </h2>
       <p className="mb-10">
-      I have recently been working with Qiskit, more but I have yet to develop some of my own 
-      algorithms that are independent of some of the more basic published stacks. If you are interested 
+      This project has been more for my own learning purposes and is something that I've found genuine interest in.
+      I set out with a goal to write my own implementation of Shor's algrotihm (using Qiskit) by deriving it myself 
+      analytically. 
+      If you are interested 
       reach out, as I will be at QLUIST this January.
 </p>
 <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">

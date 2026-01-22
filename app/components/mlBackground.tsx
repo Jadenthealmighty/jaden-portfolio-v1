@@ -351,7 +351,6 @@ export default function MLBackground() {
       if (pointsQueue.length > 50){
         let pt = pointsQueue[0];
         pointsQueue.shift();
-        console.log(pt.ax)
         let newPredX = new PredictionPointX(pt.x, pt.vx, pt.ax, pt.vx_cov, pt.ax_cov);
         let newPredY = new PredictionPointX(pt.y, pt.vy, pt.ay, pt.vy_cov, pt.ay_cov);
         newPredX.set_result(pt.x - mouseX);
@@ -379,7 +378,6 @@ export default function MLBackground() {
                 predictionQueueY.shift();
             }
             const confidence =1 - (newPredX.most_recent_proj + newPredY.most_recent_proj)/3 ;
-            console.log(confidence);
 
             drawMatrix(newX, newY, true);
             
@@ -415,7 +413,6 @@ export default function MLBackground() {
         const start = performance.now();
         draw();
         const elapsed = performance.now() - start;
-        console.log(elapsed);
         const delay = Math.max(0, 30 - elapsed);
         setTimeout(drawLoop, delay);
         }

@@ -112,7 +112,7 @@ export default function ProjectsPage() {
       />
     </div>
   </div>
-      <p className="mb-4">
+      <p className="mb-4 text-center">
       -Image courtesy of Wolfram Cloud-
       </p>
   </div>

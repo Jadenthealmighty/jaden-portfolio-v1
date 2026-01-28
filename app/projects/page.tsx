@@ -29,27 +29,27 @@ export default function ProjectsPage() {
         </h1>
         <div>
   <div className="projects-nav">
-    <a href="#project1" className="project-nav-item">
+    <a href="#stock-analysis-proj" className="project-nav-item">
       <span>Fourier Analysis of Stocks Options</span>
     </a>
-    <a href="#project7" className="project-nav-item">
+    <a href="#q-computing-proj" className="project-nav-item">
       <span>Quantum Computer Programming with Qiskit</span>
     </a>
-    <a href="#project2" className="project-nav-item">
+    <a href="#machine-learning-proj" className="project-nav-item">
       <span>My Own Machine Learning Engine</span>
     </a>
-    <a href="#project3" className="project-nav-item">
+    <a href="#cosmic-ray-proj" className="project-nav-item">
       <span>Cosmic Ray Detection</span>
     </a>
-    <a href="#project4" className="project-nav-item">
+    <a href="#uv-spectroscopy-proj" className="project-nav-item">
       <span>UV Fluorescence Spectroscopy</span>
     </a>
-    <a href="#project5" className="project-nav-item">
+    <a href="#in-the-works" className="project-nav-item">
       <span>In the Works</span>
     </a>
   </div>
 
-  <div id="project1">
+  <div id="stock-analysis-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Fourier Analysis of Stock Options Algorithm
       </h2>
@@ -86,22 +86,20 @@ export default function ProjectsPage() {
       at implied volatility predictions. Stay tuned for more updates!
       </p>
   </div>
-  <div id="project7">
+  <div id="q-computing-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Quantum Computing Grover's Algorithm
       </h2>
       <p className="mb-4 text-center">--In the works--</p>
       <p className="mb-4">
-      This has been really enjoyable and has already taught me a great deal about quantum computing. 
-      The goal is to implement Grover’s algorithm, which has significant potential in database structures. 
-      As someone who has done a lot of work with large databases, this could be game-changing for applications 
-      like machine learning and high-performance computing with non-recursive data structures.
-
+      This is a project I’ve been working on independently, running my code on IBM’s 100-qubit quantum computers. 
+      Its goal is to implement Grover’s algorithm, which has the potential to search and sort through large databases 
+      much faster than current non-quantum computers. This could be game-changing for applications like machine learning 
+      and high-performance computational modelling/simulation.
       </p>
       <p className="mb-4">
-      This project is still in the works, but I hope to be updating this page with my progress. 
-      It has been a fun experiment of applying my knowledge of quantum mechanics to practical 
-      work with the openly available IBM quantum processors.
+      This project is still in the works, but I plan to update this page with my progress. It has been a fun experiment 
+      of applying my knowledge of quantum mechanics to practical work with the openly available IBM quantum processors.
       </p>
       <div className="project-image-container">
     <div className="project-gradient-border">
@@ -113,11 +111,12 @@ export default function ProjectsPage() {
     </div>
   </div>
       <p className="mb-4 text-center">
-      -Image courtesy of Wolfram Cloud-
+      Here you can see the circuit diagram for a basic implementation of Grover’s algorithm, 
+      which I am currently working on expanding to take full advantage of the new 100-qubit quantum processors.
       </p>
   </div>
 
-  <div id="project2">
+  <div id="machine-learning-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         General Machine Learning Engine
       </h2>
@@ -143,7 +142,7 @@ export default function ProjectsPage() {
         </p>
   </div>
 
-  <div id="project3">
+  <div id="cosmic-ray-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Cosmic Ray Detection
       </h2>
@@ -170,7 +169,7 @@ export default function ProjectsPage() {
         </p>
 
   </div>
-  <div id="project4">
+  <div id="uv-spectroscopy-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Ultra Violet Fluorescence Spectroscopy
       </h2>
@@ -198,7 +197,7 @@ export default function ProjectsPage() {
         </p>
 
   </div>
-  <div id="project5">
+  <div id="in-the-works">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         C++ Optimized Atmospheric Model
       </h2>

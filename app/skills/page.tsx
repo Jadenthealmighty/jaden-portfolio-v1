@@ -102,7 +102,7 @@ export default function SkillsPage() {
       applying my knowledge of time series analysis and computer programming in 
       new and creative ways. Through my most recent project, I’ve gained a thorough 
       experience in options volatility and short-term pricing diffusion analysis.
-      You can see my work in the <Link className="text-[#75FAF6]" href="/projects#project1">projects page</Link>.
+      You can see my work in the <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">projects page</Link>.
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Engineering

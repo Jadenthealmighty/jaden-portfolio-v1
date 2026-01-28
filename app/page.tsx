@@ -43,7 +43,7 @@ export default function Page() {
       <ul className="list-disc list-inside ml-6 space-y-2">
         <li>Top 100 in the United States in <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">USAPhO Qualification Exam</a></li>
         <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills#lang_section">7 other languages</Link></li>
-        <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#project1">research in Quantitative Finance</Link></li>
+        <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">research in Quantitative Finance</Link></li>
         <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#project2">General Machine Learning Engine</Link></li>
       </ul>
       </p>

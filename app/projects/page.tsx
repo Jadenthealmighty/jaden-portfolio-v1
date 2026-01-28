@@ -110,7 +110,7 @@ export default function ProjectsPage() {
       />
     </div>
   </div>
-      <p className="mb-4 text-center">
+      <p className="mb-4">
       Here you can see the circuit diagram for a basic implementation of Grover’s algorithm, 
       which I am currently working on expanding to take full advantage of the new 100-qubit quantum processors.
       </p>

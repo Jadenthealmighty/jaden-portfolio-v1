@@ -78,7 +78,7 @@ export default function SkillsPage() {
         <img src="/images/MATLAB-logo.png" alt="Matlab" className="language-logo" />
       </div>
       <div className="language-item">
-        <img src="/images/linux-logo.webp" alt="Linux" className="language-logo" />
+        <img src="/images/linuxbash-logo.png" alt="LinuxBash" className="language-logo" />
       </div>
     </div>
     

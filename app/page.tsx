@@ -70,7 +70,7 @@ export default function Page() {
         tap to move the center of mass). The background of this page is my own physics simulation 
         running fully in your browser; it is calculating the physical effects of gravitational 
         wave propagation on orbiting bodies. The mathematical model even behaves according 
-        to special and general relativity, accounting for space-time warping and relativistic 
+        to special and general relativity, approximating the space-time warping and relativistic 
         effects near the speed of light.
       </p>
       <p className="mb-10">

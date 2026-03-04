@@ -18,12 +18,15 @@ export default function SkillsPage() {
         being run 100% on your computer. The model only sees where your mouse was 5 seconds ago (if on mobile, the last place you've tapped) 
         and calculates its best prediction (in <span style={{ color: '#75FAF6', marginBottom: '2.5rem' }}>blue</span>) of where your mouse currently is (in white).
           </p>
-          <p className="mb-10">
+          <p className="mb-4">
         The background is actually a direct projection of the bias matrix that runs 
         the majority of the program's functionality. Look at how the entries change over time!
 
         </p>
-        
+        <p className="mb-10">
+        Try moving your mouse in a regular pattern and see how the prediction model adapts.
+
+        </p>
         <h1 className="mb-6 text-5xl font-semibold tracking-tighter">
         Skills
         </h1>

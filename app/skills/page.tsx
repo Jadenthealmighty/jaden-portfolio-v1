@@ -5,7 +5,7 @@ export default function SkillsPage() {
       
       <section>
         <div id="skills_page">
-        <main className="relative z-10 px-12 pt-[40vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
+        <main className="relative z-10 px-12 pt-[55vh] pb-20 max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         </main>
         </div>
         <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">

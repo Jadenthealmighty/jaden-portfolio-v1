@@ -29,6 +29,9 @@ export default function ProjectsPage() {
         </h1>
         <div>
   <div className="projects-nav">
+  <a href="#atmospher-proj" className="project-nav-item">
+      <span>Atmospheric Simulation in C++</span>
+    </a>
     <a href="#stock-analysis-proj" className="project-nav-item">
       <span>Fourier Analysis of Stocks Options</span>
     </a>
@@ -48,7 +51,41 @@ export default function ProjectsPage() {
       <span>In the Works</span>
     </a>
   </div>
-
+  <div id="atmospher-proj">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+      Atmospheric Simulation in C++
+      </h2>
+      <p className="mb-4">
+      talk about it a little
+      </p>
+      <p className="mb-4">
+      more talk
+      </p>
+  <div className="project-image-container">
+    <div className="project-gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/climate_sim.gif" 
+        alt="jaden-climate-gif" 
+      />
+    </div>
+  </div>
+      <p className="mb-4">
+      Talk some more
+      </p>
+      <div className="project-image-container">
+        <div className="project-gradient-border">
+          <img 
+            className="img_center" 
+            src="/images/pressure_dif_graph.png" 
+            alt="jaden-climate-graph" 
+          />
+        </div>
+      </div>
+      <p className="mb-10">
+      Last talks
+      </p>
+  </div>
   <div id="stock-analysis-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Fourier Analysis of Stock Options Algorithm
@@ -199,14 +236,10 @@ export default function ProjectsPage() {
   </div>
   <div id="in-the-works">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        C++ Optimized Atmospheric Model
+        C++ Optimized Live Atmospheric Model
       </h2>
       <p className="mb-10">
-      I am working on a C++ program that will simulate atmospheric physics as efficiently 
-      as possible. Much of the current block is the large datasets, which hasn't been the most 
-      flexible for this kind of work. The end goal is to have an executable program 
-      that can run live simulations of pressure, temperature, and moisture modelling based
-      on seed parameters.
+      HEREEEEE
 </p>
 <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Qiskit Quantum Shor's Algorithms

@@ -270,8 +270,8 @@ export default function ProjectsPage() {
       </h2>
       <p className="mb-10">
       If you really enjoyed my atmospheric simulation engine (see above), 
-      you’ll love this. I’ve been working on creating live weather s
-      imulations and predictions. It’s a big project, but I am using 
+      you’ll love this. I’ve been working on creating live weather 
+      simulations and predictions. It’s a big project, but I am using 
       my simulation engine with data from Open-Meteo and RAP. Stay in 
       tune because I’ll be giving updates on this soon!
 

@@ -269,17 +269,29 @@ export default function ProjectsPage() {
         C++ Optimized Live Atmospheric Model
       </h2>
       <p className="mb-10">
-      HEREEEEE
+      If you really enjoyed my atmospheric simulation engine (see above), 
+      you’ll love this. I’ve been working on creating live weather s
+      imulations and predictions. It’s a big project, but I am using 
+      my simulation engine with data from Open-Meteo and RAP. Stay in 
+      tune because I’ll be giving updates on this soon!
+
 </p>
 <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Qiskit Quantum Shor's Algorithms
       </h2>
+      <p className="mb-4">
+This project has been more for my own learning purposes and is
+ something that I've found genuine interest in. I set out with a 
+ goal to write my own implementation of Shor's algrotihm using
+  Qiskit by deriving it myself analytically (with a lot of help of course). 
+      </p>
       <p className="mb-10">
-      This project has been more for my own learning purposes and is something that I've found genuine interest in.
-      I set out with a goal to write my own implementation of Shor's algrotihm (using Qiskit) by deriving it myself 
-      analytically. 
-      If you are interested 
-      reach out, as I will be at QLUIST this January.
+      I’ve always been very interested in cybersecurity. Because of this, 
+      I’ve been trying to use this, as well as with Kali tools, to break 
+      (MY OWN) simple custom RSA encryption I have written on a Raspberry 
+      Pi. It’s been quite finicky (I didn’t quite realize how much I’d 
+      have to learn about Hamming error correction), but it’s been fun 
+      to actually physically apply some of my quantum computing code.
 </p>
 <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Training my own Large Language Model

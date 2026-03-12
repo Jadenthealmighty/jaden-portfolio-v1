@@ -53,7 +53,7 @@ export default function ProjectsPage() {
   </div>
   <div id="atmospher-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-      Atmospheric Simulation E in C++
+      Atmospheric Simulation in C++
       </h2>
       <p className="mb-4">
       I wanted to build an atmospheric fluid simulation from the ground up 
@@ -107,7 +107,7 @@ export default function ProjectsPage() {
       showing the difference in the average pressure in both regions over time. 
       </p>
       <p className="mb-10">
-      Also let me know if you’d like a link to the Github repo; unfortunately,
+      Also, let me know if you’d like a link to the GitHub repo; unfortunately,
        I’ve optimized much of the code exclusively for GNU Mac and Linux. But if 
        you're willing to compile it, I'm happy to talk!
       </p>
@@ -282,7 +282,7 @@ export default function ProjectsPage() {
       <p className="mb-4">
 This project has been more for my own learning purposes and is
  something that I've found genuine interest in. I set out with a 
- goal to write my own implementation of Shor's algrotihm using
+ goal to write my own implementation of Shor's algorithm using
   Qiskit by deriving it myself analytically (with a lot of help of course). 
       </p>
       <p className="mb-10">

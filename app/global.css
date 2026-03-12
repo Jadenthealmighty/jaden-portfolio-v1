@@ -147,8 +147,8 @@ html {
 .project-gradient-border::before {
   content: '';
   position: absolute;
-  inset: -6px;
-  border-radius: 10px;
+  inset: -4px;
+  border-radius: 20px;
   background: conic-gradient(
     from var(--angle) at 50% 50%,
     white 0%,

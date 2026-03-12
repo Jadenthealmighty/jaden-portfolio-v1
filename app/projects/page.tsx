@@ -232,9 +232,13 @@ export default function ProjectsPage() {
         at the University Rover Challenge in Utah.
 
         </p>
+  
 
   </div>
   <div id="in-the-works">
+  <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
+        In The Works!
+        </h1>
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         C++ Optimized Live Atmospheric Model
       </h2>

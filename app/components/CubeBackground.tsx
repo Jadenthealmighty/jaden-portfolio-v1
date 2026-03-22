@@ -77,9 +77,9 @@ type Vec3 = {
 
 
       if (mouse.current.x > 0) {
-        lensF = Math.min((mouse.current.x - lensX)/(lensX), 1) * 600;
+        lensF = Math.min(((mouse.current.x - lensX)) ** 0.5/(lensX), 1) * 600;
       } else {
-        lensF = Math.max((mouse.current.x - lensX)/(lensX), -1) * 2000;
+        lensF = Math.max(-((-(mouse.current.x - lensX)/(lensX))**0.5), -1) * 2000;
       }
       const tempF = lensF;
       
@@ -168,11 +168,13 @@ type Vec3 = {
       let focString = "Focal length: " + (Math.round(tempF) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText(focString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight - scrollY);
+      ctx.textAlign = "center";
+      ctx.fillText(focString, 0.5 * canvas.clientWidth, 0.15 * canvas.clientHeight - scrollY);
       let rString = "Camera distance: " + (Math.round(lensD * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText(rString, 0.45 * canvas.clientWidth, 0.1 * canvas.clientHeight + 20 - scrollY);
+      ctx.textAlign = "center";
+      ctx.fillText(rString, 0.5 * canvas.clientWidth, 0.15 * canvas.clientHeight + 20 - scrollY);
       ctx.globalAlpha = 1;
 
 

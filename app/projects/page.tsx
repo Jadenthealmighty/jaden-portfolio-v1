@@ -85,10 +85,11 @@ export default function ProjectsPage() {
     </div>
   </div>
       <p className="mb-4">
-      Here you can see me running it with a 614,000 partition grid measuring 
+      Here you can see me running it with a 640,000 partition grid measuring 
       pressure, temperature, chemical potential, density, etc., from a 
-      hotspot with a heat sink that slowly becomes more saturated. Note 
-      that this GIF is playing at real-time speed, achieving around 500 
+      hotspot and a cold front. You can even see a fluctuation in pressure
+      propogate through the simulation in the GIF. Note 
+      that this GIF is playing at real-time speed, achieving around 80,000 
       timesteps per second. (The pixelation in the picture is from the 
       MP4-GIF compression.)
       </p>
@@ -266,7 +267,7 @@ export default function ProjectsPage() {
         In The Works!
         </h1>
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        C++ Optimized Live Atmospheric Model
+        Live Atmospheric Model and Weather Simulations
       </h2>
       <p className="mb-10">
       If you really enjoyed my atmospheric simulation engine (see above), 

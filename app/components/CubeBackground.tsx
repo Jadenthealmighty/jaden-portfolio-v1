@@ -77,7 +77,7 @@ type Vec3 = {
 
 
       if (mouse.current.x > 0) {
-        lensF = Math.min(((mouse.current.x - lensX)) ** 0.5/(lensX), 1) * 600;
+        lensF = Math.min(((mouse.current.x - lensX) /(lensX)) ** 0.5, 1) * 600;
       } else {
         lensF = Math.max(-((-(mouse.current.x - lensX)/(lensX))**0.5), -1) * 2000;
       }

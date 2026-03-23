@@ -151,7 +151,7 @@ type Vec3 = {
       ctx.strokeStyle = 'rgba(117, 250, 246, 0.7)';
       ctx.stroke();
 
-      const brightness = 80 * (maxD/tempR)**0.8 * alphaMult;
+      const brightness = 80 * (maxD/tempR)**0.5 * alphaMult;
       const piRatio = Math.PI /180;
       for (let i = 0; i < 180; i++) {
         const newI = 2 * i;

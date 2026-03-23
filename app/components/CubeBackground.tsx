@@ -76,10 +76,10 @@ type Vec3 = {
       const tempR = Math.min(100, 1/lensD) * 180;
 
 
-      if (mouse.current.x > 0) {
+      if (mouse.current.x > lensX) {
         lensF = Math.min(((mouse.current.x - lensX) /(lensX)) ** 0.5, 1) * 600;
       } else {
-        lensF = Math.max(-(((mouse.current.x - lensX)/(lensX))**0.5), -1) * 2000;
+        lensF = Math.max(-((-(mouse.current.x - lensX)/(lensX))**0.5), -1) * 2000;
       }
       const tempF = lensF;
       

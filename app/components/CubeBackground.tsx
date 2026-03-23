@@ -132,7 +132,7 @@ type Vec3 = {
         const newD = Math.sqrt((newX - lensX) ** 2 +  (newY - lensY) ** 2);
         if (newD < tempR){
             const normZ = Math.abs(imgDist / 1600);
-            const alpha = 0.8 * normZ * alphaMult;
+            const alpha = 0.8 * (normZ * alphaMult) ** 0.9;
             const radius = 2.8 * normZ;
             if (newD <= tempR - radius){
                 ctx.beginPath();

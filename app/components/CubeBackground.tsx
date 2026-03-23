@@ -79,7 +79,7 @@ type Vec3 = {
       if (mouse.current.x > 0) {
         lensF = Math.min(((mouse.current.x - lensX) /(lensX)) ** 0.5, 1) * 600;
       } else {
-        lensF = Math.max(-((-(mouse.current.x - lensX)/(lensX))**0.5), -1) * 2000;
+        lensF = Math.max(-(((mouse.current.x - lensX)/(lensX))**0.5), -1) * 2000;
       }
       const tempF = lensF;
       
@@ -169,12 +169,12 @@ type Vec3 = {
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
-      ctx.fillText(focString, 0.5 * canvas.clientWidth, 0.15 * canvas.clientHeight - scrollY);
+      ctx.fillText(focString, 0.5 * canvas.clientWidth, 0.2 * canvas.clientHeight - scrollY);
       let rString = "Camera distance: " + (Math.round(lensD * 100) / 100);
       ctx.font = "14px Arial";
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
-      ctx.fillText(rString, 0.5 * canvas.clientWidth, 0.15 * canvas.clientHeight + 20 - scrollY);
+      ctx.fillText(rString, 0.5 * canvas.clientWidth, 0.2* canvas.clientHeight + 20 - scrollY);
       ctx.globalAlpha = 1;
 
 

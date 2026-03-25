@@ -85,8 +85,8 @@ export default function ProjectsPage() {
     </div>
   </div>
       <p className="mb-4">
-      Here you can see me running it with a 640,000 partition grid measuring 
-      pressure, temperature, chemical potential, density, etc., from a 
+      Here you can see me running it on a cross section of a 640,000 partition 3D grid. Seen here measuring 
+      pressure, temperature, chemical potential, density from a 
       hotspot and a cold front. You can even see a fluctuation in pressure
       propogate through the simulation in the GIF. Note 
       that this GIF is playing at real-time speed, achieving around 80,000 
@@ -108,9 +108,8 @@ export default function ProjectsPage() {
       showing the difference in the average pressure in both regions over time. 
       </p>
       <p className="mb-10">
-      Also, let me know if you’d like a link to the GitHub repo; unfortunately,
-       I’ve optimized much of the code exclusively for GNU Mac and Linux. But if 
-       you're willing to compile it, I'm happy to talk!
+      GitHub repo is available for this project, though it is optimized solely for GNU g++
+      to make sure the graphics run smoothly on a separate thread.
       </p>
   </div>
   <div id="stock-analysis-proj">

@@ -44,7 +44,7 @@ export default function Page() {
         <li>Top 100 in <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">Team USA Physics Competition Qualifiers</a></li>
         <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills#lang_section">7 other languages</Link></li>
         <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">research in Quantitative Finance</Link></li>
-        <li>Currently working on a <Link className="text-[#75FAF6]" href="/projects#machine-learning-proj">Machine Learning</Link></li>
+        <li>Currently working on <Link className="text-[#75FAF6]" href="/projects#machine-learning-proj">Machine Learning</Link></li>
         <li>Recent work with <Link className="text-[#75FAF6]" href="/projects#q-computing-proj">Quantum Computing</Link></li>
       </ul>
       </p>

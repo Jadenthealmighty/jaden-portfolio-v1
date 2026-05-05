@@ -30,18 +30,18 @@ export default function Footer() {
             <p className="ml-2 h-7">LinkedIn</p>
           </a>
         </li>
-        {/* UNCOMMENT WHEN READY for github 
+        {
         <li>
           <a
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/vercel/next.js"
+            href="https://github.com/Jadenthealmighty"
           >
             <ArrowIcon />
             <p className="ml-2 h-7">github</p>
           </a>
-        </li> */}
+        </li>}
         <li>
           <a
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"

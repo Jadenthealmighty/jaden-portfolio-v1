@@ -57,20 +57,30 @@ export default function ProjectsPage() {
       <span>In the Works</span>
     </a>
   </div>
-  {/* TODO(Jaden): Gary + distributed compute text is a first draft, fill in the real details */}
   <div id="gary-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Gary: My Own Voice Assistant
       </h2>
       <p className="mb-4">
-      Meet Gary, the voice assistant I've been building from scratch. I wanted to see what it
-      actually takes to make something like Siri or Alexa work end to end: listening for his name,
-      turning what I say into text, figuring out what I actually asked for, and talking back.
+      Meet Gary, my lab assistant who works the night shift. Gary is a locally hosted,
+      Qwen-based language model that I've trained on my own physics simulations, and his job
+      is to run them for me. He manages the simulation queue, decides what to run next, and
+      reads out the results, so the big parameter sweeps for
+      my <Link className="text-[#75FAF6]" href="/research">research</Link> keep going while I sleep.
       </p>
+      <div className="project-image-container wide">
+        <div className="project-gradient-border">
+          <img
+            className="img_center"
+            src="/images/gary_simhub.png"
+            alt="Simhub dashboard showing Gary's simulation queue and results"
+          />
+        </div>
+      </div>
       <p className="mb-10">
-      Gary runs on my own hardware instead of someone else's cloud, which is a big part of why
-      I ended up building the compute system below. He's still a work in progress, but he's
-      already become a regular part of my day!
+      Here's the dashboard I use to keep an eye on him. Every card is a simulation Gary has
+      queued, run, and plotted (these ones are sweeps for the ytterbium MOT), along with the key
+      numbers he pulled out of the results.
       </p>
   </div>
   <div id="distributed-compute-proj">
@@ -78,17 +88,15 @@ export default function ProjectsPage() {
       Distributed Compute System
       </h2>
       <p className="mb-4">
-      Between my lab simulations and Gary, I ran out of computer pretty quickly. So instead of
-      buying more, I networked the machines I already had (a Ryzen 9 workstation, a PC with an
-      RTX 3080, and an old Dell Optiplex I turned into a headless Ubuntu server) into one small
-      compute cluster over Tailscale.
+      Gary needs something to run all of those simulations on, so I built him a small distributed
+      compute system out of two servers, one with me here in Toronto and one back home in San
+      Francisco, all connected over Tailscale.
       </p>
       <p className="mb-10">
-      Jobs get split across whichever machines are free, so the big Monte Carlo sweeps for
-      my <Link className="text-[#75FAF6]" href="/research">research</Link> can run overnight
-      instead of tying up my laptop for days. It's also been a great excuse to get much deeper
-      into Linux server management, networking, and keeping things running when I'm not around
-      to babysit them.
+      Since the two machines are good at different things, Gary also manages the resources across
+      both of them, matching each job to whichever platform suits it best. It's been a great excuse
+      to get much deeper into Linux server management, networking, and keeping things running
+      across a continent when I'm not around to babysit them.
       </p>
   </div>
   <div id="atmospher-proj">
@@ -156,18 +164,15 @@ export default function ProjectsPage() {
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
       Fourier Analysis of Stock Options Algorithm
       </h2>
-      <p className="mb-4 text-center">--In the works--</p>
       <p className="mb-4">
-      My largest project to date, this was an endeavor to learn more about 
-      the stock & options markets that quickly developed into a larger project 
-      with advice and implementation from both academics at the UofT Faculty of 
-      Applied Econometrics and industry experts.</p>
+      Some of my previous research was in quantitative finance. This started as an endeavor 
+      to learn more about the stock & options markets, and quickly developed into a larger 
+      project with advice from both academics at UofT and industry experts.</p>
       <p className="mb-4">
-      Using a gradient optimization algorithm coupled with Fourier signal analysis, 
-      we’ve found some pretty incredible results that will hopefully be compiled and 
-      openly available soon. The primary focus of the algorithm has been on short- to 
-      medium-term options contracts (7 - 50 days). Through randomized backtests, we are 
-      seeing an average return of 11% across all contracts.
+      The algorithm paired gradient optimization with Fourier signal analysis to predict 
+      volatility windows in short- to medium-term options contracts (7 - 50 days). It was 
+      a great crash course in time series analysis, and a lot of those signal processing 
+      skills have carried over into my physics work.
       </p>
       <div className="project-image-container">
     <div className="project-gradient-border">
@@ -178,15 +183,9 @@ export default function ProjectsPage() {
       />
     </div>
   </div>
-      <p className="mb-4">
-      This is a particularly good example where the program estimated the highest 
-      volatility window and bought the contract at $610 and sold it at $1,179 (accounting 
-      for spread). Realistically, this is an outlier and in aggregate we were 
-      looking at a skewed standard deviation of around 13%.
-      </p>
       <p className="mb-10">
-      As of October 2025, the program has been deployed on live data and has done particularly well 
-      at implied volatility predictions. Stay tuned for more updates!
+      Here you can see the program estimating the highest-volatility window for one of 
+      the contracts it analyzed.
       </p>
   </div>
   <div id="q-computing-proj">

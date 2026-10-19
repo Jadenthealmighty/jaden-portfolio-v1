@@ -44,6 +44,9 @@ export default function ResearchPage() {
           <a href="#nv-research" className="project-nav-item">
             <span>Single-Board NV Diamond Magnetometer</span>
           </a>
+          <a href="#publications" className="project-nav-item">
+            <span>Publications &amp; Talks</span>
+          </a>
         </div>
 
         {/* ------------------------------------------------------------------ */}
@@ -74,6 +77,29 @@ export default function ResearchPage() {
         the textbook atom-beam results actually apply to them. So I wrote a 3D Monte Carlo that traces
         atoms through the real geometry, and coupled it to a rate-equation model of the trap built
         on PyLCP.
+        </p>
+        <div className="figure-pair">
+          <div className="project-gradient-border" style={{ flex: 1.286 }}>
+            <img
+              className="img_center"
+              src="/images/yb_spectroscopy.png"
+              alt="Spectroscopy of the ytterbium atom beam showing the different isotope lines"
+            />
+          </div>
+          <div className="project-gradient-border" style={{ flex: 1.031 }}>
+            <img
+              className="img_center"
+              src="/images/yb_fluorescence.jpg"
+              alt="Violet fluorescence from ytterbium atoms seen through a vacuum chamber viewport"
+            />
+          </div>
+        </div>
+        <p className="mb-4">
+        On the left is spectroscopy of our atom beam: as we sweep the laser's frequency, each bright
+        stripe is a different isotope of ytterbium lighting up (the axis shows the 798 nm laser
+        before it gets frequency-doubled to 399 nm). On the right is the real thing: the violet glow
+        of ytterbium atoms fluorescing in our 399 nm light, seen through one of the chamber's
+        viewports.
         </p>
         <p className="mb-4">
         The best part was checking it against reality. The model matches a MolFlow+ simulation of the
@@ -117,11 +143,20 @@ export default function ResearchPage() {
         The idea is to get rid of the MOT coils entirely. A MOT works because the magnetic field
         gradient shifts the atoms' energy levels by an amount that depends on where they are, so an
         atom that drifts off-centre ends up resonant with the beam that pushes it back. In an OOT,
-        a set of detuned "shift beams" do the same job with light instead, using the AC Stark shift.
-        The shift beams move the atoms' energy levels by a position-dependent amount, which to the
-        atom looks just like the quadrupole field from a pair of MOT coils, while the same cooling
-        beams handle the actual trapping. No coils means no magnetic fields to switch off or
-        to linger around the atoms.
+        a set of detuned "shift beams" at 1077 nm do the same job with light instead, using the AC
+        Stark shift. The shift beams move the atoms' energy levels by a position-dependent amount,
+        which to the atom looks just like the quadrupole field from a pair of MOT coils, while the
+        same cooling beams handle the actual trapping.
+        </p>
+        <p className="mb-4">
+        So why bother? Magnetic fields are cumbersome. Real coils take a long time to turn off,
+        and a clock can't make its measurement until the field is gone, since any leftover field
+        shifts the very transition you're trying to measure. Shift beams can be switched off with
+        an acousto-optic modulator in about 100 ns, which is far faster than even the best coils. It's
+        also much more scalable: an array of MOTs would need coils or magnets packed inside the vacuum
+        chamber, but an array of OOTs only needs more light, which is a big deal for building
+        quantum computers out of neutral atoms. You can read more in our
+        group's <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://meetings-archive.aps.org/damop/2026/b08/10/">DAMOP 2026 abstract</a>.
         </p>
         <p className="mb-4">
         I built this on top of my MOT and atom-beam simulation, swapping out the coil field for the
@@ -190,8 +225,9 @@ export default function ResearchPage() {
         off-the-shelf parts and an open-source design. We used electromagnetic simulations to pick a
         microstrip ring antenna for driving the NV spins, co-designed with its on-board impedance
         matching, and we'll be characterizing the finished board with optically detected magnetic
-        resonance (ODMR) and full three-axis field reconstruction. We've submitted our work to SPIE
-        Quantum West, and coming from atomic physics, this has been a crash course in RF design!
+        resonance (ODMR) and full three-axis field reconstruction. We'll be presenting this at SPIE
+        Quantum West this February, with a paper on the way. Coming from atomic physics, this has
+        been a crash course in RF design!
         </p>
         <div className="project-image-container">
           <div className="project-gradient-border">
@@ -205,6 +241,38 @@ export default function ResearchPage() {
         <p className="mb-10">
         Here's our current PCB design for the sensor board.
         </p>
+        </div>
+
+        {/* ------------------------------------------------------------------ */}
+        {/* Publications & talks                                                */}
+        {/* ------------------------------------------------------------------ */}
+        <div id="publications">
+        <h2 className="mb-6 text-2xl font-bold text-[#75faf6]">
+            Publications &amp; Talks
+        </h2>
+        <h3 className="mb-4 text-xl font-bold">Upcoming</h3>
+        <ul className="mb-8 space-y-5">
+          <li>
+            <p className="font-semibold">An Embedded Planar Single-Board NV Vector Magnetometer</p>
+            <p className="text-neutral-400">SPIE Photonics West, Quantum West · San Francisco · February 2027</p>
+            <p className="text-neutral-400">Paper in preparation</p>
+          </li>
+          <li>
+            <p className="font-semibold">Ytterbium-174 magneto-optical and opto-optical trapping</p>
+            <p className="text-neutral-400">SPIE Photonics West, Quantum West · San Francisco · February 2027</p>
+          </li>
+        </ul>
+        <h3 className="mb-4 text-xl font-bold">Past</h3>
+        <ul className="mb-10 space-y-5">
+          <li>
+            <p className="font-semibold">Spatially Resolved Simulation of an Ytterbium-174 Magneto-Optical Trap</p>
+            <p className="text-neutral-400">TUCAN (Toronto Ultra-Cold Atom Network)</p>
+          </li>
+          <li>
+            <p className="font-semibold">Spatially Resolved Simulation of an Ytterbium-174 Magneto-Optical Trap</p>
+            <p className="text-neutral-400">ROP Research Poster Fair · University of Toronto</p>
+          </li>
+        </ul>
         </div>
 
         <p className="mb-10">

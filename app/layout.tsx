@@ -17,10 +17,11 @@ export const metadata: Metadata = {
     icon: "/favicon.ico"
   },
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Jaden Al-Aidroos Site',
+    description: 'Physics and computer science at the University of Toronto: atomic physics research, simulations, and projects.',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Jaden Al-Aidroos Site',
+    images: ['/images/jaden_presenting.jpg'],
     locale: 'en_US',
     type: 'website',
   },

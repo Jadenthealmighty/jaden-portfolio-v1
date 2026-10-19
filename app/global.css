@@ -51,11 +51,14 @@ html {
 }
 .image-container {
   display: block;
-  margin-left : auto;
-  margin-right : auto;
-  width: 70%;
-  max-width: 70%;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+/* the gradient border is inline-block, so make it (and the photo) fill the column too */
+.image-container .gradient-border {
+  display: block;
 }
 
 .gradient-border {
@@ -444,5 +447,29 @@ table {
 
   .project-nav-item {
     aspect-ratio: auto;
+  }
+}
+
+/* Two figures side by side at equal height: give each a flex value equal to
+   its width/height aspect ratio (set inline on the element) */
+.figure-pair {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 40px 0;
+}
+
+.figure-pair > .project-gradient-border {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .figure-pair {
+    flex-direction: column;
+  }
+
+  .figure-pair > .project-gradient-border {
+    flex: none !important;
+    width: 100%;
   }
 }

@@ -11,9 +11,12 @@ export default function Page() {
       <img 
         className="img_center" 
         src="/images/jaden_presenting.jpg" 
-        alt="Jaden Al-Aidroos" 
+        alt="Jaden Al-Aidroos presenting his ytterbium MOT poster" 
       />
     </div>
+    <p className="mt-4 text-center text-sm text-neutral-400">
+      Presenting my ytterbium MOT research at UofT's ROP Research Poster Fair
+    </p>
   </div>
   <p className="mb-4"></p>
       <h1 className="mb-8 text-center text-5xl font-semibold tracking-tighter">
@@ -26,17 +29,18 @@ export default function Page() {
       Hello, I am a university student based in Toronto and San Francisco. 
       I am currently pursuing a Bachelor of Science degree at the University of Toronto, 
       specializing in Physics with minors in Computer Science and Mathematics</p>
+      
+      <p className="mb-4">
+      These days, most of my time goes into research: laser cooling and trapping ytterbium atoms
+      for an optical atomic clock in the Braverman group, and building a single-board quantum
+      magnetometer with the UofT Quantum Computing Club. You can read about both on
+      my <Link className="text-[#75FAF6]" href="/research">research page</Link>.</p>
       <p className="mb-4">
       In 2024, I competed in the US Physics Olympiad (Team USA Physics Competition), 
       placing among the top in the country for a shot at representing the United States 
       internationally. Since then, I’ve spent my time building robots, programming in 10 
       languages, teaching math at high schools around Toronto, doing quantitative finance 
       research, and preparing to represent the University of Toronto in the Putnam Math Competition.</p>
-      <p className="mb-4">
-      These days, most of my time goes into research: laser cooling and trapping ytterbium atoms
-      for an optical atomic clock in the Braverman group, and building a single-board quantum
-      magnetometer with the UofT Quantum Computing Club. You can read about both on
-      my <Link className="text-[#75FAF6]" href="/research">research page</Link>.</p>
       <p className="mb-10">
       I hope you enjoy this website as much as I enjoyed making it. 
       Go explore this site to see some of the things I’ve been working on!
@@ -49,9 +53,9 @@ export default function Page() {
         <li>Building a <Link className="text-[#75FAF6]" href="/research#nv-research">single-board NV diamond magnetometer</Link> with the UofT Quantum Computing Club</li>
         <li>Top 100 in <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">Team USA Physics Competition Qualifiers</a></li>
         <li>Grew up coding, proficient in Python, Java, C++ and 7 other languages</li>
-        <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">research in Quantitative Finance</Link></li>
         <li>Currently working on <Link className="text-[#75FAF6]" href="/projects#machine-learning-proj">Machine Learning</Link></li>
         <li>Recent work with <Link className="text-[#75FAF6]" href="/projects#q-computing-proj">Quantum Computing</Link></li>
+        <li>Previous <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">research in Quantitative Finance</Link></li>
       </ul>
 
       <p className="mb-10"></p>

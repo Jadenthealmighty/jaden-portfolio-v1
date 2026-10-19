@@ -1,6 +1,6 @@
 import MLBackground from "app/components/mlBackground";
 
-export default function ProjectsLayout({
+export default function ResearchLayout({
   children,
 }: {
   children: React.ReactNode;

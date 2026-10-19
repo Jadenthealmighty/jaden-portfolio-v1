@@ -32,6 +32,11 @@ export default function Page() {
       internationally. Since then, I’ve spent my time building robots, programming in 10 
       languages, teaching math at high schools around Toronto, doing quantitative finance 
       research, and preparing to represent the University of Toronto in the Putnam Math Competition.</p>
+      <p className="mb-4">
+      These days, most of my time goes into research: laser cooling and trapping ytterbium atoms
+      for an optical atomic clock in the Braverman group, and building a single-board quantum
+      magnetometer with the UofT Quantum Computing Club. You can read about both on
+      my <Link className="text-[#75FAF6]" href="/research">research page</Link>.</p>
       <p className="mb-10">
       I hope you enjoy this website as much as I enjoyed making it. 
       Go explore this site to see some of the things I’ve been working on!
@@ -39,15 +44,15 @@ export default function Page() {
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
         Quick Facts
       </h2>
-      <p className="mb-4">
-      <ul className="list-disc list-inside ml-6 space-y-2">
+      <ul className="mb-4 list-disc list-inside ml-6 space-y-2">
+        <li>Researching <Link className="text-[#75FAF6]" href="/research#mot-research">laser cooling and trapping of ytterbium</Link> for an optical atomic clock</li>
+        <li>Building a <Link className="text-[#75FAF6]" href="/research#nv-research">single-board NV diamond magnetometer</Link> with the UofT Quantum Computing Club</li>
         <li>Top 100 in <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">Team USA Physics Competition Qualifiers</a></li>
-        <li>Grew up coding, proficient in Python, Java, C++ and <Link className="text-[#75FAF6]" href="/skills#lang_section">7 other languages</Link></li>
+        <li>Grew up coding, proficient in Python, Java, C++ and 7 other languages</li>
         <li>Actively doing <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">research in Quantitative Finance</Link></li>
         <li>Currently working on <Link className="text-[#75FAF6]" href="/projects#machine-learning-proj">Machine Learning</Link></li>
         <li>Recent work with <Link className="text-[#75FAF6]" href="/projects#q-computing-proj">Quantum Computing</Link></li>
       </ul>
-      </p>
 
       <p className="mb-10"></p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">

@@ -29,6 +29,12 @@ export default function ProjectsPage() {
         </h1>
         <div>
   <div className="projects-nav">
+  <a href="#gary-proj" className="project-nav-item">
+      <span>Gary: My Own Voice Assistant</span>
+    </a>
+    <a href="#distributed-compute-proj" className="project-nav-item">
+      <span>Distributed Compute System</span>
+    </a>
   <a href="#atmospher-proj" className="project-nav-item">
       <span>Atmospheric Simulation in C++</span>
     </a>
@@ -50,6 +56,40 @@ export default function ProjectsPage() {
     <a href="#in-the-works" className="project-nav-item">
       <span>In the Works</span>
     </a>
+  </div>
+  {/* TODO(Jaden): Gary + distributed compute text is a first draft, fill in the real details */}
+  <div id="gary-proj">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+      Gary: My Own Voice Assistant
+      </h2>
+      <p className="mb-4">
+      Meet Gary, the voice assistant I've been building from scratch. I wanted to see what it
+      actually takes to make something like Siri or Alexa work end to end: listening for his name,
+      turning what I say into text, figuring out what I actually asked for, and talking back.
+      </p>
+      <p className="mb-10">
+      Gary runs on my own hardware instead of someone else's cloud, which is a big part of why
+      I ended up building the compute system below. He's still a work in progress, but he's
+      already become a regular part of my day!
+      </p>
+  </div>
+  <div id="distributed-compute-proj">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+      Distributed Compute System
+      </h2>
+      <p className="mb-4">
+      Between my lab simulations and Gary, I ran out of computer pretty quickly. So instead of
+      buying more, I networked the machines I already had (a Ryzen 9 workstation, a PC with an
+      RTX 3080, and an old Dell Optiplex I turned into a headless Ubuntu server) into one small
+      compute cluster over Tailscale.
+      </p>
+      <p className="mb-10">
+      Jobs get split across whichever machines are free, so the big Monte Carlo sweeps for
+      my <Link className="text-[#75FAF6]" href="/research">research</Link> can run overnight
+      instead of tying up my laptop for days. It's also been a great excuse to get much deeper
+      into Linux server management, networking, and keeping things running when I'm not around
+      to babysit them.
+      </p>
   </div>
   <div id="atmospher-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
@@ -201,7 +241,7 @@ export default function ProjectsPage() {
   </div>
         <p className="mb-10">
         Here, you can see it working to find stable configurations of the Three Body Problem. 
-        If you would like to see a smaller version of it in action, check out my <Link className="text-[#75FAF6]" href="/skills#skills_page">skills page</Link>!
+        If you would like to see a smaller version of it in action, check out my <Link className="text-[#75FAF6]" href="/research#research_page">research page</Link>!
         </p>
   </div>
 

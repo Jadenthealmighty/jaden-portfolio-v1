@@ -126,6 +126,25 @@ html {
   transition: transform 0.5s ease;
 }
 
+/* Full-width variant for wide research figures (multi-panel plots) */
+.project-image-container.wide {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+}
+
+.project-image-container.wide:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+  .project-image-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
 .project-gradient-border {
   position: relative;
   display: inline-block;
@@ -415,4 +434,15 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* Phones: the 8:1 aspect ratio forced the quick-link cards wider than the screen */
+@media (max-width: 640px) {
+  .projects-nav {
+    padding: 20px 0;
+  }
+
+  .project-nav-item {
+    aspect-ratio: auto;
+  }
 }

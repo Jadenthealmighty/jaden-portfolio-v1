@@ -71,12 +71,11 @@ export default function ResearchPage() {
         I've worked on a lot of the pieces of this: characterizing the 399 nm cooling laser and
         writing the software that locks its frequency, designing the cooling beam optics, and
         designing and characterizing the MOT coils. Most of my summer (and my ROP thesis) went into
-        simulating the whole thing end to end, starting from the vapour pressure in the oven, through
-        an 81-channel nozzle, across 344 mm of free flight, and into the trap. Our nozzle channels are
-        semicircles on a rectangular base rather than round tubes, which means pretty much none of
-        the textbook atom-beam results actually apply to them. So I wrote a 3D Monte Carlo that traces
-        atoms through the real geometry, and coupled it to a rate-equation model of the trap built
-        on PyLCP.
+        simulating the whole expirement end to end, starting from the vapour pressure in the oven, through
+        an Monte Carlo simulation of the 81-channel nozzle, and into the trap with magnetic field and laser cooling.
+        The advantage of this simulation let us simulate 1000s of MOT configurations to best optimize the geometry of the nozzle,
+        the optical power and detuning of the MOT and the current throught he anti-Helmholtz coils. This means 8 hours of simulation 
+        can save hundreds of hours of lab work.
         </p>
         <div className="figure-pair">
           <div className="project-gradient-border" style={{ flex: 1.286 }}>
@@ -96,19 +95,12 @@ export default function ResearchPage() {
         </div>
         <p className="mb-4">
         On the left is spectroscopy of our atom beam: as we sweep the laser's frequency, each bright
-        stripe is a different isotope of ytterbium lighting up (the axis shows the 798 nm laser
-        before it gets frequency-doubled to 399 nm). On the right is the real thing: the violet glow
-        of ytterbium atoms fluorescing in our 399 nm light, seen through one of the chamber's
-        viewports.
+        stripe is a different isotope of ytterbium lighting up (frequency is in non-doubled units from seed laser). On the right is the real thing: the violet glow
+        of ytterbium atoms fluorescing in our 399 nm laser light.
         </p>
         <p className="mb-4">
-        The best part was checking it against reality. The model matches a MolFlow+ simulation of the
-        same nozzle to within 2%, transverse Doppler spectroscopy of our actual atom beam to within
-        6%, and the mass of ytterbium we burned through during a controlled oven run to within 11%.
-        With the model validated, it predicts the MOT should load about 2.6 × 10<sup>8</sup> atoms
-        per second at 425 °C. One fun surprise along the way: the fringe field of our MOT coils ends
-        up acting as an accidental Zeeman slower, which is why our slowing beam helps far more than
-        we expected it to.
+        This spectroscopy was in agreement with the model, with Doppler spectroscopy of our actual atom beam matching within
+        6% of the Doppler shift and Doppler broadening matching within 2% of my simulated model.
         </p>
         <div className="project-image-container wide">
           <div className="project-gradient-border">
@@ -121,7 +113,7 @@ export default function ResearchPage() {
         </div>
         <p className="mb-10">
         Here you can see the simulated atom beam as it reaches the trap, 344 mm from the nozzle.
-        Panel (a) is where the atoms land, (b) is the fraction of them the MOT actually catches at
+        Panel (a) is where the atoms land, (b) is the fraction of them the simulated MOT actually catches at
         each point, and (c) is the product of the two, which is what really sets the load rate.
         Panel (d) is the capture velocity across the beam (roughly the fastest atom the trap can
         still catch at each point), shown for reference.
@@ -153,18 +145,10 @@ export default function ResearchPage() {
         and a clock can't make its measurement until the field is gone, since any leftover field
         shifts the very transition you're trying to measure. Shift beams can be switched off with
         an acousto-optic modulator in about 100 ns, which is far faster than even the best coils. It's
-        also much more scalable: an array of MOTs would need coils or magnets packed inside the vacuum
-        chamber, but an array of OOTs only needs more light, which is a big deal for building
-        quantum computers out of neutral atoms. You can read more in our
+        also much more scalable: an array of MOTs would need a complex system of coils for the magnetic field,
+         but an array of OOTs only needs more light, which makes scaling these systems much easier for applications like
+         neutral atom q-bits in quantum computers. You can read more in our
         group's <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://meetings-archive.aps.org/damop/2026/b08/10/">DAMOP 2026 abstract</a>.
-        </p>
-        <p className="mb-4">
-        I built this on top of my MOT and atom-beam simulation, swapping out the coil field for the
-        effective field of the shift beams (including their Doppler shift, since a moving atom sees
-        the shift beams at a slightly different frequency than one sitting still). Right now I'm
-        using it to scan the design space: how the shift-beam power, size and detuning change the
-        fastest atom the trap can catch, how stiff the trap is, and how deep it is. We're still working
-        on it, so stay tuned!
         </p>
         <div className="project-image-container wide">
           <div className="project-gradient-border">
@@ -176,12 +160,9 @@ export default function ResearchPage() {
           </div>
         </div>
         <p className="mb-4">
-        This is the effective field of the shift beams at our current design point (2 W, 10 mm
-        waist, detuned by 10 linewidths). From left to right: a top-down view of the trap, the
-        vertical plane containing the atom beam, and line cuts through the centre. Notice the zero
-        at the centre, with the field pointing inward along the horizontal and outward along the
-        vertical, exactly the shape you'd get from a pair of anti-Helmholtz MOT coils, but made
-        entirely out of light.
+        This is the effective field of the shift beams at our current design point. From left to right: a top-down view of the trap, the
+        vertical plane containing the atom beam, and a comparison with a MOT. This allowed me to fully simulate the Opto-Optical Trapping
+        of ytterbium which you can see below.
         </p>
         <div className="project-image-container wide">
           <div className="project-gradient-border">
@@ -193,11 +174,9 @@ export default function ResearchPage() {
           </div>
         </div>
         <p className="mb-10">
-        And here's one of the design scans over shift-beam power and waist. The capture velocity (a)
-        barely moves across most of the scan, while the stiffness (b) and depth (c) of the trap climb
-        quickly with smaller, more powerful beams. Panel (d) compares the full Doppler-shifted model
-        against a simpler static-field picture. The two agree once the shift beams are detuned by
-        about 10 linewidths or more, which is a nice sanity check at our operating point.
+        Efficiently simulating the Opto-Optical Trapping of ytterbium atoms is a big part of my research.
+        The benefits of this simulation is that we can search through 1000s of trap configurations to find an 
+        optimal setup before even aligning any optics.
         </p>
         </div>
 
@@ -216,18 +195,18 @@ export default function ResearchPage() {
         building a nitrogen-vacancy (NV) diamond magnetometer. NV centres are tiny defects in a
         diamond's crystal lattice whose spin states you can read out with a laser at room
         temperature. Because they point along four different crystal axes, a single diamond can
-        measure both the strength and the direction of a magnetic field. The catch is that most NV
+        measure both the strength and the direction of a magnetic field. The drawback is that most NV
         vector magnetometers today are built from bulky, multi-board, lab-grade equipment.
         </p>
         <p className="mb-4">
         Our goal is to fit the whole thing (laser excitation, microwave generation and delivery,
         the bias magnetic field, photodetection, and control) onto one planar PCB using
-        off-the-shelf parts and an open-source design. We used electromagnetic simulations to pick a
+        off-the-shelf parts and an open-source design. We used electromagnetic simulations (on Ansys) to pick a
         microstrip ring antenna for driving the NV spins, co-designed with its on-board impedance
         matching, and we'll be characterizing the finished board with optically detected magnetic
         resonance (ODMR) and full three-axis field reconstruction. We'll be presenting this at SPIE
         Quantum West this February, with a paper on the way. Coming from atomic physics, this has
-        been a crash course in RF design!
+        been a great way to learn about RF design!
         </p>
         <div className="project-image-container">
           <div className="project-gradient-border">

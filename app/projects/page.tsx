@@ -35,6 +35,9 @@ export default function ProjectsPage() {
     <a href="#distributed-compute-proj" className="project-nav-item">
       <span>Distributed Compute System</span>
     </a>
+  <a href="#uv-spectroscopy-proj" className="project-nav-item">
+      <span>UV Fluorescence and Raman Spectroscopy</span>
+    </a>
   <a href="#atmospher-proj" className="project-nav-item">
       <span>Atmospheric Simulation in C++</span>
     </a>
@@ -50,9 +53,6 @@ export default function ProjectsPage() {
     <a href="#cosmic-ray-proj" className="project-nav-item">
       <span>Cosmic Ray Detection</span>
     </a>
-    <a href="#uv-spectroscopy-proj" className="project-nav-item">
-      <span>UV Fluorescence Spectroscopy</span>
-    </a>
     <a href="#in-the-works" className="project-nav-item">
       <span>In the Works</span>
     </a>
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
       <p className="mb-4">
       Meet Gary, my lab assistant who works the night shift. Gary is a locally hosted,
       Qwen-based language model that I've trained on my own physics simulations, and his job
-      is to run them for me. He manages the simulation queue, decides what to run next, and
+      is to run them for me. He manages the simulation queue, my server compute resources, decides what to run next, and
       reads out the results, so the big parameter sweeps for
       my <Link className="text-[#75FAF6]" href="/research">research</Link> keep going while I sleep.
       </p>
@@ -78,9 +78,9 @@ export default function ProjectsPage() {
         </div>
       </div>
       <p className="mb-10">
-      Here's the dashboard I use to keep an eye on him. Every card is a simulation Gary has
+      Here's the dashboard I use to keep an eye on him. Every figure is a simulation Gary has
       queued, run, and plotted (these ones are sweeps for the ytterbium MOT), along with the key
-      numbers he pulled out of the results.
+      numbers extracted from the results.
       </p>
   </div>
   <div id="distributed-compute-proj">
@@ -98,6 +98,38 @@ export default function ProjectsPage() {
       to get much deeper into Linux server management, networking, and keeping things running
       across a continent when I'm not around to babysit them.
       </p>
+  </div>
+   <div id="uv-spectroscopy-proj">
+  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
+        Ultra Violet Fluorescence and Raman Spectroscopy
+      </h2>
+      <p className="mb-4">
+      I am working on the UofT Robotics Space Exploration team to build a suite of optical 
+      science tests that run on top of a rover. The goal is a robust, light, and cost-effective package that can detect
+       common chemical signatures of microorganisms using fluorescence signals from 385 nm light.
+       </p>
+       <p className="mb-4">
+        This year's goal is to also build a Raman spectrometer in this same module, using a high-power
+        532 nm laser to detect the Raman spectrum of organic molecules, we can distinguish between
+        different bio-signatures of life in samples collected on the rover!
+</p>
+<div className="project-image-container">
+    <div className="project-gradient-border">
+      <img 
+        className="img_center" 
+        src="/images/UVFluorescence.jpg"
+        alt="UV Fluorescence Spectroscopy"
+      />
+    </div>
+  </div>
+        <p className="mb-10">
+        Here you can see us testing our spectrometer on the fluorescence of riboflavin.
+        We were able to characterize the spectrum of its fluorescence from a sample of dirt,
+        earning us one of the highest scores for optical design in the University Rover Challenge.
+
+        </p>
+  
+
   </div>
   <div id="atmospher-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
@@ -271,35 +303,7 @@ export default function ProjectsPage() {
         </p>
 
   </div>
-  <div id="uv-spectroscopy-proj">
-  <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Ultra Violet Fluorescence Spectroscopy
-      </h2>
-      <p className="mb-4">
-      I am working on the UofT Robotics Space Exploration team to build a suite of optical 
-      science tests. The goal is a robust, light, and cost-effective package that can detect
-       common chemical signatures of microorganisms. The ultimate goal of this system is to 
-       showcase the challenges of detecting life on Mars, using systems with very little 
-       power, no repairs, and compact designs.
-</p>
-<div className="project-image-container">
-    <div className="project-gradient-border">
-      <img 
-        className="img_center" 
-        src="/images/UVFluorescence.jpg"
-        alt="UV Fluorescence Spectroscopy"
-      />
-    </div>
-  </div>
-        <p className="mb-10">
-        Here you can see us validating out our micro-spectrometer head on a diluted 
-        mixture of flavoproteins. Our system will be tested to the limits this August 
-        at the University Rover Challenge in Utah.
-
-        </p>
-  
-
-  </div>
+ 
   <div id="in-the-works">
   <h1 className="mb-8 text-5xl font-semibold tracking-tighter">
         In The Works!

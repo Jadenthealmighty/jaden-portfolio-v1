@@ -10,7 +10,7 @@ export default function Page() {
     <div className="gradient-border">
       <img 
         className="img_center" 
-        src="/images/headshotJaden.jpg" 
+        src="/images/jaden_presenting.jpg" 
         alt="Jaden Al-Aidroos" 
       />
     </div>

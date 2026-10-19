@@ -71,10 +71,10 @@ export default function ResearchPage() {
         I've worked on a lot of the pieces of this: characterizing the 399 nm cooling laser and
         writing the software that locks its frequency, designing the cooling beam optics, and
         designing and characterizing the MOT coils. Most of my summer (and my ROP thesis) went into
-        simulating the whole expirement end to end, starting from the vapour pressure in the oven, through
-        an Monte Carlo simulation of the 81-channel nozzle, and into the trap with magnetic field and laser cooling.
+        simulating the whole experiment end to end, starting from the vapour pressure in the oven, through
+        a Monte Carlo simulation of the 81-channel nozzle, and into the trap with magnetic field and laser cooling.
         The advantage of this simulation let us simulate 1000s of MOT configurations to best optimize the geometry of the nozzle,
-        the optical power and detuning of the MOT and the current throught he anti-Helmholtz coils. This means 8 hours of simulation 
+        the optical power and detuning of the MOT and the current through the anti-Helmholtz coils. This means 8 hours of simulation 
         can save hundreds of hours of lab work.
         </p>
         <div className="figure-pair">
@@ -101,6 +101,21 @@ export default function ResearchPage() {
         <p className="mb-4">
         This spectroscopy was in agreement with the model, with Doppler spectroscopy of our actual atom beam matching within
         6% of the Doppler shift and Doppler broadening matching within 2% of my simulated model.
+        </p>
+        <div className="project-image-container wide">
+          <div className="project-gradient-border">
+            <img
+              className="img_center"
+              src="/images/doppler_validation.png"
+              alt="Simulated Doppler shift and broadening across the atom beam compared to measured spectroscopy"
+            />
+          </div>
+        </div>
+        <p className="mb-10">
+        Here's that comparison at a plane 90 mm from the nozzle, with my simulation in blue and the
+        measured spectroscopy in purple. On the left is the Doppler shift across the beam (6.85 vs
+        6.45 MHz/mm), and on the right is how much the line broadens as you move off-centre
+        (2.80 vs 2.75 MHz/mm).
         </p>
         <div className="project-image-container wide">
           <div className="project-gradient-border">
@@ -147,7 +162,7 @@ export default function ResearchPage() {
         an acousto-optic modulator in about 100 ns, which is far faster than even the best coils. It's
         also much more scalable: an array of MOTs would need a complex system of coils for the magnetic field,
          but an array of OOTs only needs more light, which makes scaling these systems much easier for applications like
-         neutral atom q-bits in quantum computers. You can read more in our
+         neutral atom qubits in quantum computers. You can read more in our
         group's <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://meetings-archive.aps.org/damop/2026/b08/10/">DAMOP 2026 abstract</a>.
         </p>
         <div className="project-image-container wide">
@@ -175,7 +190,7 @@ export default function ResearchPage() {
         </div>
         <p className="mb-10">
         Efficiently simulating the Opto-Optical Trapping of ytterbium atoms is a big part of my research.
-        The benefits of this simulation is that we can search through 1000s of trap configurations to find an 
+        The benefit of this simulation is that we can search through 1000s of trap configurations to find an 
         optimal setup before even aligning any optics.
         </p>
         </div>
@@ -237,7 +252,7 @@ export default function ResearchPage() {
             <p className="text-neutral-400">Paper in preparation</p>
           </li>
           <li>
-            <p className="font-semibold">Ytterbium-174 magneto-optical and opto-optical trapping</p>
+            <p className="font-semibold">Ytterbium-174 Magneto-Optical and Opto-Optical Trapping</p>
             <p className="text-neutral-400">SPIE Photonics West, Quantum West · San Francisco · February 2027</p>
           </li>
         </ul>

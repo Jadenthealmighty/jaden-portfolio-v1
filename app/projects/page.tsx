@@ -30,7 +30,7 @@ export default function ProjectsPage() {
         <div>
   <div className="projects-nav">
   <a href="#gary-proj" className="project-nav-item">
-      <span>Gary: My Own Voice Assistant</span>
+      <span>Gary: My Own Virtual Physics Assistant</span>
     </a>
     <a href="#distributed-compute-proj" className="project-nav-item">
       <span>Distributed Compute System</span>
@@ -59,14 +59,15 @@ export default function ProjectsPage() {
   </div>
   <div id="gary-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-      Gary: My Own Voice Assistant
+      Gary: My Physics Simulation Assistant
       </h2>
       <p className="mb-4">
       Meet Gary, my lab assistant who works the night shift. Gary is a locally hosted,
       Qwen-based language model that I've trained on my own physics simulations, and his job
-      is to run them for me. He manages the simulation queue, my server compute resources, decides what to run next, and
+      is to run them for me. If a simulation gives an error at 4 AM, he'll decide whether to queue another, or wait until
+      I can fix it. He manages the simulation queue, my server compute resources, decides what to run next, and
       reads out the results, so the big parameter sweeps for
-      my <Link className="text-[#75FAF6]" href="/research">research</Link> keep going while I sleep.
+      my <Link className="text-[#75FAF6]" href="/research">research</Link> keep going while I sleep or go to class.
       </p>
       <div className="project-image-container wide">
         <div className="project-gradient-border">
@@ -93,7 +94,7 @@ export default function ProjectsPage() {
       Francisco, all connected over Tailscale.
       </p>
       <p className="mb-10">
-      Since the two machines are good at different things, Gary also manages the resources across
+      Since my two servers are good at different things, Gary also manages the resources across
       both of them, matching each job to whichever platform suits it best. It's been a great excuse
       to get much deeper into Linux server management, networking, and keeping things running
       across a continent when I'm not around to babysit them.

@@ -461,6 +461,28 @@ table {
 
 .figure-pair > .project-gradient-border {
   min-width: 0;
+  transition: transform 0.5s ease;
+}
+
+/* hovering one photo grows it while its neighbour shrinks out of the way;
+   each scales from its outer edge so the two never overlap */
+.figure-pair > .project-gradient-border:first-child {
+  transform-origin: left center;
+}
+
+.figure-pair > .project-gradient-border:last-child {
+  transform-origin: right center;
+}
+
+@media (hover: hover) and (min-width: 641px) {
+  .figure-pair > .project-gradient-border:hover {
+    transform: scale(1.12);
+    z-index: 1;
+  }
+
+  .figure-pair:has(> .project-gradient-border:hover) > .project-gradient-border:not(:hover) {
+    transform: scale(0.85);
+  }
 }
 
 @media (max-width: 640px) {

@@ -53,7 +53,7 @@ export default function Page() {
         <li>Building a <Link className="text-[#75FAF6]" href="/research#nv-research">single-board NV diamond magnetometer</Link> with the UofT Quantum Computing Club</li>
         <li>Top 100 in <a className="text-[#75FAF6]" target="_blank" rel="noopener noreferrer" href="https://www.aapt.org/physicsteam/2024/upload/2024-USAPhO-Qualifiers_v3.pdf">Team USA Physics Competition Qualifiers</a></li>
         <li>Grew up coding, proficient in Python, Java, C++ and 7 other languages</li>
-        <li>Currently working on <Link className="text-[#75FAF6]" href="/projects#machine-learning-proj">Machine Learning</Link></li>
+        <li>Currently working on <Link className="text-[#75FAF6]" href="/projects#machine-learning-proj">Machine Learning projects</Link></li>
         <li>Recent work with <Link className="text-[#75FAF6]" href="/projects#q-computing-proj">Quantum Computing</Link></li>
         <li>Previous <Link className="text-[#75FAF6]" href="/projects#stock-analysis-proj">research in Quantitative Finance</Link></li>
       </ul>

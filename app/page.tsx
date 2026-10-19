@@ -38,8 +38,8 @@ export default function Page() {
       <p className="mb-4">
       In 2024, I competed in the US Physics Olympiad (Team USA Physics Competition), 
       placing among the top in the country for a shot at representing the United States 
-      internationally. Since then, I’ve spent my time building robots, programming in 10 
-      languages, teaching math at high schools around Toronto, doing quantitative finance 
+      internationally. Since then, I’ve also spent my time building robots, programming in 10 
+      languages, teaching math and physics at John Polanyi Collegiate Institute, doing quantitative finance 
       research, and preparing to represent the University of Toronto in the Putnam Math Competition.</p>
       <p className="mb-10">
       I hope you enjoy this website as much as I enjoyed making it. 

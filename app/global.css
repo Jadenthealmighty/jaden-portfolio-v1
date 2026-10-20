@@ -556,19 +556,11 @@ html {
   transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
 }
 
-.site-nav::before {
-  transition: opacity 0.4s ease;
-}
-
-/* while scrolling down: tabs dim and shrink a touch, the dark band softens */
+/* while scrolling down: tabs dim and shrink a touch (the dark band underneath stays put) */
 .site-nav.is-dimmed .site-nav-inner {
   opacity: 0.35;
   filter: brightness(0.7);
   transform: scale(0.96);
-}
-
-.site-nav.is-dimmed::before {
-  opacity: 0.6;
 }
 
 /* ...but always come back if someone reaches for them */

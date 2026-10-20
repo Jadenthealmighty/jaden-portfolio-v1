@@ -553,6 +553,30 @@ html {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+.site-nav::before {
+  transition: opacity 0.4s ease;
+}
+
+/* while scrolling down: tabs dim and shrink a touch, the dark band softens */
+.site-nav.is-dimmed .site-nav-inner {
+  opacity: 0.35;
+  filter: brightness(0.7);
+  transform: scale(0.96);
+}
+
+.site-nav.is-dimmed::before {
+  opacity: 0.6;
+}
+
+/* ...but always come back if someone reaches for them */
+.site-nav.is-dimmed:hover .site-nav-inner,
+.site-nav.is-dimmed:focus-within .site-nav-inner {
+  opacity: 1;
+  filter: none;
+  transform: none;
 }
 
 .site-nav-tab {

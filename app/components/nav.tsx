@@ -20,39 +20,55 @@ const navItems = {
 export function Navbar() {
   const pathname = usePathname()
 
-  // Dim the nav while scrolling down, bring it back as soon as you scroll up
+  // Dim the nav while scrolling down, bring it back as soon as you scroll up.
+  // Handled directly in the scroll event (no requestAnimationFrame): browsers pause
+  // rAF in background tabs, which could leave the handler stuck after a tab switch.
   const [dimmed, setDimmed] = useState(false)
+  const dimmedRef = useRef(false)
   const lastY = useRef(0)
 
   useEffect(() => {
-    lastY.current = window.scrollY
-    let ticking = false
-
-    const onScroll = () => {
-      if (ticking) return
-      ticking = true
-      requestAnimationFrame(() => {
-        const y = window.scrollY
-        const delta = y - lastY.current
-        if (y < 80) {
-          setDimmed(false) // always fully visible near the top of the page
-        } else if (delta > 6) {
-          setDimmed(true) // scrolling down
-        } else if (delta < -6) {
-          setDimmed(false) // scrolling up
-        }
-        if (Math.abs(delta) > 6) lastY.current = y // ignore tiny jitters
-        ticking = false
-      })
+    const set = (value: boolean) => {
+      if (dimmedRef.current !== value) {
+        dimmedRef.current = value
+        setDimmed(value) // only re-render when the state actually flips
+      }
     }
 
+    const onScroll = () => {
+      const y = window.scrollY
+      const delta = y - lastY.current
+      if (y < 80) {
+        set(false) // always fully visible near the top of the page
+        lastY.current = y
+      } else if (Math.abs(delta) > 6) {
+        set(delta > 0) // down = dim, up = show
+        lastY.current = y // ignore tiny jitters
+      }
+    }
+
+    // re-sync whenever the tab becomes visible again
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') {
+        lastY.current = window.scrollY
+        if (window.scrollY < 80) set(false)
+      }
+    }
+
+    lastY.current = window.scrollY
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    document.addEventListener('visibilitychange', onVisible)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
   }, [])
 
   // reset when changing pages
   useEffect(() => {
+    dimmedRef.current = false
     setDimmed(false)
+    lastY.current = window.scrollY
   }, [pathname])
 
   return (

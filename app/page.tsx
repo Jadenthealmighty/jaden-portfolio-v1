@@ -26,27 +26,27 @@ export default function Page() {
         About me
       </h2>
       <p className="mb-4">
-      Hello, I am a university student based in Toronto and San Francisco. 
+      Hello, I am a 3rd year university student based in Toronto and San Francisco. 
       I am currently pursuing a Bachelor of Science degree at the University of Toronto, 
-      specializing in Physics with minors in Computer Science and Mathematics</p>
+      specializing in Physics with minors in Computer Science and Mathematics.</p>
       
       <p className="mb-4">
       These days, most of my time goes into research: laser cooling and trapping ytterbium atoms
-      for an optical atomic clock in the Braverman group, and building a single-board quantum
-      magnetometer with the UofT Quantum Computing Club. You can read about both on
+      for an optical atomic clock in the Braverman group, and building a single-board Nitrogen-Vacancy
+      (NV) diamond magnetometer with the UofT Quantum Computing Club. You can read about both on
       my <Link className="text-[#75FAF6]" href="/research">research page</Link>.</p>
       <p className="mb-4">
       In 2024, I competed in the US Physics Olympiad (Team USA Physics Competition), 
       placing among the top in the country for a shot at representing the United States 
-      internationally. Since then, I’ve also spent my time building robots, programming in 10 
-      languages, teaching math and physics at John Polanyi Collegiate Institute, doing quantitative finance 
+      internationally. Since then, I’ve also spent my time building robots, programming in C++ and Python,
+       teaching math and physics at John Polanyi Collegiate Institute, doing quantitative finance 
       research, and preparing to represent the University of Toronto in the Putnam Math Competition.</p>
       <p className="mb-10">
       I hope you enjoy this website as much as I enjoyed making it. 
       Go explore this site to see some of the things I’ve been working on!
       </p>
       <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Quick Facts
+        Quick Links
       </h2>
       <ul className="mb-4 list-disc list-inside ml-6 space-y-2">
         <li>Researching <Link className="text-[#75FAF6]" href="/research#mot-research">laser cooling and trapping of ytterbium</Link> for an optical atomic clock</li>
@@ -91,7 +91,7 @@ export default function Page() {
       <p className="mb-4">
       I play on the University of Toronto Physics Student Union hockey team. Though I was 
       born in Montreal, I grew up for the most part in California, so relearning how to 
-      play hockey has been a fun challenge over the last year.
+      play hockey has been a fun challenge over the last couple of years.
 
       </p>
     

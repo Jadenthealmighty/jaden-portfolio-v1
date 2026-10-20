@@ -12,8 +12,8 @@ export default function ResearchPage() {
         </h2>
         <p className="mb-4">
         This is an unsupervised machine learning model I've written from scratch running directly in your browser.
-        Every bit of matrix operations has been optimized to run in the TypeScript file,
-        being run 100% on your computer. The model only sees where your mouse was 5 seconds ago (if on mobile, the last place you've tapped)
+        Every matrix operation has been optimized to run in the TypeScript file,
+        100% on your computer. The model only sees where your mouse was 5 seconds ago (if on mobile, the last place you've tapped)
         and calculates its best prediction (in <span className="text-[#75FAF6]">blue</span>) of where your mouse currently is (in white).
         </p>
         <p className="mb-4">
@@ -72,9 +72,9 @@ export default function ResearchPage() {
         writing the software that locks its frequency, designing the cooling beam optics, and
         designing and characterizing the MOT coils. Most of my summer (and my ROP thesis) went into
         simulating the whole experiment end to end, starting from the vapour pressure in the oven, through
-        a Monte Carlo simulation of the 81-channel nozzle, and into the trap with magnetic field and laser cooling.
-        The advantage of this simulation let us simulate 1000s of MOT configurations to best optimize the geometry of the nozzle,
-        the optical power and detuning of the MOT and the current through the anti-Helmholtz coils. This means 8 hours of simulation 
+        a Monte Carlo simulation of the 81-channel nozzle, and into the trap, including the magnetic field and laser cooling.
+        This simulation let us test 1000s of MOT configurations to optimize the geometry of the nozzle,
+        the optical power and detuning of the MOT beams, and the current through the anti-Helmholtz coils. This means 8 hours of simulation 
         can save hundreds of hours of lab work.
         </p>
         <div className="figure-pair">
@@ -95,12 +95,12 @@ export default function ResearchPage() {
         </div>
         <p className="mb-4">
         On the left is spectroscopy of our atom beam: as we sweep the laser's frequency, each bright
-        stripe is a different isotope of ytterbium lighting up (frequency is in non-doubled units from seed laser). On the right is the real thing: the violet glow
+        stripe is a different isotope of ytterbium lighting up (the frequency axis shows the 798 nm seed laser, before it gets frequency-doubled to 399 nm). On the right is the real thing: the violet glow
         of ytterbium atoms fluorescing in our 399 nm laser light.
         </p>
         <p className="mb-4">
-        This spectroscopy was in agreement with the model, with Doppler spectroscopy of our actual atom beam matching within
-        6% of the Doppler shift and Doppler broadening matching within 2% of my simulated model.
+        Spectroscopy like this is how we tested the model: the measured Doppler shift across our actual atom beam
+        matches my simulation to within 6%, and the Doppler broadening matches to within 2%.
         </p>
         <div className="project-image-container wide">
           <div className="project-gradient-border">
@@ -128,10 +128,9 @@ export default function ResearchPage() {
         </div>
         <p className="mb-10">
         Here you can see the simulated atom beam as it reaches the trap, 344 mm from the nozzle.
-        Panel (a) is where the atoms land, (b) is the fraction of them the simulated MOT actually catches at
-        each point, and (c) is the product of the two, which is what really sets the load rate.
-        Panel (d) is the capture velocity across the beam (roughly the fastest atom the trap can
-        still catch at each point), shown for reference.
+        Panel (a) is the atomic flux distribution, (b) is the fraction of those atoms the simulated MOT actually catches at
+        each point, and (c) is the capture map weighted by the flux distribution.
+        Panel (d) is the capture velocity across the beam. To the best of my knowledge, this is (as of 2026) the only spatially resolved simulation of Magneto-Optical Trap loading for ytterbium.
         </p>
         </div>
 
@@ -146,19 +145,17 @@ export default function ResearchPage() {
             Braverman Group, University of Toronto
         </p>
         <p className="mb-4">
-        More recently, I've started simulating the group's next trap: an opto-optical trap (OOT).
+        More recently, I've started simulating the group's next project: an opto-optical trap (OOT).
         The idea is to get rid of the MOT coils entirely. A MOT works because the magnetic field
-        gradient shifts the atoms' energy levels by an amount that depends on where they are, so an
-        atom that drifts off-centre ends up resonant with the beam that pushes it back. In an OOT,
+        gradient shifts the atoms' energy levels by an amount that depends on their position. In an OOT,
         a set of detuned "shift beams" at 1077 nm do the same job with light instead, using the AC
         Stark shift. The shift beams move the atoms' energy levels by a position-dependent amount,
-        which to the atom looks just like the quadrupole field from a pair of MOT coils, while the
+        which to the atom acts just like the quadrupole field from a pair of MOT coils, while the
         same cooling beams handle the actual trapping.
         </p>
         <p className="mb-4">
-        So why bother? Magnetic fields are cumbersome. Real coils take a long time to turn off,
-        and a clock can't make its measurement until the field is gone, since any leftover field
-        shifts the very transition you're trying to measure. Shift beams can be switched off with
+        So why bother? Coils for magnetic fields are cumbersome. Real coils take a long time to turn off,
+        and a clock can't make its measurement until the field is gone. Shift beams can be switched off with
         an acousto-optic modulator in about 100 ns, which is far faster than even the best coils. It's
         also much more scalable: an array of MOTs would need a complex system of coils for the magnetic field,
          but an array of OOTs only needs more light, which makes scaling these systems much easier for applications like
@@ -176,8 +173,8 @@ export default function ResearchPage() {
         </div>
         <p className="mb-4">
         This is the effective field of the shift beams at our current design point. From left to right: a top-down view of the trap, the
-        vertical plane containing the atom beam, and a comparison with a MOT. This allowed me to fully simulate the Opto-Optical Trapping
-        of ytterbium which you can see below.
+        vertical plane containing the atom beam, and line cuts through the trap centre. This allowed me to fully simulate the Opto-Optical Trapping
+        of ytterbium, which you can see below.
         </p>
         <div className="project-image-container wide">
           <div className="project-gradient-border">
@@ -233,7 +230,7 @@ export default function ResearchPage() {
           </div>
         </div>
         <p className="mb-10">
-        Here's our current PCB design for the sensor board.
+        Here's our current PCB design for the sensor board. This first iteration aims to improve on Quantum Village's design.
         </p>
         </div>
 

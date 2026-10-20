@@ -495,3 +495,127 @@ table {
     width: 100%;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Sticky top navigation                                               */
+/* ------------------------------------------------------------------ */
+
+/* stops the full-width nav backdrop from causing sideways scroll */
+html {
+  overflow-x: clip;
+}
+
+/* keep anchor jumps (#mot-research etc.) from hiding under the sticky nav */
+[id] {
+  scroll-margin-top: 110px;
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 14px 0 30px;
+  margin-bottom: 36px;
+}
+
+/* full-width dark, blurred band behind the tabs that fades out at the bottom,
+   so text and images scrolling underneath darken and dissolve */
+.site-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: -60px; /* the fade reaches past the nav without taking up layout space */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.94) 0%,
+    rgba(0, 0, 0, 0.85) 40%,
+    rgba(0, 0, 0, 0.45) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.site-nav-inner {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+}
+
+.site-nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.75);
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.site-nav-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.site-nav-tab.is-active {
+  background: #75faf6;
+  color: #04121a;
+  box-shadow: 0 0 18px rgba(117, 250, 246, 0.45);
+}
+
+.site-nav-tab.is-featured:not(.is-active) {
+  color: #75faf6;
+}
+
+.site-nav-tab.is-featured:not(.is-active):hover {
+  background: rgba(117, 250, 246, 0.12);
+}
+
+.nav-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #75faf6;
+  animation: navPulse 2s ease-out infinite;
+}
+
+@keyframes navPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(117, 250, 246, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(117, 250, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(117, 250, 246, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dot {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav-tab {
+    padding: 9px 16px;
+    font-size: 1rem;
+  }
+}

@@ -30,7 +30,7 @@ export default function ProjectsPage() {
         <div>
   <div className="projects-nav">
   <a href="#gary-proj" className="project-nav-item">
-      <span>Gary: My Own Virtual Physics Assistant</span>
+      <span>Gary: My Physics Simulation Assistant</span>
     </a>
     <a href="#distributed-compute-proj" className="project-nav-item">
       <span>Distributed Compute System</span>
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
       <span>Atmospheric Simulation in C++</span>
     </a>
     <a href="#stock-analysis-proj" className="project-nav-item">
-      <span>Fourier Analysis of Stocks Options</span>
+      <span>Fourier Analysis of Stock Options</span>
     </a>
     <a href="#q-computing-proj" className="project-nav-item">
       <span>Quantum Computer Programming with Qiskit</span>
@@ -64,8 +64,8 @@ export default function ProjectsPage() {
       <p className="mb-4">
       Meet Gary, my lab assistant who works the night shift. Gary is a locally hosted,
       Qwen-based language model that I've trained on my own physics simulations, and his job
-      is to run them for me. If a simulation gives an error at 4 AM, he'll decide whether to queue another, or wait until
-      I can fix it. He manages the simulation queue, my server compute resources, decides what to run next, and
+      is to run them for me. If a simulation throws an error at 4 AM, he decides whether to queue another one or wait until
+      I can fix it. He manages the simulation queue and my servers' compute resources, decides what to run next, and
       reads out the results, so the big parameter sweeps for
       my <Link className="text-[#75FAF6]" href="/research">research</Link> keep going while I sleep or go to class.
       </p>
@@ -102,17 +102,17 @@ export default function ProjectsPage() {
   </div>
    <div id="uv-spectroscopy-proj">
   <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Ultra Violet Fluorescence and Raman Spectroscopy
+        Ultraviolet Fluorescence and Raman Spectroscopy
       </h2>
       <p className="mb-4">
       I am working on the UofT Robotics Space Exploration team to build a suite of optical 
       science tests that run on top of a rover. The goal is a robust, light, and cost-effective package that can detect
-       common chemical signatures of microorganisms using fluorescence signals from 385 nm light.
+       common chemical signatures of microorganisms using fluorescence excited by 385 nm light.
        </p>
        <p className="mb-4">
         This year's goal is to also build a Raman spectrometer in this same module, using a high-power
-        532 nm laser to detect the Raman spectrum of organic molecules, we can distinguish between
-        different bio-signatures of life in samples collected on the rover!
+        532 nm laser. By measuring the Raman spectrum of organic molecules, we can distinguish between
+      different biosignatures of life in samples collected by the rover!
 </p>
 <div className="project-image-container">
     <div className="project-gradient-border">
@@ -166,10 +166,10 @@ export default function ProjectsPage() {
     </div>
   </div>
       <p className="mb-4">
-      Here you can see me running it on a cross section of a 640,000 partition 3D grid. Seen here measuring 
-      pressure, temperature, chemical potential, density from a 
+      Here you can see me running it on a cross section of a 640,000-cell 3D grid, measuring
+      pressure, temperature, chemical potential, and density from a
       hotspot and a cold front. You can even see a fluctuation in pressure
-      propogate through the simulation in the GIF. Note 
+      propagate through the simulation in the GIF. Note 
       that this GIF is playing at real-time speed, achieving around 80,000 
       timesteps per second. (The pixelation in the picture is from the 
       MP4-GIF compression.)
@@ -189,7 +189,7 @@ export default function ProjectsPage() {
       showing the difference in the average pressure in both regions over time. 
       </p>
       <p className="mb-10">
-      GitHub repo is available for this project, though it is optimized solely for GNU g++
+      A GitHub repo is available for this project, though it is optimized solely for GNU g++
       to make sure the graphics run smoothly on a separate thread.
       </p>
   </div>
@@ -227,9 +227,9 @@ export default function ProjectsPage() {
       </h2>
       <p className="mb-4 text-center">--In the works--</p>
       <p className="mb-4">
-      This is a project I’ve been working on independently, running my code on IBM’s 100-qubit quantum computers. 
-      Its goal is to implement Grover’s algorithm, which has the potential to search and sort through large databases 
-      much faster than current non-quantum computers. This could be game-changing for applications like machine learning 
+      This is a project I’ve been working on independently, running my code on IBM’s 100+ qubit quantum computers. 
+      Its goal is to implement Grover’s algorithm, which can search unstructured databases quadratically faster than
+      any classical computer. This could be game-changing for applications like machine learning 
       and high-performance computational modelling/simulation.
       </p>
       <p className="mb-4">
@@ -247,7 +247,7 @@ export default function ProjectsPage() {
   </div>
       <p className="mb-4">
       Here you can see the circuit diagram for a basic implementation of Grover’s algorithm, 
-      which I am currently working on expanding to take full advantage of the new 100-qubit quantum processors.
+      which I am currently working on expanding to take full advantage of the new 100+ qubit quantum processors.
       </p>
   </div>
 
@@ -256,7 +256,7 @@ export default function ProjectsPage() {
         General Machine Learning Engine
       </h2>
       <p className="mb-4">
-      My biggest venture into machine learning! All the back propagation 
+      My biggest venture into machine learning! All the backpropagation 
       logic is handled in Python, with the matrix transforms running in a C file 
       for optimized compute time. This was a big step for my experience in subroutines.
        It is a pretty basic program, but it gets at the 
@@ -272,7 +272,7 @@ export default function ProjectsPage() {
     </div>
   </div>
         <p className="mb-10">
-        Here, you can see it working to find stable configurations of the Three Body Problem. 
+        Here, you can see it working to find stable configurations of the three-body problem. 
         If you would like to see a smaller version of it in action, check out my <Link className="text-[#75FAF6]" href="/research#research_page">research page</Link>!
         </p>
   </div>
@@ -284,7 +284,7 @@ export default function ProjectsPage() {
       <p className="mb-4">
       At the age of 13, I built a cloud chamber for detecting cosmic ray traces. I entered 
       the Bay Area Randall Museum Science Fair, finishing fourth overall. I made a stacked 
-      thermoelectric heat pump system to cool a small area to -54ºC. I did all of the CAD, 
+      thermoelectric heat pump system to cool a small area to −54 °C. I did all of the CAD, 
       electrical soldering, and electrical system/power design myself. I later refined it, 
       adding a variable electromagnet to alter trace paths.
 </p>
@@ -300,7 +300,7 @@ export default function ProjectsPage() {
         <p className="mb-10">
         Here you can see me testing the prototype on a test bench, which I made out of Legos 
         for its cheap and quick customizability. The full build has since been donated to 
-        the Wente Scout Reservation to educate kids on nuclear energy.
+        the Wente Scout Reservation to educate kids about radiation.
         </p>
 
   </div>
@@ -316,12 +316,11 @@ export default function ProjectsPage() {
       If you really enjoyed my atmospheric simulation engine (see above), 
       you’ll love this. I’ve been working on creating live weather 
       simulations and predictions. It’s a big project, but I am using 
-      my simulation engine with data from Open-Meteo and RAP. Stay in 
-      tune because I’ll be giving updates on this soon!
+      my simulation engine with data from Open-Meteo and RAP. Stay tuned because I’ll be giving updates on this soon!
 
 </p>
 <h2 className= "mb-6 text-2xl font-bold text-[#75faf6]">
-        Qiskit Quantum Shor's Algorithms
+        Shor's Algorithm with Qiskit
       </h2>
       <p className="mb-4">
 This project has been more for my own learning purposes and is
@@ -331,7 +330,7 @@ This project has been more for my own learning purposes and is
       </p>
       <p className="mb-10">
       I’ve always been very interested in cybersecurity. Because of this, 
-      I’ve been trying to use this, as well as with Kali tools, to break 
+      I’ve been trying to use this, along with Kali tools, to break 
       (MY OWN) simple custom RSA encryption I have written on a Raspberry 
       Pi. It’s been quite finicky (I didn’t quite realize how much I’d 
       have to learn about Hamming error correction), but it’s been fun 
